@@ -1,0 +1,25 @@
+package analyzer.objectExpression;
+
+/**
+ * @author Zhou Xiaocong
+ * @since 2018Äê6ÔÂ15ÈÕ
+ * @version 1.0
+ *
+ */
+
+public enum ObjectExpressionUsageKind {
+	OEUK_LEFT_VALUE,
+	OEUK_RIGHT_VALUE,
+	OEUK_CASTING_TYPE,
+	OEUK_ACCESSING_FIELD,
+	OEUK_CALLING_METHOD,
+	OEUK_ACCESSING_ARRAY,
+	OEUK_CHECKING_TYPE,
+	OEUK_CHECKING_NULL,
+	OEUK_CHECKING_ALIAS,
+	OEUK_ARGUMENT,
+	OEUK_RETURN_VALUE,
+	OEUK_STRING_OPERAND,
+	
+	OEUK_UNKNOWN,
+}
