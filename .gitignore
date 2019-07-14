@@ -1,0 +1,5 @@
+*.zip
+lib
+.vscode
+.settings
+.bin
