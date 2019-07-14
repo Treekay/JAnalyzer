@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
@@ -16,6 +17,7 @@ import model.Current;
 public class FileChooserAndOpener {
 	String fileContents = null;
 	String fileContentsWithLineNumber = null;
+	private ArrayList<File> files;
 
 	JFrame parent = null;
 
@@ -48,7 +50,6 @@ public class FileChooserAndOpener {
 			} else if (Current.file.isFile()) {
 				System.out.println("File:" + Current.file.getAbsolutePath());
 			}
-			System.out.println(chooser.getSelectedFile().getName());
 			return true;
 		} else
 			return false;
@@ -87,19 +88,7 @@ public class FileChooserAndOpener {
 		}
 	}
 
-	public static void getFiles(File file) {
-		if (file != null) {
-			File[] f = file.listFiles();
-			if (f != null) {
-				for (int i = 0; i < f.length; i++) {
-					getFiles(f[i]);
-				}
-			} else {
-				System.out.println(file);
-			}
-		}
-	}
-
+	
 	/**
 	 * 返回已经选择的文件名
 	 * 

@@ -1,11 +1,11 @@
-package gui.components;
+package view;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import gui.toolkit.*;
 import model.Current;
-import gui.components.*;
+import view.*;
 import gui.astViewer.*;
 
 public class MenuField {
@@ -123,6 +123,7 @@ public class MenuField {
                     sourceText.setEditable(false);
                     sourceText.setText(fileOpener.getFileContentsWithLineNumber());
                     CodeField.contentPane.addTab(fileOpener.getFileName(), new JScrollPane(sourceText));
+                    NavigatorField.updateTree(Current.file.getAbsolutePath());
                 }
                 break;
             case OPEN_COMMAND:

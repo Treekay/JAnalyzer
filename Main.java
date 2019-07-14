@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import gui.toolkit.*;
-import gui.components.*;
+import view.*;
 
 public class Main {
 	public static void main(String args[]) {
@@ -29,7 +29,7 @@ public class Main {
 		navPane.setLeftComponent(navigator.getContentPane());
 		navPane.setRightComponent(displayPane);
 
-		displayPane.setDividerLocation(MainFrame.screenWidth * 3 / 5);
+		displayPane.setDividerLocation(MainFrame.screenWidth * 2 / 5);
 		displayPane.setLeftComponent(codeField.getContentPane());
 		displayPane.setRightComponent(graphField.getContentPane());
 
