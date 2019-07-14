@@ -118,18 +118,20 @@ public class MenuField {
             switch (command) {
             case NEW_COMMAND:
                 if (fileOpener.chooseFileName() == true) {
-                    fileOpener.loadFile();
-                    CodeField.newCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
-                    if (Current.file.isDirectory()) {
-                        NavigatorField.updateTree(Current.file.getAbsolutePath());
+                    if (Current.file.isFile()) {
+                        fileOpener.loadFile();
                     }
-                    MainFrame.getContentPane().updateUI();
+                    CodeField.newCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
+                    NavigatorField.addTreeTab(Current.file.getAbsolutePath());
                 }
                 break;
             case OPEN_COMMAND:
                 if (fileOpener.chooseFileName() == true) {
-                    fileOpener.loadFile();
+                    if (Current.file.isFile()) {
+                        fileOpener.loadFile();
+                    }
                     CodeField.addCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
+                    NavigatorField.addTreeTab(Current.file.getAbsolutePath());
                 }
                 break;
             case CREATE_AST_COMMAND:

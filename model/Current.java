@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JTextArea;
@@ -25,8 +26,7 @@ import nameTable.visitor.NameDefinitionVisitor;
 
 public class Current {
     public static File file;
-    public static File[] fileList;
+    public static ArrayList<File> fileList;
     public static CompilationUnit astRoot = null;
     public static NameTableManager tableManager = null;
-    
 }

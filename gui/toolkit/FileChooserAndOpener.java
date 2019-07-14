@@ -46,12 +46,47 @@ public class FileChooserAndOpener {
 			Current.file = chooser.getSelectedFile();
 			if (Current.file.isDirectory()) {
 				System.out.println("Directory:" + Current.file.getAbsolutePath());
+				getFiles(new File(Current.file.getAbsolutePath()));
 			} else if (Current.file.isFile()) {
 				System.out.println("File:" + Current.file.getAbsolutePath());
 			}
 			return true;
 		} else
 			return false;
+	}
+
+	public void getFiles(File f) {
+		// File[] childs = f.listFiles();
+		// for (int i = 0; i < childs.length; i++) {
+		// if (childs[i].isDirectory()) {
+		// getFiles(childs[i]);
+		// } else {
+		// Current.fileList.add(childs[i]);
+		// }
+		// }
+		if (f.exists()) {
+			File[] files = f.listFiles();
+			if (files.length == 0) {
+				if (f.isDirectory()) {
+					return;
+				}
+			} else {
+				for (File file2 : files) {
+					if (file2.isDirectory()) {
+						getFiles(file2);
+					} else {
+						Current.fileList.add(file2);
+					}
+				}
+			}
+		} else {
+			return;
+		}
+
+	}
+
+	public boolean loadFiles() {
+		return true;
 	}
 
 	/**

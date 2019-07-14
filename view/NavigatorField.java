@@ -21,11 +21,10 @@ public class NavigatorField {
         contentPane.setName("资源管理器");
     }
 
-    public static void updateTree(String path) {
+    public static void addTreeTab(String path) {
         Node = traverseFolder(path);
         newModel = new DefaultTreeModel(Node);
         tree = new JTree(newModel);
-        contentPane.removeAll();
         contentPane.addTab(new File(path).getName(), tree);
     }
 
