@@ -10,22 +10,23 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import gui.toolkit.*;
 
 public class NavigatorField {
-    // public static FileTreePanel contentPane;
-    public static JTree tree;
+    public static ClosableTabbedPane contentPane;
+    static JTree tree;
     static DefaultTreeModel newModel;
     static DefaultMutableTreeNode Node;
     static DefaultMutableTreeNode temp;
 
     public NavigatorField() {
-        // contentPane = new FileTreePanel(File.listRoots());
-        updateTree(".");
+        contentPane = new ClosableTabbedPane();
+        contentPane.setName("资源管理器");
     }
 
     public static void updateTree(String path) {
-        System.out.print(path);
         Node = traverseFolder(path);
         newModel = new DefaultTreeModel(Node);
         tree = new JTree(newModel);
+        contentPane.removeAll();
+        contentPane.addTab(new File(path).getName(), tree);
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {
@@ -57,7 +58,7 @@ public class NavigatorField {
         return parent;
     }
 
-    public JScrollPane getContentPane() {
-        return new JScrollPane(this.tree);
+    public ClosableTabbedPane getContentPane() {
+        return contentPane;
     }
 }

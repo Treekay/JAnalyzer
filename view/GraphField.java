@@ -24,6 +24,7 @@ public class GraphField {
         contentPane.setDividerLocation(MainFrame.screenHeight / 2);
         contentPane.setTopComponent(astPane);
         contentPane.setBottomComponent(cfgPane);
+        contentPane.setName("图形浏览");
     }
 
     public JSplitPane getContentPane() {

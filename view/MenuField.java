@@ -117,21 +117,19 @@ public class MenuField {
             String command = source.getActionCommand();
             switch (command) {
             case NEW_COMMAND:
-                if (fileOpener.chooseFileName() == true && fileOpener.loadFile() == true) {
-                    CodeField.contentPane.removeAll();
-                    JTextArea sourceText = new JTextArea();
-                    sourceText.setEditable(false);
-                    sourceText.setText(fileOpener.getFileContentsWithLineNumber());
-                    CodeField.contentPane.addTab(fileOpener.getFileName(), new JScrollPane(sourceText));
-                    NavigatorField.updateTree(Current.file.getAbsolutePath());
+                if (fileOpener.chooseFileName() == true) {
+                    fileOpener.loadFile();
+                    CodeField.newCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
+                    if (Current.file.isDirectory()) {
+                        NavigatorField.updateTree(Current.file.getAbsolutePath());
+                    }
+                    MainFrame.getContentPane().updateUI();
                 }
                 break;
             case OPEN_COMMAND:
-                if (fileOpener.chooseFileName() == true && fileOpener.loadFile() == true) {
-                    JTextArea sourceText = new JTextArea();
-                    sourceText.setEditable(false);
-                    sourceText.setText(fileOpener.getFileContentsWithLineNumber());
-                    CodeField.contentPane.addTab(fileOpener.getFileName(), new JScrollPane(sourceText));
+                if (fileOpener.chooseFileName() == true) {
+                    fileOpener.loadFile();
+                    CodeField.addCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
                 }
                 break;
             case CREATE_AST_COMMAND:

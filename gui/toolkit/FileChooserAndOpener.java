@@ -17,7 +17,6 @@ import model.Current;
 public class FileChooserAndOpener {
 	String fileContents = null;
 	String fileContentsWithLineNumber = null;
-	private ArrayList<File> files;
 
 	JFrame parent = null;
 
@@ -88,7 +87,6 @@ public class FileChooserAndOpener {
 		}
 	}
 
-	
 	/**
 	 * 返回已经选择的文件名
 	 * 
