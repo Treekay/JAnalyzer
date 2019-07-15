@@ -108,6 +108,7 @@ public class MenuField {
                 if (FileChooserAndOpener.chooseFileName() == true) {
                     if (Current.file.isFile()) {
                         FileChooserAndOpener.loadFile();
+                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
                         CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                                 FileChooserAndOpener.getFileContentsWithLineNumber());
                     }

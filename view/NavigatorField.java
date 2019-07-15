@@ -56,6 +56,7 @@ public class NavigatorField {
         for (File file : fileList) {
             if (file.getName().equals(fileName)) {
                 Current.file = file;
+                MainFrame.getMainFrame().setTitle("JAnalyzer - " + file.getName());
                 FileChooserAndOpener.loadFile();
                 CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                         FileChooserAndOpener.getFileContentsWithLineNumber());

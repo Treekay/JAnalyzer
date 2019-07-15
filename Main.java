@@ -5,9 +5,6 @@ import view.*;
 
 public class Main {
 	public static void main(String args[]) {
-		// 文件选择
-		MainFrame.init("JAnalyzer");
-
 		// 设置页面
 		MainFrame.init("JAnalyzer", MainFrame.screenWidth - 15, MainFrame.screenHeight - 100, 0, 0);
 
