@@ -26,7 +26,6 @@ import nameTable.visitor.NameDefinitionVisitor;
 
 public class Current {
     public static File file;
-    public static ArrayList<File> fileList;
     public static CompilationUnit astRoot = null;
     public static NameTableManager tableManager = null;
 }

@@ -2,6 +2,8 @@ package view;
 
 import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -11,12 +13,14 @@ import gui.toolkit.*;
 
 public class NavigatorField {
     public static ClosableTabbedPane contentPane;
+    private static ArrayList<File> fileList;
     static JTree tree;
     static DefaultTreeModel newModel;
     static DefaultMutableTreeNode Node;
     static DefaultMutableTreeNode temp;
 
     public NavigatorField() {
+        fileList = new ArrayList<File>();
         contentPane = new ClosableTabbedPane();
         contentPane.setName("资源管理器");
     }
@@ -26,13 +30,14 @@ public class NavigatorField {
         newModel = new DefaultTreeModel(Node);
         tree = new JTree(newModel);
         contentPane.addTab(new File(path).getName(), tree);
+        System.out.print(fileList.size());
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {
-        System.out.print(new File(path).getName());
         DefaultMutableTreeNode parent = new DefaultMutableTreeNode(new File(path).getName());
         File file = new File(path);
         if (file.isFile()) {
+            fileList.add(file);
             return parent;
         }
         if (file.exists()) {
@@ -51,6 +56,7 @@ public class NavigatorField {
                         // 是文件的话直接生成节点，并把该节点加到对应父节点上
                         temp = new DefaultMutableTreeNode(file2.getName());
                         parent.add(temp);
+                        fileList.add(file2);
                     }
                 }
             }
