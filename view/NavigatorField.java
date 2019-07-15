@@ -9,7 +9,13 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import gui.toolkit.*;
+
+import model.*;
 
 public class NavigatorField {
     public static ClosableTabbedPane contentPane;
@@ -29,8 +35,33 @@ public class NavigatorField {
         Node = traverseFolder(path);
         newModel = new DefaultTreeModel(Node);
         tree = new JTree(newModel);
+        tree.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // 如果在这棵树上点击了2次,即双击
+                if (e.getSource() == tree && e.getClickCount() == 2) {
+                    // 按照鼠标点击的坐标点获取路径
+                    TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
+                    if (selPath != null) {
+                        DefaultMutableTreeNode node = (DefaultMutableTreeNode) selPath.getLastPathComponent();
+                        System.out.println(node.toString());// 输出这个组件toString()的字符串看一下
+                        selectCurrentFile(node.toString());
+                    }
+                }
+            }
+        });
         contentPane.addTab(new File(path).getName(), tree);
-        System.out.print(fileList.size());
+    }
+
+    public static void selectCurrentFile(String fileName) {
+        for (File file : fileList) {
+            if (file.getName().equals(fileName)) {
+                Current.file = file;
+                FileChooserAndOpener.loadFile();
+                CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
+                        FileChooserAndOpener.getFileContentsWithLineNumber());
+            }
+        }
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {

@@ -26,30 +26,32 @@ import nameTable.visitor.NameDefinitionVisitor;
 import java.util.List;
 
 public class TestASTViewer {
-	public static void main(String[] args) {
-		// ³õÊ¼»¯Ö÷»­¿ò£¬µ÷ÕûÆäÎ»ÖÃºÍ¿í¶È£¬Ê¹µÃÏÔÊ¾³öÀ´µÄ°´Å¥¸üÆ¯ÁÁ
-		int widthSpace = 15;
-		int heightSpace = 100;
+	// public static void main(String[] args) {
+	// // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò£¬µï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃºÍ¿ï¿½ï¿½È£ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Å¥ï¿½ï¿½Æ¯ï¿½ï¿½
+	// int widthSpace = 15;
+	// int heightSpace = 100;
 
-		MainFrame.init("Java³ÌÐò¿ØÖÆÁ÷Í¼Õ¹Ê¾¹¤¾ß", MainFrame.screenWidth - widthSpace, MainFrame.screenHeight - heightSpace, 0, 0,
-				"system");
+	// MainFrame.init("Javaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½", MainFrame.screenWidth - widthSpace,
+	// MainFrame.screenHeight - heightSpace,
+	// 0, 0, "system");
 
-		DemoMenuCreator demo = new DemoMenuCreator(MainFrame.getContentPane(), MainFrame.getMainFrame());
-		// ´´½¨ÑÝÊ¾ÓÃµÄ²Ëµ¥ºÍ×é¼þ£¬²¢²Ëµ¥·ÅÖÃÔÚÖ÷»­¿ò£¬×é¼þ·ÅÖÃÖ÷»­¿òµÄÄÚÈÝÃæ°å
-		demo.createMenu();
-		// Æô¶¯Ö÷»­¿ò£¬²¢½øÐÐÑÝÊ¾
-		MainFrame.start();
-	}
+	// DemoMenuCreator demo = new DemoMenuCreator(MainFrame.getContentPane(),
+	// MainFrame.getMainFrame());
+	// // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ÃµÄ²Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// demo.createMenu();
+	// // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+	// MainFrame.start();
+	// }
 }
 
 class DemoMenuCreator {
-	private Container place; // ·ÅÖÃÑÝÊ¾×é¼þµÄÈÝÆ÷
-	private JFrame topLevelFrame; // ·ÅÖÃ²Ëµ¥µÄ¶¥²ãÈÝÆ÷
+	private Container place; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private JFrame topLevelFrame; // ï¿½ï¿½ï¿½Ã²Ëµï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private JTabbedPane tabbedPane;
 	private int astTabIndex;
-	private JTextArea sourceText; // ÓÃÓÚ·ÅÖÃÔ´´úÂëÎÄ¼þ
-	private JTextArea astText; // ÓÃÓÚ·ÅÖÃ³éÏóÓï·¨Ê÷
-	private JTextArea cfgText; // ÓÃÓÚ·ÅÖÃ³ÌÐò¿ØÖÆÁ÷Í¼
+	private JTextArea sourceText; // ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+	private JTextArea astText; // ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï·¨ï¿½ï¿½
+	private JTextArea cfgText; // ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
 	private int cfgTabIndex;
 	private JTextArea nameText; // For name table
 	private int nameTabIndex;
@@ -66,13 +68,13 @@ class DemoMenuCreator {
 	private CompilationUnit astRoot = null;
 	private NameTableManager tableManager = null;
 
-	public DemoMenuCreator(Container place, JFrame topLevelFrame) {
-		this.place = place;
-		this.topLevelFrame = topLevelFrame;
-		fileOpener = new FileChooserAndOpener(topLevelFrame);
-	}
+	// public DemoMenuCreator(Container place, JFrame topLevelFrame) {
+	// this.place = place;
+	// this.topLevelFrame = topLevelFrame;
+	// fileOpener = new FileChooserAndOpener(topLevelFrame);
+	// }
 
-	// ´´½¨ÓÃÓÚÑÝÊ¾µÄ×é¼þ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void createMenu() {
 		JSplitPane hSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
 		hSplitPane.setDividerLocation(MainFrame.screenWidth / 2);
@@ -89,106 +91,106 @@ class DemoMenuCreator {
 		astText = new JTextArea();
 		astText.setEditable(false);
 		scrollPane = new JScrollPane(astText);
-		tabbedPane.addTab("³éÏóÓï·¨Ê÷", scrollPane);
+		tabbedPane.addTab("ï¿½ï¿½ï¿½ï¿½ï¿½ï·¨ï¿½ï¿½", scrollPane);
 		astTabIndex = 0;
 
 		cfgText = new JTextArea();
 		cfgText.setEditable(false);
 		scrollPane = new JScrollPane(cfgText);
-		tabbedPane.addTab("¿ØÖÆÁ÷Í¼", scrollPane);
+		tabbedPane.addTab("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼", scrollPane);
 		cfgTabIndex = 1;
 
 		nameText = new JTextArea();
 		nameText.setEditable(false);
 		scrollPane = new JScrollPane(nameText);
-		tabbedPane.addTab("Ãû×Ö±í", scrollPane);
+		tabbedPane.addTab("ï¿½ï¿½ï¿½Ö±ï¿½", scrollPane);
 		nameTabIndex = 2;
 
 		hSplitPane.resetToPreferredSizes();
 
-		// ´´½¨²Ëµ¥µÄ¼àÌýÆ÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		MenuListener menuListener = new MenuListener();
-		// ´´½¨²Ëµ¥Ìõ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 		JMenuBar menuBar = new JMenuBar();
-		topLevelFrame.setJMenuBar(menuBar); // ·ÅÖÃÔÚ¶¥²ãÈÝÆ÷
+		topLevelFrame.setJMenuBar(menuBar); // ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		// ´´½¨µÚÒ»¸öÖ÷²Ëµ¥Ïî
-		JMenu menu = new JMenu("ÎÄ¼þ(F)");
-		menu.setMnemonic(KeyEvent.VK_F); // ÉèÖÃ×Ö·û¼üFÎª¿ì½Ý¼ü
-		menuBar.add(menu); // ¼ÓÈëµ½²Ëµ¥Ìõ
-		// ÉèÖÃµÚÒ»¸öÖ÷²Ëµ¥ÏîµÄµÚÒ»¸ö×Ó²Ëµ¥Ïî
-		JMenuItem menuItem = new JMenuItem("´ò¿ª(O)", null);
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
+		JMenu menu = new JMenu("ï¿½Ä¼ï¿½(F)");
+		menu.setMnemonic(KeyEvent.VK_F); // ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½FÎªï¿½ï¿½Ý¼ï¿½
+		menuBar.add(menu); // ï¿½ï¿½ï¿½ëµ½ï¿½Ëµï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½
+		JMenuItem menuItem = new JMenuItem("ï¿½ï¿½(O)", null);
 		menuItem.setMnemonic(KeyEvent.VK_O);
-		// ÉèÖÃ´Ë²Ëµ¥ÏîµÄ¼ÓËÙ¼üÎªCtrl+O
+		// ï¿½ï¿½ï¿½Ã´Ë²Ëµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ù¼ï¿½ÎªCtrl+O
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(OPEN_COMMAND); // ÉèÖÃÃüÁîÎªÍË³ö³ÌÐò
-		menu.add(menuItem); // ¼ÓÈëµ½µÚÒ»¸öÖ÷²Ëµ¥Ïî
+		menuItem.setActionCommand(OPEN_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
+		menu.add(menuItem); // ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 
-		// ÉèÖÃµÚÒ»¸öÖ÷²Ëµ¥ÏîµÄµÚÒ»¸ö×Ó²Ëµ¥Ïî
-		menuItem = new JMenuItem("Óï·¨Ê÷(A)", null);
+		// ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½
+		menuItem = new JMenuItem("ï¿½ï·¨ï¿½ï¿½(A)", null);
 		menuItem.setMnemonic(KeyEvent.VK_A);
-		// ÉèÖÃ´Ë²Ëµ¥ÏîµÄ¼ÓËÙ¼üÎªCtrl+A
+		// ï¿½ï¿½ï¿½Ã´Ë²Ëµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ù¼ï¿½ÎªCtrl+A
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(ASTPARSER_COMMAND); // ÉèÖÃÃüÁî
-		menu.add(menuItem); // ¼ÓÈëµ½µÚÒ»¸öÖ÷²Ëµ¥Ïî
+		menuItem.setActionCommand(ASTPARSER_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		menu.add(menuItem); // ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 
-		// ÉèÖÃµÚÒ»¸öÖ÷²Ëµ¥ÏîµÄµÚ¶þ¸ö×Ó²Ëµ¥Ïî
-		menuItem = new JMenuItem("½ô´ÕÓï·¨Ê÷(C)", null);
+		// ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ÄµÚ¶ï¿½ï¿½ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½
+		menuItem = new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½ï·¨ï¿½ï¿½(C)", null);
 		menuItem.setMnemonic(KeyEvent.VK_C);
-		// ÉèÖÃ´Ë²Ëµ¥ÏîµÄ¼ÓËÙ¼üÎªCtrl+C
+		// ï¿½ï¿½ï¿½Ã´Ë²Ëµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ù¼ï¿½ÎªCtrl+C
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CONCISEAST_COMMAND); // ÉèÖÃÃüÁî
-		menu.add(menuItem); // ¼ÓÈëµ½µÚÒ»¸öÖ÷²Ëµ¥Ïî
+		menuItem.setActionCommand(CONCISEAST_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		menu.add(menuItem); // ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 
-		// ÉèÖÃµÚÒ»¸öÖ÷²Ëµ¥ÏîµÄµÚÈý¸ö×Ó²Ëµ¥Ïî
-		menuItem = new JMenuItem("¿ØÖÆÁ÷Í¼(G)", null);
+		// ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½
+		menuItem = new JMenuItem("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼(G)", null);
 		menuItem.setMnemonic(KeyEvent.VK_G);
-		// ÉèÖÃ´Ë²Ëµ¥ÏîµÄ¼ÓËÙ¼üÎªCtrl+G
+		// ï¿½ï¿½ï¿½Ã´Ë²Ëµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ù¼ï¿½ÎªCtrl+G
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CREATE_CFG_COMMAND); // ÉèÖÃÃüÁîÎªÍË³ö³ÌÐò
-		menu.add(menuItem); // ¼ÓÈëµ½µÚ¶þ¸öÖ÷²Ëµ¥Ïî
+		menuItem.setActionCommand(CREATE_CFG_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
+		menu.add(menuItem); // ï¿½ï¿½ï¿½ëµ½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 
-		// ÉèÖÃµÚÒ»¸öÖ÷²Ëµ¥ÏîµÄµÚÈý¸ö×Ó²Ëµ¥Ïî
-		menuItem = new JMenuItem("Ãû×Ö±í(N)", null);
+		// ï¿½ï¿½ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²Ëµï¿½ï¿½ï¿½
+		menuItem = new JMenuItem("ï¿½ï¿½ï¿½Ö±ï¿½(N)", null);
 		menuItem.setMnemonic(KeyEvent.VK_N);
-		// ÉèÖÃ´Ë²Ëµ¥ÏîµÄ¼ÓËÙ¼üÎªCtrl+N
+		// ï¿½ï¿½ï¿½Ã´Ë²Ëµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ù¼ï¿½ÎªCtrl+N
 		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CREATE_NAME_TABLE_COMMAND); // ÉèÖÃÃüÁî
-		menu.add(menuItem); // ¼ÓÈëµ½µÚÒ»¸öÖ÷²Ëµ¥Ïî
+		menuItem.setActionCommand(CREATE_NAME_TABLE_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		menu.add(menuItem); // ï¿½ï¿½ï¿½ëµ½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 
 		menu.addSeparator();
-		// ÎªµÚÒ»¸öÖ÷²Ëµ¥Ìí¼Ó×îºóÒ»¸ö²Ëµ¥Ïî
-		menuItem = new JMenuItem("ÍË³ö");
+		// Îªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
+		menuItem = new JMenuItem("ï¿½Ë³ï¿½");
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(EXIT_COMMAND); // ÉèÖÃÃüÁîÎªÍË³ö³ÌÐò
+		menuItem.setActionCommand(EXIT_COMMAND); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
 		menu.add(menuItem);
-		// µÚ¶þ¸öÖ÷²Ëµ¥Ïî.
-		menu = new JMenu("°ïÖú(H)");
+		// ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½.
+		menu = new JMenu("ï¿½ï¿½ï¿½ï¿½(H)");
 		menu.setMnemonic(KeyEvent.VK_H);
 		menuBar.add(menu);
-		menuItem = new JMenuItem("¹ØÓÚ...");
+		menuItem = new JMenuItem("ï¿½ï¿½ï¿½ï¿½...");
 		menuItem.setAccelerator(KeyStroke.getKeyStroke("F1"));
 		menuItem.addActionListener(menuListener);
 		menuItem.setActionCommand(ABOUT_COMMAND);
 		menu.add(menuItem);
 	}
 
-	// ¼àÌý²Ëµ¥ÏîµÄ°´ÏÂ¶¯×÷
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ä°ï¿½ï¿½Â¶ï¿½ï¿½ï¿½
 	private class MenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			JMenuItem source = (JMenuItem) (e.getSource());
 			String command = source.getActionCommand();
 			if (command.equals(ABOUT_COMMAND)) {
-				// µ¯³öÒ»´°¿ÚÏÔÊ¾Ò»Ð©ÐÅÏ¢
-				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Java³ÌÐò³éÏóÓï·¨Ê÷Õ¹Ê¾", "¹ØÓÚ",
+				// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ò»Ð©ï¿½ï¿½Ï¢
+				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Javaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï·¨ï¿½ï¿½Õ¹Ê¾", "ï¿½ï¿½ï¿½ï¿½",
 						JOptionPane.WARNING_MESSAGE);
 			} else if (command.equals(EXIT_COMMAND))
-				System.exit(1); // ÍË³öÕû¸ö³ÌÐò
+				System.exit(1); // ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			else if (command.equals(OPEN_COMMAND)) {
 				if (fileOpener.chooseFileName() == true && fileOpener.loadFile() == true) {
 					sourceText.setText(fileOpener.getFileContentsWithLineNumber());
@@ -219,7 +221,7 @@ class DemoMenuCreator {
 				viewer.parseSourceCode();
 				String errorMessage = viewer.getParseErrorMessage();
 				if (errorMessage != null) {
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "±àÒë³öÏÖ´íÎó£º\n" + errorMessage, "¾¯Ê¾",
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½\n" + errorMessage, "ï¿½ï¿½Ê¾",
 							JOptionPane.WARNING_MESSAGE);
 				}
 				if (viewer.hasParserError())
@@ -247,7 +249,7 @@ class DemoMenuCreator {
 				viewer.parseSourceCode();
 				String errorMessage = viewer.getParseErrorMessage();
 				if (errorMessage != null) {
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "±àÒë³öÏÖ´íÎó£º\n" + errorMessage, "¾¯Ê¾",
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½\n" + errorMessage, "ï¿½ï¿½Ê¾",
 							JOptionPane.WARNING_MESSAGE);
 				}
 				if (viewer.hasParserError())
@@ -275,7 +277,7 @@ class DemoMenuCreator {
 					viewer.parseSourceCode();
 					String errorMessage = viewer.getParseErrorMessage();
 					if (errorMessage != null) {
-						JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "±àÒë³öÏÖ´íÎó£º\n" + errorMessage, "¾¯Ê¾",
+						JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½\n" + errorMessage, "ï¿½ï¿½Ê¾",
 								JOptionPane.WARNING_MESSAGE);
 					}
 					astRoot = viewer.getASTRoot();
@@ -289,7 +291,7 @@ class DemoMenuCreator {
 				} catch (Exception exp) {
 					exp.printStackTrace();
 					cfgText.setText(exp.toString());
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Éú³É¿ØÖÆÁ÷Í¼·¢Éú´íÎó£¡", "¾¯Ê¾",
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½ï¿½ï¿½É¿ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ê¾",
 							JOptionPane.WARNING_MESSAGE);
 				}
 			} else if (command.equals(CREATE_NAME_TABLE_COMMAND)) {
@@ -382,12 +384,12 @@ class DemoMenuCreator {
 				} catch (Exception exp) {
 					exp.printStackTrace();
 					cfgText.setText(exp.toString());
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Éú³ÉÃû×Ö±í·¢Éú´íÎó£¡", "¾¯Ê¾",
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ê¾",
 							JOptionPane.WARNING_MESSAGE);
 				}
 			} else {
-				// µ¯³öÒ»´°¿ÚÏÔÊ¾Ò»Ð©ÐÅÏ¢
-				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "¶Ô²»Æð£¬ÕâÏî²Ëµ¥¹¦ÄÜ»¹Ã»ÓÐÊµÏÖ£¡", "¾¯Ê¾",
+				// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ò»Ð©ï¿½ï¿½Ï¢
+				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ü»ï¿½Ã»ï¿½ï¿½Êµï¿½Ö£ï¿½", "ï¿½ï¿½Ê¾",
 						JOptionPane.WARNING_MESSAGE);
 			}
 		}

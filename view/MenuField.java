@@ -9,7 +9,6 @@ import view.*;
 import gui.astViewer.*;
 
 public class MenuField {
-    FileChooserAndOpener fileOpener;
     private JMenuBar menuBar;
 
     private final String OPEN_COMMAND = "open";
@@ -28,7 +27,6 @@ public class MenuField {
             }
         });
 
-        fileOpener = new FileChooserAndOpener(MainFrame.getMainFrame());
         initMenuBar();
     }
 
@@ -107,21 +105,22 @@ public class MenuField {
             String command = source.getActionCommand();
             switch (command) {
             case OPEN_COMMAND:
-                if (fileOpener.chooseFileName() == true) {
+                if (FileChooserAndOpener.chooseFileName() == true) {
                     if (Current.file.isFile()) {
-                        fileOpener.loadFile();
-                        CodeField.addCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
+                        FileChooserAndOpener.loadFile();
+                        CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
+                                FileChooserAndOpener.getFileContentsWithLineNumber());
                     }
                     NavigatorField.addTreeTab(Current.file.getAbsolutePath());
                 }
                 break;
             case CREATE_AST_COMMAND:
-                if (fileOpener.loadFile() == true) {
-                    String fileContents = fileOpener.getFileContents();
+                if (FileChooserAndOpener.loadFile() == true) {
+                    String fileContents = FileChooserAndOpener.getFileContents();
                     if (fileContents == null) {
-                        fileOpener.chooseFileName();
-                        fileOpener.loadFile();
-                        fileContents = fileOpener.getFileContents();
+                        FileChooserAndOpener.chooseFileName();
+                        FileChooserAndOpener.loadFile();
+                        fileContents = FileChooserAndOpener.getFileContents();
                     }
                     SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
                     viewer.parseSourceCode();
@@ -138,12 +137,12 @@ public class MenuField {
                 }
                 break;
             case CREATE_CFG_COMMAND:
-                if (fileOpener.loadFile() == true) {
-                    String fileContents = fileOpener.getFileContents();
+                if (FileChooserAndOpener.loadFile() == true) {
+                    String fileContents = FileChooserAndOpener.getFileContents();
                     if (fileContents == null) {
-                        fileOpener.chooseFileName();
-                        fileOpener.loadFile();
-                        fileContents = fileOpener.getFileContents();
+                        FileChooserAndOpener.chooseFileName();
+                        FileChooserAndOpener.loadFile();
+                        fileContents = FileChooserAndOpener.getFileContents();
                     }
 
                     if (Current.astRoot == null) {
@@ -159,7 +158,7 @@ public class MenuField {
                     }
 
                     try {
-                        ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(fileOpener.getFileName(),
+                        ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(FileChooserAndOpener.getFileName(),
                                 Current.astRoot);
                         GraphField.cfgText.setText(viewer.createCFGToText());
                     } catch (Exception exp) {

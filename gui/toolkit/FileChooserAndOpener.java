@@ -13,23 +13,18 @@ import javax.swing.ProgressMonitorInputStream;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import model.Current;
+import gui.toolkit.*;
 
 public class FileChooserAndOpener {
-	String fileContents = null;
-	String fileContentsWithLineNumber = null;
-
-	JFrame parent = null;
-
-	public FileChooserAndOpener(JFrame parent) {
-		this.parent = parent;
-	}
+	static String fileContents = null;
+	static String fileContentsWithLineNumber = null;
 
 	/**
 	 * 显示文件选择对话框，并让用户要打开的文件。缺省情况下打开 Java 源程序文件
 	 * 
 	 * @return 如果选择成功返回 true ，否则返回 false
 	 */
-	public boolean chooseFileName() {
+	public static boolean chooseFileName() {
 		JFileChooser chooser = new JFileChooser();
 
 		// 只打开 .java 文件
@@ -41,7 +36,7 @@ public class FileChooserAndOpener {
 		else
 			chooser.setCurrentDirectory(new File("."));
 
-		int result = chooser.showOpenDialog(parent);
+		int result = chooser.showOpenDialog(MainFrame.getMainFrame());
 		if (result == JFileChooser.APPROVE_OPTION) {
 			Current.file = chooser.getSelectedFile();
 			if (Current.file.isDirectory()) {
@@ -55,53 +50,18 @@ public class FileChooserAndOpener {
 			return false;
 	}
 
-	// public void getFiles(File f) {
-	// // File[] childs = f.listFiles();
-	// // for (int i = 0; i < childs.length; i++) {
-	// // if (childs[i].isDirectory()) {
-	// // getFiles(childs[i]);
-	// // } else {
-	// // Current.fileList.add(childs[i]);
-	// // }
-	// // }
-	// if (f.exists()) {
-	// File[] files = f.listFiles();
-	// if (files.length == 0) {
-	// if (f.isDirectory()) {
-	// return;
-	// }
-	// } else {
-	// for (File file2 : files) {
-	// if (file2.isDirectory()) {
-	// getFiles(file2);
-	// } else {
-	// System.out.print(file2.getName());
-	// Current.fileList.add(file2);
-	// }
-	// }
-	// }
-	// } else {
-	// return;
-	// }
-
-	// }
-
-	public boolean loadFiles() {
-		return true;
-	}
-
 	/**
 	 * 选择文件成功之后装入文件内容。
 	 * 
 	 * @return 如何没有选择文件，或者在装入过程中发生 I/O 错误返回 false ，装入成功返回 true
 	 */
-	public boolean loadFile() {
+	public static boolean loadFile() {
 		if (Current.file == null)
 			return false;
 
 		try {
 			FileInputStream fileIn = new FileInputStream(Current.file);
-			ProgressMonitorInputStream progressIn = new ProgressMonitorInputStream(parent,
+			ProgressMonitorInputStream progressIn = new ProgressMonitorInputStream(MainFrame.getMainFrame(),
 					"正在读取文件 [" + Current.file.getName() + "]", fileIn);
 
 			final Scanner in = new Scanner(progressIn);
@@ -128,7 +88,7 @@ public class FileChooserAndOpener {
 	 * 
 	 * @return 如果没有选择文件则返回 null
 	 */
-	public String getFileName() {
+	public static String getFileName() {
 		if (Current.file == null)
 			return null;
 		else
@@ -140,7 +100,7 @@ public class FileChooserAndOpener {
 	 * 
 	 * @return 如果没有选择文件则返回 null
 	 */
-	public String getFileFullName() {
+	public static String getFileFullName() {
 		if (Current.file == null)
 			return null;
 		else
@@ -152,7 +112,7 @@ public class FileChooserAndOpener {
 	 * 
 	 * @return 如果文件没有装载成功则返回 null
 	 */
-	public String getFileContents() {
+	public static String getFileContents() {
 		return fileContents;
 	}
 
@@ -160,7 +120,7 @@ public class FileChooserAndOpener {
 	 * 返回含有行号的文件内容
 	 */
 
-	public String getFileContentsWithLineNumber() {
+	public static String getFileContentsWithLineNumber() {
 		return fileContentsWithLineNumber;
 	}
 }
