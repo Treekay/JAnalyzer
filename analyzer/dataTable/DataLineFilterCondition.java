@@ -2,7 +2,7 @@ package analyzer.dataTable;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ31ÈÕ
+ * @since 2015å¹´10æœˆ31æ—¥
  * @version 1.0
  */
 public interface DataLineFilterCondition {

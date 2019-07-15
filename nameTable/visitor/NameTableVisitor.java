@@ -14,7 +14,7 @@ import nameTable.nameScope.SystemScope;
  * The base class for visiting the name table.
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  */
 public class NameTableVisitor {

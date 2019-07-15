@@ -7,7 +7,7 @@ import sourceCodeAST.SourceCodeLocation;
  * A filter accepted the scope contained the given location, or equal to / greater than start and less than end (if provided 
  * two locations)!
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  *
  */

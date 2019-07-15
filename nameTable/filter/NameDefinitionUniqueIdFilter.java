@@ -6,7 +6,7 @@ import nameTable.nameDefinition.NameDefinition;
  * A filter accepted the definition with the given unique id
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  *
  */

@@ -12,7 +12,7 @@ import nameTable.nameDefinition.MethodDefinition;
 /**
  * A graph generated from a MethodReferenceGraph
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ23ÈÕ
+ * @since 2015å¹´9æœˆ23æ—¥
  * @version 1.0
  */
 public class MethodReferenceGraph extends AbstractGraph {

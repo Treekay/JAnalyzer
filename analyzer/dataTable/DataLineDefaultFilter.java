@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ24ÈÕ
+ * @since 2015å¹´10æœˆ24æ—¥
  * @version 1.0
  */
 public class DataLineDefaultFilter implements DataLineFilter {

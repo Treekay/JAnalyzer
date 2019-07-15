@@ -14,7 +14,7 @@ import util.SystemVersionComparator;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ17ÈÕ
+ * @since 2015å¹´9æœˆ17æ—¥
  * @version 1.0
  */
 public class QualitasPackingManager {
@@ -319,7 +319,7 @@ public class QualitasPackingManager {
 
 			if (betterPath != null) {
 				System.out.println("Find better path " + betterPath);
-				// ¿½±´Ö®ºóÎÒÃÇ½øĞĞ±È½Ï£¬½«±È½ÏµÄ½á¹ûĞ´ÔÚÎÄ¼şÖĞ£¡
+				// æ‹·è´ä¹‹åæˆ‘ä»¬è¿›è¡Œæ¯”è¾ƒï¼Œå°†æ¯”è¾ƒçš„ç»“æœå†™åœ¨æ–‡ä»¶ä¸­ï¼
 				String result = "C:\\ZxcTemp\\result.txt";									// The generated report file
 				PrintWriter out = new PrintWriter(new FileOutputStream(new File(result)));
 				SystemVersionComparator.compareDirectories(betterPath, destPath, out);

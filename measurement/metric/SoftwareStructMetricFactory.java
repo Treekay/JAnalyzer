@@ -63,7 +63,7 @@ import measurement.metric.size.TypeCounterMetric;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ2ÈÕ
+ * @since 2015å¹´7æœˆ2æ—¥
  * @version 1.0
  */
 public class SoftwareStructMetricFactory {

@@ -10,7 +10,7 @@ import softwareStructure.MethodWithCallInformation;
  * A class to calculate the metric MPC
  * 
  * @author Li Jingsheng
- * @since 2015Äê09ÔÂ09ÈÕ
+ * @since 2015å¹´09æœˆ09æ—¥
  * @update 2015/10/12, Zhou Xiaocong 
  *
  */

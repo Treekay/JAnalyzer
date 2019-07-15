@@ -3,7 +3,7 @@ package analyzer.dataTable;
 /**
  * A interface to filter lines in data table
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ24ÈÕ
+ * @since 2015å¹´10æœˆ24æ—¥
  * @version 1.0
  */
 public interface DataLineFilter {

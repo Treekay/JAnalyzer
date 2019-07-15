@@ -13,7 +13,7 @@ import sourceCodeAST.SourceCodeLocation;
  * of parameter types (i.e. the type reference NameDefinition in List<NameDefinition>) is stored in a list of this class. 
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ6ÈÕ
+ * @since 2015å¹´7æœˆ6æ—¥
  * @version 1.0
  * 
  * @update 2015/11/5

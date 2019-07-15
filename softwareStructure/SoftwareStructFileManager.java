@@ -18,7 +18,7 @@ import nameTable.nameDefinition.TypeDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ8ÈÕ
+ * @since 2016å¹´4æœˆ8æ—¥
  * @version 1.0
  */
 class SoftwareStructFileManager {

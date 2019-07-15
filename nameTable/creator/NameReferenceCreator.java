@@ -44,7 +44,7 @@ import sourceCodeAST.SourceCodeLocation;
 /**
  * A class provided some static methods to create reference for compilation unit, class, method or field
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  *
  * @update 2016/11/13

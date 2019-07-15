@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * An iterator for traversing all source code files in a SourceCodeFileSet object. 
  * @author Zhou Xiaocong
- * @since 2016Äê9ÔÂ28ÈÕ
+ * @since 2016å¹´9æœˆ28æ—¥
  * @version 1.0
  *
  */

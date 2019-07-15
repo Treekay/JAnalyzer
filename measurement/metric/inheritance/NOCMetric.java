@@ -9,7 +9,7 @@ import nameTable.nameDefinition.DetailedTypeDefinition;
  * A class to calculate the metric NOC, the number of children
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ2ÈÕ
+ * @since 2015å¹´9æœˆ2æ—¥
  * @version 1.0
  */
 public class NOCMetric extends SoftwareInheritanceMetric {

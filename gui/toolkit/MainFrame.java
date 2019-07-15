@@ -4,10 +4,10 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MainFrame {
-	// »ñÈ¡ÏÔÊ¾Æ÷µÄ¿í¶ÈºÍ¸ß¶È£¬²¢ÖÃÎª¹«ÓĞÊôĞÔ£¬Ê¹ÓÃÕß¿É¾İ´Ë¼ÆËã»­¿òµÄÎ»ÖÃ
+	// è·å–æ˜¾ç¤ºå™¨çš„å®½åº¦å’Œé«˜åº¦ï¼Œå¹¶ç½®ä¸ºå…¬æœ‰å±æ€§ï¼Œä½¿ç”¨è€…å¯æ®æ­¤è®¡ç®—ç”»æ¡†çš„ä½ç½®
 	public static final int screenWidth = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	public static final int screenHeight = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-	// ÉèÖÃÖ÷»­¿òµÄÈ±Ê¡¿í¶ÈºÍÈ±Ê¡Î»ÖÃ
+	// è®¾ç½®ä¸»ç”»æ¡†çš„ç¼ºçœå®½åº¦å’Œç¼ºçœä½ç½®
 	private static int width = screenWidth / 3;
 	private static int height = screenHeight / 4;
 	private static int startX = screenWidth / 3;
@@ -15,11 +15,11 @@ public class MainFrame {
 	private static JFrame frame;
 	private static JPanel contentPane;
 
-	// Ê¹ÓÃË½ÓĞµÄ¹¹Ôì·½·¨¿É·ÀÖ¹Ê¹ÓÃÕß´´½¨MainFrame¶ÔÏó£¬ÕâÊÇ¹¤¾ßÀàµÄ³£¼û×ö·¨
+	// ä½¿ç”¨ç§æœ‰çš„æ„é€ æ–¹æ³•å¯é˜²æ­¢ä½¿ç”¨è€…åˆ›å»ºMainFrameå¯¹è±¡ï¼Œè¿™æ˜¯å·¥å…·ç±»çš„å¸¸è§åšæ³•
 	private MainFrame() {
 	}
 
-	// ²»Ê¹ÓÃ¹¹Ôì·½·¨£¬¶øÊ¹ÓÃinit()·½·¨³õÊ¼»¯£¬ÈÎºÎÊ¹ÓÃÀàMainFrameµÄ³ÌĞò±ØĞëÏÈµ÷ÓÃinit()·½·¨
+	// ä¸ä½¿ç”¨æ„é€ æ–¹æ³•ï¼Œè€Œä½¿ç”¨init()æ–¹æ³•åˆå§‹åŒ–ï¼Œä»»ä½•ä½¿ç”¨ç±»MainFrameçš„ç¨‹åºå¿…é¡»å…ˆè°ƒç”¨init()æ–¹æ³•
 	public static void init(String title) {
 		frame = new JFrame(title);
 		frame.setLocation(new Point(startX, startY));
@@ -36,7 +36,7 @@ public class MainFrame {
 		init(title);
 	}
 
-	// ³õÊ¼»¯»­¿ò²¢ÉèÖÃ»­¿òµÄ¹Û¸Ğ
+	// åˆå§‹åŒ–ç”»æ¡†å¹¶è®¾ç½®ç”»æ¡†çš„è§‚æ„Ÿ
 	public static void init(String title, int w, int h, int x, int y, String lookAndFeel) {
 		try {
 			if (lookAndFeel.equalsIgnoreCase("windows"))
@@ -56,18 +56,18 @@ public class MainFrame {
 		init(title);
 	}
 
-	// Ê¹»­¿ò¿É¼û£¬´Ó¶øÆô¶¯Õû¸öGUI
+	// ä½¿ç”»æ¡†å¯è§ï¼Œä»è€Œå¯åŠ¨æ•´ä¸ªGUI
 	public static void start() {
 		frame.pack();
 		frame.setVisible(true);
 	}
 
-	// »ñÈ¡»­¿òµÄÄÚÈİ´°¸ñ£¬Ê¹ÓÃÕß¿ÉÍù´Ë´°¸ñÌí¼ÓËù´´½¨µÄGUI×é¼ş
+	// è·å–ç”»æ¡†çš„å†…å®¹çª—æ ¼ï¼Œä½¿ç”¨è€…å¯å¾€æ­¤çª—æ ¼æ·»åŠ æ‰€åˆ›å»ºçš„GUIç»„ä»¶
 	public static JPanel getContentPane() {
 		return contentPane;
 	}
 
-	// »ñÈ¡»­¿ò£¬Ê¹ÓÃ¶Ô»°¿òºÍ²Ëµ¥µÄ³ÌĞòÒªÖ±½Ó»ùÓÚ»­¿ò±¾Éí
+	// è·å–ç”»æ¡†ï¼Œä½¿ç”¨å¯¹è¯æ¡†å’Œèœå•çš„ç¨‹åºè¦ç›´æ¥åŸºäºç”»æ¡†æœ¬èº«
 	public static JFrame getMainFrame() {
 		return frame;
 	}

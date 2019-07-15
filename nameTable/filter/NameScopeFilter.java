@@ -5,7 +5,7 @@ import nameTable.nameScope.NameScope;
 /**
  * A filter class to filter name scope
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  */
 public class NameScopeFilter {

@@ -6,7 +6,7 @@ import sourceCodeAST.SourceCodeLocation;
 /**
  * A filter accepted the definition whose location is greater and equal than start location and less than end location
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  *
  */

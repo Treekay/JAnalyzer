@@ -4,7 +4,7 @@ package analyzer.dataTable;
  * A enum type to represent the kind of relation between the column value and the value(s) in a DataLineFilterCondition
 
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ31ÈÕ
+ * @since 2015å¹´10æœˆ31æ—¥
  * @version 1.0
  */
 public enum ConditionRelationKind {

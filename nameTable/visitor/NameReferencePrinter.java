@@ -22,7 +22,7 @@ import nameTable.nameScope.SystemScope;
  * A visitor to print all reference accepted by the filter.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ14ÈÕ
+ * @since 2016å¹´11æœˆ14æ—¥
  * @version 1.0
  *
  */

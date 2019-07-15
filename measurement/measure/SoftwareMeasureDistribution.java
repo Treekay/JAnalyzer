@@ -15,7 +15,7 @@ import nameTable.nameScope.NameScopeKind;
  * <p> For building a distribution, you must set all name scopes at first, and then you can set all values, 
  * or set a value for each name scope.
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ3ÈÕ
+ * @since 2015å¹´7æœˆ3æ—¥
  * @version 1.0
  */
 public class SoftwareMeasureDistribution {

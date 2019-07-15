@@ -8,7 +8,7 @@ import softwareStructure.MethodInvocationMatrix;
  * A class to calculate the metric SCC
  * 
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ17ÈÕ
+ * @since 2015å¹´08æœˆ17æ—¥
  * @update 2015/10/10, Zhou Xiaocong
  *
  */

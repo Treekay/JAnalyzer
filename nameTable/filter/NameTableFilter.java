@@ -6,7 +6,7 @@ import nameTable.nameReference.NameReference;
 /**
  * The base class for a filter used in visiting the name table
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  */
 public class NameTableFilter {

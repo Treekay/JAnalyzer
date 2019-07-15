@@ -12,7 +12,7 @@ import softwareStructure.SoftwareStructManager;
  * A class to calculate the metric DCD
  * 
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ13ÈÕ
+ * @since 2015å¹´08æœˆ13æ—¥
  * @update 2015/10/10, Zhou Xiaocong
  *
  */

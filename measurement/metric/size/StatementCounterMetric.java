@@ -63,7 +63,7 @@ import softwareStructure.SoftwareStructManager;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ8ÈÕ
+ * @since 2015å¹´7æœˆ8æ—¥
  * @version 1.0
  * 
  * @update 2016/11/14

@@ -13,7 +13,7 @@ import util.Debug;
  * analyze systems in Qualitas. This class holds the rules for storing the data of analyzing results.
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ14ÈÕ
+ * @since 2015å¹´9æœˆ14æ—¥
  * @version 1.0
  */
 public class QualitasPathsManager {

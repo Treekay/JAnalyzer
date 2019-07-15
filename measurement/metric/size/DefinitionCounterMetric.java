@@ -21,7 +21,7 @@ import softwareStructure.SoftwareStructManager;
  * A class calculates and buffers the definition numbers of a given systems, i.e. it calculates the following size measures:
  * "FILE", "PKG", "CLS", "INTF", "ENUM", "FLD", "MTHD", "PARS" and "LOCV" 
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ7ÈÕ
+ * @since 2015å¹´7æœˆ7æ—¥
  * @version 1.0
  */
 public class DefinitionCounterMetric extends SoftwareSizeMetric {

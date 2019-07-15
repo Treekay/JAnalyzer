@@ -11,7 +11,7 @@ import softwareStructure.SoftwareStructManager;
  * A class to calculate CAMC metric. 
  *  
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ16ÈÕ
+ * @since 2015å¹´08æœˆ16æ—¥
  * @update 2015/10/10, Zhou Xiaocong
  *
  */

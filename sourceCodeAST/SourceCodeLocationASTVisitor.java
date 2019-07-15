@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 /**
  * @author Zhou Xiaocong
- * @since 2017Äê1ÔÂ1ÈÕ
+ * @since 2017å¹´1æœˆ1æ—¥
  * @version 1.0
  *
  */

@@ -22,7 +22,7 @@ import nameTable.visitor.NameDefinitionVisitor;
 /**
  * Manage the structure of a system by given the name table of the software system
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ30ÈÕ
+ * @since 2015å¹´6æœˆ30æ—¥
  * @version 1.0
  */
 public class SoftwareStructManager {

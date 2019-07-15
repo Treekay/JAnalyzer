@@ -18,7 +18,7 @@ import nameTable.nameScope.SystemScope;
  * A Visitor class for get all name scope in the name table
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  */
 public class NameScopeVisitor extends NameTableVisitor {

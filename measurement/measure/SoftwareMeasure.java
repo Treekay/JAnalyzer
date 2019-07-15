@@ -3,7 +3,7 @@ package measurement.measure;
 /**
  * The object of this class is used to store the measure value
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ2ÈÕ
+ * @since 2015å¹´7æœˆ2æ—¥
  * @version 1.0
  */
 public class SoftwareMeasure {

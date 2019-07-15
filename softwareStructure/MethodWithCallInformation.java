@@ -4,7 +4,7 @@ import nameTable.nameDefinition.MethodDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ4ÈÕ
+ * @since 2016å¹´4æœˆ4æ—¥
  * @version 1.0
  */
 public class MethodWithCallInformation {

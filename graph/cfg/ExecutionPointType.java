@@ -7,12 +7,12 @@ package graph.cfg;
  *  (3) FLOW_CONTROLLER: the node is break, continue, return, or throw. Those statement control the program executing flow.
  *	(4) GROUP_START: the virtual node for the entry of the some statements (if,	switch, while, do..while, 
  *		for, enhanced for, label, synchronize, try);
- *	(5) GROUP_END£ºthe virtual node for the exit of the some statements (if,	switch, while, do..while, 
+ *	(5) GROUP_ENDï¼šthe virtual node for the exit of the some statements (if,	switch, while, do..while, 
  *		for, enhanced for, label, synchronize, try);
  *	(6) CFG_START: The virtual node for the entry of the cfg of the entire method;
  *	(7) CFG_END: The virtual node for the exit of the cfg of the entire method;
- *	(8) METHOD_CALL£ºThe node includes a method call
- *	(9) NORMAL£ºThe node is a normal execution point
+ *	(8) METHOD_CALLï¼šThe node includes a method call
+ *	(9) NORMALï¼šThe node is a normal execution point
  * @author Zhou Xiaocong
  * @since 2012/12/26
  * @version 1.0

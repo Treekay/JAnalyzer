@@ -10,7 +10,7 @@ import nameTable.nameDefinition.MethodDefinition;
 /**
  * A matrix to store the relation of method-method invocation
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ30ÈÕ
+ * @since 2015å¹´6æœˆ30æ—¥
  * @version 1.0
  */
 public class MethodInvocationMatrix {

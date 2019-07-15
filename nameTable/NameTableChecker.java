@@ -17,7 +17,7 @@ import util.Debug;
 /**
  * Check whether the names in the table are consistent 
  * @author Zhou Xiaocong
- * @since 2017Äê8ÔÂ16ÈÕ
+ * @since 2017å¹´8æœˆ16æ—¥
  * @version 1.0
  *
  */

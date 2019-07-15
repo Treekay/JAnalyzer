@@ -22,7 +22,7 @@ import nameTable.nameScope.SystemScope;
  * To find a name definition rather than to get all definitions accepted by the given filter. 
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  *
  */

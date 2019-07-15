@@ -2,7 +2,7 @@ package analyzer.logic;
 
 /**
  * @author Zhou Xiaocong
- * @since 2017Äê12ÔÂ16ÈÕ
+ * @since 2017å¹´12æœˆ16æ—¥
  * @version 1.0
  *
  */

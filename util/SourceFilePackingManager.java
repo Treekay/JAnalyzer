@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * ¹ÜÀíÒ»¸öÏµÍ³ÏÂµÄËùÓĞÔ´ÎÄ¼ş£¬Ä¿µÄÊÇÒªÕûÀíÒ»¸ö¿ªÔ´ÏîÄ¿ÏÂµÄËùÓĞ¿ÉÓÃÓÚ·ÖÎöµÄÎÄ¼ş£¨Ä¿Ç°Ö»ÊÇ.javaÔ´ÎÄ¼ş£©£¬Ö§³Ö½«ÕâĞ©ÎÄ¼şµ¥ÁĞ³öÀ´£¨µ¥¶À¿½±´µ½ÁíÍâµÄÄ¿Â¼£©£¬
- * ÒÔ¼°Ñ°ÕÒ¸üºÃµÄÏµÍ³¸ùÄ¿Â¼ÎÄ¼ş£¨ÓÉÓÚJavaÔ´ÎÄ¼şµÄ³ÌĞò°ü¶ÔÓ¦Ä¿Â¼£¬ÓĞÊ±ºÜ¶à¿ªÔ´ÏîÄ¿ÏÂÓĞºÜÉîµÄ×ÓÄ¿Â¼½á¹¹£¬µ«ÊÇÊµ¼ÊÉÏÕâĞ©Ä¿Â¼Ö»ÓĞÒ»¸ö×ÓÄ¿Â¼£¬Ã»ÓĞÆäËûÄ¿Â¼£¬
- * ÀıÈçJEditÖĞorg.gjt.sp.jedit³ÌĞò°ü£¬Êµ¼ÊJEditµÄsrcÄ¿Â¼ÏÂÖ»ÓĞorgÓĞJavaÎÄ¼ş£¬¶øorgÄ¿Â¼ÏÂÖ»ÓĞgjtÕâ¸ö×ÓÄ¿Â¼£¬¶øgjtÏÂÖ»ÓĞspÕâ¸ö×ÓÄ¿Â¼£¬sp
- * ÏÂÖ»ÓĞjeditÕâ¸ö×ÓÄ¿Â¼£¬Èç¹ûÏµÍ³Ä¿Â¼´Ósrc¿ªÊ¼ËãÆğ£¬ÄÇÃ´·ÖÎöÊ±Ã¿¸ö³ÌĞò°ü¶¼´øÓĞ"org.gjt.sp.jedit"Õâ¸ö´®£¬·Ç³£ÀË·Ñ´æ´¢¿Õ¼ä£¬µ«Èç¹û´Ó×îºóµÄ jedit 
- * ¿ªÊ¼ËãÆğ£¬Ôò¶ÔÓÚÎÒÃÇµÄ·ÖÎöÃ»ÓĞÊ²Ã´Ó°Ïì£¬×ã¹»Çø·Ö²»Í¬µÄ³ÌĞò°üºÍÔ´ÎÄ¼ş£¨±àÒëµ¥Ôª£©£¬µ«¿É½ÚÊ¡Ğí¶à·ÖÎöÊ±µÄ´æ´¢¿Õ¼ä£©
+ * ç®¡ç†ä¸€ä¸ªç³»ç»Ÿä¸‹çš„æ‰€æœ‰æºæ–‡ä»¶ï¼Œç›®çš„æ˜¯è¦æ•´ç†ä¸€ä¸ªå¼€æºé¡¹ç›®ä¸‹çš„æ‰€æœ‰å¯ç”¨äºåˆ†æçš„æ–‡ä»¶ï¼ˆç›®å‰åªæ˜¯.javaæºæ–‡ä»¶ï¼‰ï¼Œæ”¯æŒå°†è¿™äº›æ–‡ä»¶å•åˆ—å‡ºæ¥ï¼ˆå•ç‹¬æ‹·è´åˆ°å¦å¤–çš„ç›®å½•ï¼‰ï¼Œ
+ * ä»¥åŠå¯»æ‰¾æ›´å¥½çš„ç³»ç»Ÿæ ¹ç›®å½•æ–‡ä»¶ï¼ˆç”±äºJavaæºæ–‡ä»¶çš„ç¨‹åºåŒ…å¯¹åº”ç›®å½•ï¼Œæœ‰æ—¶å¾ˆå¤šå¼€æºé¡¹ç›®ä¸‹æœ‰å¾ˆæ·±çš„å­ç›®å½•ç»“æ„ï¼Œä½†æ˜¯å®é™…ä¸Šè¿™äº›ç›®å½•åªæœ‰ä¸€ä¸ªå­ç›®å½•ï¼Œæ²¡æœ‰å…¶ä»–ç›®å½•ï¼Œ
+ * ä¾‹å¦‚JEditä¸­org.gjt.sp.jeditç¨‹åºåŒ…ï¼Œå®é™…JEditçš„srcç›®å½•ä¸‹åªæœ‰orgæœ‰Javaæ–‡ä»¶ï¼Œè€Œorgç›®å½•ä¸‹åªæœ‰gjtè¿™ä¸ªå­ç›®å½•ï¼Œè€Œgjtä¸‹åªæœ‰spè¿™ä¸ªå­ç›®å½•ï¼Œsp
+ * ä¸‹åªæœ‰jeditè¿™ä¸ªå­ç›®å½•ï¼Œå¦‚æœç³»ç»Ÿç›®å½•ä»srcå¼€å§‹ç®—èµ·ï¼Œé‚£ä¹ˆåˆ†ææ—¶æ¯ä¸ªç¨‹åºåŒ…éƒ½å¸¦æœ‰"org.gjt.sp.jedit"è¿™ä¸ªä¸²ï¼Œéå¸¸æµªè´¹å­˜å‚¨ç©ºé—´ï¼Œä½†å¦‚æœä»æœ€åçš„ jedit 
+ * å¼€å§‹ç®—èµ·ï¼Œåˆ™å¯¹äºæˆ‘ä»¬çš„åˆ†ææ²¡æœ‰ä»€ä¹ˆå½±å“ï¼Œè¶³å¤ŸåŒºåˆ†ä¸åŒçš„ç¨‹åºåŒ…å’Œæºæ–‡ä»¶ï¼ˆç¼–è¯‘å•å…ƒï¼‰ï¼Œä½†å¯èŠ‚çœè®¸å¤šåˆ†ææ—¶çš„å­˜å‚¨ç©ºé—´ï¼‰
  * 
  * @author Zhou Xiaocong
  * @version 1.0
@@ -22,13 +22,13 @@ import java.util.ArrayList;
 public class SourceFilePackingManager {
 	public static final String pathSeparator = "\\";
 	
-	private String systemId = null;			// Ã¿¸ö¿ªÔ´ÏîÄ¿Ó¦¸ÃÓĞÒ»¸öµÄÏµÍ³Ãû³Æ
-	private String versionId = null;		// ÏµÍ³µÄ°æ±¾ºÅ¡£¶ÔÓÚÃ¿¸ö¿ªÔ´ÏµÍ³£¬ÏµÍ³Ãû³Æ+°æ±¾ºÅ Ó¦¸ÃÎ¨Ò»
-	private String path = null;				// ÏµÍ³¸ùÄ¿Â¼
+	private String systemId = null;			// æ¯ä¸ªå¼€æºé¡¹ç›®åº”è¯¥æœ‰ä¸€ä¸ªçš„ç³»ç»Ÿåç§°
+	private String versionId = null;		// ç³»ç»Ÿçš„ç‰ˆæœ¬å·ã€‚å¯¹äºæ¯ä¸ªå¼€æºç³»ç»Ÿï¼Œç³»ç»Ÿåç§°+ç‰ˆæœ¬å· åº”è¯¥å”¯ä¸€
+	private String path = null;				// ç³»ç»Ÿæ ¹ç›®å½•
 	
-	private String betterPath = null;		// Õâ¸öÀà¿ÉÒÔÌ½²éµ½µÄ¿ÉÒÔ¸üºÃ×÷ÎªÏµÍ³¸ùÄ¿Â¼µÄÄ¿Â¼Ãû
+	private String betterPath = null;		// è¿™ä¸ªç±»å¯ä»¥æ¢æŸ¥åˆ°çš„å¯ä»¥æ›´å¥½ä½œä¸ºç³»ç»Ÿæ ¹ç›®å½•çš„ç›®å½•å
 	
-	// ÓÃÀ´±ê¼ÇºÍ¹ÜÀíÄ¿Â¼µÄÔ´ÎÄ¼ş½á¹¹Àà¶ÔÏóµÄ¸ù
+	// ç”¨æ¥æ ‡è®°å’Œç®¡ç†ç›®å½•çš„æºæ–‡ä»¶ç»“æ„ç±»å¯¹è±¡çš„æ ¹
 	private SourceFilesStructure pathTreeRoot = null; 
 
 	public SourceFilePackingManager(String systemId, String versionId, String root) {
@@ -54,11 +54,11 @@ public class SourceFilePackingManager {
 	}
 	
 	/**
-	 * Ìá¹©Ò»¸ö¹¤¾ß·½·¨£¬Ö±½Ó¸ù¾İÄ³¸öÏµÍ³Ä¿Â¼path£¬Ì½²éÆäµ×ÏÂÊÇ·ñÓĞ¸üºÃµÄ£¬¿É×÷ÎªÏµÍ³¸ùÄ¿Â¼µÄÄ¿Â¼¡£·µ»Ø null ±íÊ¾¸ø¶¨µÄÄ¿Â¼ÏÂÃ»ÓĞ
-	 * ÈÎºÎĞèÒªµÄÔ´ÎÄ¼ş£»·ñÔòÈç¹ûÃ»ÓĞ¸üºÃµÄÄ¿Â¼£¬Ôò»á·µ»Ø path
+	 * æä¾›ä¸€ä¸ªå·¥å…·æ–¹æ³•ï¼Œç›´æ¥æ ¹æ®æŸä¸ªç³»ç»Ÿç›®å½•pathï¼Œæ¢æŸ¥å…¶åº•ä¸‹æ˜¯å¦æœ‰æ›´å¥½çš„ï¼Œå¯ä½œä¸ºç³»ç»Ÿæ ¹ç›®å½•çš„ç›®å½•ã€‚è¿”å› null è¡¨ç¤ºç»™å®šçš„ç›®å½•ä¸‹æ²¡æœ‰
+	 * ä»»ä½•éœ€è¦çš„æºæ–‡ä»¶ï¼›å¦åˆ™å¦‚æœæ²¡æœ‰æ›´å¥½çš„ç›®å½•ï¼Œåˆ™ä¼šè¿”å› path
 	 */
 	public static String findBetterSystemPath(String systemPath) {
-		// ´´½¨Ò»¸öÁÙÊ±ÓÃÀ´Ì½²éÄ¿Â¼µÄ¹ÜÀíÆ÷¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªä¸´æ—¶ç”¨æ¥æ¢æŸ¥ç›®å½•çš„ç®¡ç†å™¨å¯¹è±¡
 		SourceFilePackingManager manager = new SourceFilePackingManager("", "", systemPath);
 		manager.buildSourceFilesStructure();
 		manager.findBetterRootPath();
@@ -66,8 +66,8 @@ public class SourceFilePackingManager {
 	}
 	
 	/**
-	 * ÔÚÌ½²é¸ø¶¨ÏµÍ³Ô´Ä¿Â¼ sourceSystemPath ÏÂÊÇ·ñÓĞ¸üºÃµÄÄ¿Â¼betterPathÖ®ºó£¬ÔÙ½«betterPathµ×ÏÂµÄËùÓĞÔ´ÎÄ¼ş¿½±´µ½Ä¿±êÄ¿Â¼ destPath
-	 * ¸Ã·½·¨·µ»ØÕÒµ½µÄ¿ÉÄÜ¸üºÃµÄÏµÍ³Ä¿Â¼£¬ÒÔ±ãµ÷ÓÃÇå³şÊÇ´ÓÄÄ¸öÔ´ÎÄ¼şÄ¿Â¼½øĞĞ¿½±´µÄ£¡
+	 * åœ¨æ¢æŸ¥ç»™å®šç³»ç»Ÿæºç›®å½• sourceSystemPath ä¸‹æ˜¯å¦æœ‰æ›´å¥½çš„ç›®å½•betterPathä¹‹åï¼Œå†å°†betterPathåº•ä¸‹çš„æ‰€æœ‰æºæ–‡ä»¶æ‹·è´åˆ°ç›®æ ‡ç›®å½• destPath
+	 * è¯¥æ–¹æ³•è¿”å›æ‰¾åˆ°çš„å¯èƒ½æ›´å¥½çš„ç³»ç»Ÿç›®å½•ï¼Œä»¥ä¾¿è°ƒç”¨æ¸…æ¥šæ˜¯ä»å“ªä¸ªæºæ–‡ä»¶ç›®å½•è¿›è¡Œæ‹·è´çš„ï¼
 	 */
 	public static String betterCopySystemSourceFiles(String sourceSystemPath, String destPath) throws IOException {
 		String betterPath = findBetterSystemPath(sourceSystemPath);
@@ -75,7 +75,7 @@ public class SourceFilePackingManager {
 		
 		File start = new File(betterPath);
 		if (start.isFile()) {
-			if (!isSourceFile(start)) return betterPath;	// ²»ÊÇËùĞèÒªµÄÔ´ÎÄ¼ş¾Í²»¿½±´ÁË£¡
+			if (!isSourceFile(start)) return betterPath;	// ä¸æ˜¯æ‰€éœ€è¦çš„æºæ–‡ä»¶å°±ä¸æ‹·è´äº†ï¼
 			
 			File dest = new File(destPath);
 			if (dest.isFile()) copyBinaryFile(start, dest);
@@ -91,20 +91,20 @@ public class SourceFilePackingManager {
 		if (dest.isFile()) {
 			throw new IOException("The destination [" + destPath + "] is not a path!");
 		}
-		if (!dest.exists()) dest.mkdirs();		// Ä¿±êÄ¿Â¼²»´æÔÚµÄ»°£¬´´½¨¸ÃÄ¿Â¼£¨¼°Æä¿ÉÄÜĞèÒª´´½¨µÄ¸¸Ä¿Â¼£©
-		copyAllSourceFiles(betterPath, destPath);	// ½«Ä¿Â¼ betterPathÏÂµÄËùÓĞÔ´ÎÄ¼ş¿½±´µ½Ä¿Â¼ destPath
+		if (!dest.exists()) dest.mkdirs();		// ç›®æ ‡ç›®å½•ä¸å­˜åœ¨çš„è¯ï¼Œåˆ›å»ºè¯¥ç›®å½•ï¼ˆåŠå…¶å¯èƒ½éœ€è¦åˆ›å»ºçš„çˆ¶ç›®å½•ï¼‰
+		copyAllSourceFiles(betterPath, destPath);	// å°†ç›®å½• betterPathä¸‹çš„æ‰€æœ‰æºæ–‡ä»¶æ‹·è´åˆ°ç›®å½• destPath
 		return betterPath;
 	}
 	
 	/**
-	 *	ÔÚ´´½¨±íÊ¾Ô´ÎÄ¼ş½á¹¹µÄ¸ù½ÚµãÖ®ºó£¬¾Í¿ÉÒÔÌ½²éÊÇ·ñÓĞ¸üºÃµÄÏµÍ³¸ùÄ¿Â¼ 
+	 *	åœ¨åˆ›å»ºè¡¨ç¤ºæºæ–‡ä»¶ç»“æ„çš„æ ¹èŠ‚ç‚¹ä¹‹åï¼Œå°±å¯ä»¥æ¢æŸ¥æ˜¯å¦æœ‰æ›´å¥½çš„ç³»ç»Ÿæ ¹ç›®å½• 
 	 */
 	public void findBetterRootPath() {
-		betterPath = path;	// ´ÓÔ­À´µÄ path ¿ªÊ¼
+		betterPath = path;	// ä»åŸæ¥çš„ path å¼€å§‹
 		SourceFilesStructure node = pathTreeRoot;
 		while (node != null) {
 			if (!node.hasChild()) {
-				// µ±Ç°½ÚµãÃ»ÓĞ¶ù×Ó£¬¶øÇÒµ±Ç°½ÚµãÃ»ÓĞËùĞèÒªµÄÔ´ÎÄ¼ş£¬±íÃ÷Õâ¸öÏµÍ³Ä¿Â¼ÏÂ¸ù±¾Ã»ÓĞÈÎºÎĞèÒªµÄÔ´ÎÄ¼ş
+				// å½“å‰èŠ‚ç‚¹æ²¡æœ‰å„¿å­ï¼Œè€Œä¸”å½“å‰èŠ‚ç‚¹æ²¡æœ‰æ‰€éœ€è¦çš„æºæ–‡ä»¶ï¼Œè¡¨æ˜è¿™ä¸ªç³»ç»Ÿç›®å½•ä¸‹æ ¹æœ¬æ²¡æœ‰ä»»ä½•éœ€è¦çš„æºæ–‡ä»¶
 				if (!node.hasSourceFile()) betterPath = null;
 				
 				System.out.println("Return null in !node.hasChild()!");
@@ -118,78 +118,78 @@ public class SourceFilePackingManager {
 					if (hasSourceFileChild == null) hasSourceFileChild = child;
 					else {
 						System.out.println("Return [" + betterPath + "] in hasSourceFileChild != null!");
-						return; // µ±Ç°½ÚµãÓĞÁ½¸ö×ÓÄ¿Â¼¶¼ÓĞĞèÒªµÄÔ´ÎÄ¼ş£¬Ì½²é½áÊø£¬½á¹ûÔÚ betterPath ÖĞ
+						return; // å½“å‰èŠ‚ç‚¹æœ‰ä¸¤ä¸ªå­ç›®å½•éƒ½æœ‰éœ€è¦çš„æºæ–‡ä»¶ï¼Œæ¢æŸ¥ç»“æŸï¼Œç»“æœåœ¨ betterPath ä¸­
 					}
 				}
 			}
 			if (hasSourceFileChild == null) {
-				// µ±Ç°½ÚµãµÄËùÓĞ¶ù×Ó¶¼Ã»ÓĞËùĞèÒªµÄÔ´ÎÄ¼ş£¬ÕâÒ²±íÃ÷Õû¸öÏµÍ³Ä¿Â¼ÏÂ¸ù±¾Ã»ÓĞÈÎºÎĞèÒªµÄÔ´ÎÄ¼ş
+				// å½“å‰èŠ‚ç‚¹çš„æ‰€æœ‰å„¿å­éƒ½æ²¡æœ‰æ‰€éœ€è¦çš„æºæ–‡ä»¶ï¼Œè¿™ä¹Ÿè¡¨æ˜æ•´ä¸ªç³»ç»Ÿç›®å½•ä¸‹æ ¹æœ¬æ²¡æœ‰ä»»ä½•éœ€è¦çš„æºæ–‡ä»¶
 				betterPath = null;
 
 				System.out.println("Return null in hasSourceFileChild == null!");
 				return;
 			} else {
-				// µ±Ç°½ÚµãÓĞÇÒ½öÓĞÒ»¸ö¶ù×ÓÓĞËùĞèÒªµÄÔ´ÎÄ¼ş£¬×¢ÒâÎÒÃÇÔ¼¶¨ÏµÍ³Ä¿Â¼ÒªÒÔ pathSeparator ½áÊø
+				// å½“å‰èŠ‚ç‚¹æœ‰ä¸”ä»…æœ‰ä¸€ä¸ªå„¿å­æœ‰æ‰€éœ€è¦çš„æºæ–‡ä»¶ï¼Œæ³¨æ„æˆ‘ä»¬çº¦å®šç³»ç»Ÿç›®å½•è¦ä»¥ pathSeparator ç»“æŸ
 				betterPath = betterPath + hasSourceFileChild.getPathName() + pathSeparator;
-				node = hasSourceFileChild;		// ×ßÏòÕâ¸ö¶ù×Ó×ö½øÒ»²½µÄÌ½²é
+				node = hasSourceFileChild;		// èµ°å‘è¿™ä¸ªå„¿å­åšè¿›ä¸€æ­¥çš„æ¢æŸ¥
 			}
 		}
 	}
 	
 	/**
-	 * ÒÔÉèÖÃµÄ path ¿ªÊ¼£¬µ÷ÓÃÄÚ²¿µÄ buildSourceFilesStructure(File) ·½·¨¹¹½¨±íÊ¾ÎÄ¼ş½á¹¹µÄÊ÷£¬²¢½«½á¹û¼ÇÂ¼
-	 * ÔÚ pathTreeRoot¡£×¢Òâ£¬Èç¹û path ¶ÔÓ¦µ¥¸öÎÄ¼ş£¬¶øÇÒ²»ÊÇĞèÒª·ÖÎöµÄÔ´ÎÄ¼ş£¬Ôò pathTreeRoot ÊÇ null¡£
+	 * ä»¥è®¾ç½®çš„ path å¼€å§‹ï¼Œè°ƒç”¨å†…éƒ¨çš„ buildSourceFilesStructure(File) æ–¹æ³•æ„å»ºè¡¨ç¤ºæ–‡ä»¶ç»“æ„çš„æ ‘ï¼Œå¹¶å°†ç»“æœè®°å½•
+	 * åœ¨ pathTreeRootã€‚æ³¨æ„ï¼Œå¦‚æœ path å¯¹åº”å•ä¸ªæ–‡ä»¶ï¼Œè€Œä¸”ä¸æ˜¯éœ€è¦åˆ†æçš„æºæ–‡ä»¶ï¼Œåˆ™ pathTreeRoot æ˜¯ nullã€‚
 	 */
 	public void buildSourceFilesStructure() {
 		File start = new File(path);
 
 		if (start.isFile()) {
-			// ÏµÍ³Ä¿Â¼ path ²»ÊÇÒ»¸öÄ¿Â¼£¬¶øÊÇµ¥¸öÎÄ¼ş£¬ÕâÊ±Ö»ÓĞ¸ÃÎÄ¼şÊÇĞèÒªµÄÔ´ÎÄ¼şÊ±£¬ pathTreeRoot ²Å²»ÊÇ null
+			// ç³»ç»Ÿç›®å½• path ä¸æ˜¯ä¸€ä¸ªç›®å½•ï¼Œè€Œæ˜¯å•ä¸ªæ–‡ä»¶ï¼Œè¿™æ—¶åªæœ‰è¯¥æ–‡ä»¶æ˜¯éœ€è¦çš„æºæ–‡ä»¶æ—¶ï¼Œ pathTreeRoot æ‰ä¸æ˜¯ null
 			if (isSourceFile(start)) {
-				// Ö»ÓĞÔÚ¸ÃÎÄ¼şÊÇĞèÒªµÄÔ´ÎÄ¼şÊ±²Å´´½¨½Úµã£¬Ê¹ÓÃÎÄ¼ş¼òµ¥Ãû´´½¨
+				// åªæœ‰åœ¨è¯¥æ–‡ä»¶æ˜¯éœ€è¦çš„æºæ–‡ä»¶æ—¶æ‰åˆ›å»ºèŠ‚ç‚¹ï¼Œä½¿ç”¨æ–‡ä»¶ç®€å•ååˆ›å»º
 				pathTreeRoot = new SourceFilesStructure(start.getName());				
 				pathTreeRoot.setFlag(true);
 			}  else pathTreeRoot = null;
 			return;
 		}
-		// ×¢ÒâÉÏÃæµÄÅĞ¶Ï£¬ÒÔ¼°±ÜÃâÁË buildSourceFilesStructure(File)×¢ÊÍÖĞËùËµµÄµÚÒ»ÖÖÇé¿ö
+		// æ³¨æ„ä¸Šé¢çš„åˆ¤æ–­ï¼Œä»¥åŠé¿å…äº† buildSourceFilesStructure(File)æ³¨é‡Šä¸­æ‰€è¯´çš„ç¬¬ä¸€ç§æƒ…å†µ
 		pathTreeRoot = buildSourceFilesStructure(start);
 	}
 	
 	/**
-	 * ÒÔstart ÎªÆğµã£¬´´½¨±íÊ¾ÎÄ¼ş½á¹¹µÄÊ÷£¬¿ÉÄÜÓĞÈıÖÖÇé¿ö£º
-	 * (1) Èç¹û start ¶ÔÓ¦Ò»¸öÎÄ¼ş¶ø·ÇÄ¿Â¼£¬Ôòµ±Õâ¸öÎÄ¼şÊÇĞèÒªµÄÔ´ÎÄ¼şÊ±£¬·µ»Ø¶ÔÓ¦¸Ãµ¥¸öÎÄ¼şµÄ½Úµã£¨¸ù¾İÏÂÃæµÄ²ßÂÔ£¬ÕâÖÖÇé¿öÓ¦¸Ã
-	 * 		Ö»ÓĞµ±¸ø³öµÄ¸ùÄ¿Â¼¾ÍÊÇµ¥¸öÎÄ¼şÊ±²Å»á³öÏÖ£©£¬·ñÔò·µ»Ø null£»
-	 * (2) Èç¹û start ÊÇÒ»¸öÄ¿Â¼£¬µ«Ëü²»ÔÙº¬ÓĞ×ÓÄ¿Â¼£¬ÕâÊ±Èç¹û¸ÃÄ¿Â¼ÏÂÖÁÉÙÓĞÒ»¸öĞèÒªµÄÔ´ÎÄ¼ş£¬Ôò·µ»ØµÄÒ»¸ö±íÊ¾ÓĞĞèÒªÔ´ÎÄ¼ş £¨flagÓòÎª true£©£¬
-	 * 		µÄ½Úµã£»Èç¹û¸ÃÄ¿Â¼ÏÂÃ»ÓĞÈÎºÎĞèÒªµÄÔ´ÎÄ¼ş£¬Ôò·µ»ØÒ»¸ö±íÊ¾Ã»ÓĞĞèÒªÔ´ÎÄ¼ş£¨flagÓòÎªfalse£©µÄ½Úµã¡£·µ»ØµÄ½Úµã×ÜÊÇÃ»ÓĞ¶ù×Ó£¨childrenÓòÎª null£©
-	 * (3) Èç¹û start ÊÇÒ»¸öÄ¿Â¼£¬ÆäÖĞÖÁÉÙº¬ÓĞÒ»¸ö×ÓÄ¿Â¼£¬Ôò³ıÁË¸ù¾İ¸ÃÄ¿Â¼ÏÂµÄÎÄ¼şÉèÖÃ flag ÓòÖ®Íâ£¬»¹Òª¸ù¾İ×ÓÄ¿Â¼ÖĞµÄÇé¿öÉèÖÃ flag Óò£¬Ö»ÒªÆäÖĞ
-	 * 		Ò»¸öÓĞĞèÒªµÄÔ´ÎÄ¼ş£¬ÔòflagÉèÖÃÎª true ¡£ÕâÊ±·µ»ØµÄ½Úµã×ÜÊÇ»á½øÒ»²½´´½¨¶ù×Ó½Úµã¡£
+	 * ä»¥start ä¸ºèµ·ç‚¹ï¼Œåˆ›å»ºè¡¨ç¤ºæ–‡ä»¶ç»“æ„çš„æ ‘ï¼Œå¯èƒ½æœ‰ä¸‰ç§æƒ…å†µï¼š
+	 * (1) å¦‚æœ start å¯¹åº”ä¸€ä¸ªæ–‡ä»¶è€Œéç›®å½•ï¼Œåˆ™å½“è¿™ä¸ªæ–‡ä»¶æ˜¯éœ€è¦çš„æºæ–‡ä»¶æ—¶ï¼Œè¿”å›å¯¹åº”è¯¥å•ä¸ªæ–‡ä»¶çš„èŠ‚ç‚¹ï¼ˆæ ¹æ®ä¸‹é¢çš„ç­–ç•¥ï¼Œè¿™ç§æƒ…å†µåº”è¯¥
+	 * 		åªæœ‰å½“ç»™å‡ºçš„æ ¹ç›®å½•å°±æ˜¯å•ä¸ªæ–‡ä»¶æ—¶æ‰ä¼šå‡ºç°ï¼‰ï¼Œå¦åˆ™è¿”å› nullï¼›
+	 * (2) å¦‚æœ start æ˜¯ä¸€ä¸ªç›®å½•ï¼Œä½†å®ƒä¸å†å«æœ‰å­ç›®å½•ï¼Œè¿™æ—¶å¦‚æœè¯¥ç›®å½•ä¸‹è‡³å°‘æœ‰ä¸€ä¸ªéœ€è¦çš„æºæ–‡ä»¶ï¼Œåˆ™è¿”å›çš„ä¸€ä¸ªè¡¨ç¤ºæœ‰éœ€è¦æºæ–‡ä»¶ ï¼ˆflagåŸŸä¸º trueï¼‰ï¼Œ
+	 * 		çš„èŠ‚ç‚¹ï¼›å¦‚æœè¯¥ç›®å½•ä¸‹æ²¡æœ‰ä»»ä½•éœ€è¦çš„æºæ–‡ä»¶ï¼Œåˆ™è¿”å›ä¸€ä¸ªè¡¨ç¤ºæ²¡æœ‰éœ€è¦æºæ–‡ä»¶ï¼ˆflagåŸŸä¸ºfalseï¼‰çš„èŠ‚ç‚¹ã€‚è¿”å›çš„èŠ‚ç‚¹æ€»æ˜¯æ²¡æœ‰å„¿å­ï¼ˆchildrenåŸŸä¸º nullï¼‰
+	 * (3) å¦‚æœ start æ˜¯ä¸€ä¸ªç›®å½•ï¼Œå…¶ä¸­è‡³å°‘å«æœ‰ä¸€ä¸ªå­ç›®å½•ï¼Œåˆ™é™¤äº†æ ¹æ®è¯¥ç›®å½•ä¸‹çš„æ–‡ä»¶è®¾ç½® flag åŸŸä¹‹å¤–ï¼Œè¿˜è¦æ ¹æ®å­ç›®å½•ä¸­çš„æƒ…å†µè®¾ç½® flag åŸŸï¼Œåªè¦å…¶ä¸­
+	 * 		ä¸€ä¸ªæœ‰éœ€è¦çš„æºæ–‡ä»¶ï¼Œåˆ™flagè®¾ç½®ä¸º true ã€‚è¿™æ—¶è¿”å›çš„èŠ‚ç‚¹æ€»æ˜¯ä¼šè¿›ä¸€æ­¥åˆ›å»ºå„¿å­èŠ‚ç‚¹ã€‚
 	 * 
 	 */
 	private SourceFilesStructure buildSourceFilesStructure(File start) {
 		SourceFilesStructure node = null;
 		
 		if (start.isFile()) {
-			// start²»ÊÇÒ»¸öÄ¿Â¼£¬¶øÊÇÒ»¸öÎÄ¼ş
+			// startä¸æ˜¯ä¸€ä¸ªç›®å½•ï¼Œè€Œæ˜¯ä¸€ä¸ªæ–‡ä»¶
 			if (isSourceFile(start)) {
-				// Ö»ÓĞÔÚ¸ÃÎÄ¼şÊÇĞèÒªµÄÔ´ÎÄ¼şÊ±²Å´´½¨¶ÔÓ¦µÄ½Úµã£¬Ê¹ÓÃÎÄ¼ş¼òµ¥Ãû´´½¨
+				// åªæœ‰åœ¨è¯¥æ–‡ä»¶æ˜¯éœ€è¦çš„æºæ–‡ä»¶æ—¶æ‰åˆ›å»ºå¯¹åº”çš„èŠ‚ç‚¹ï¼Œä½¿ç”¨æ–‡ä»¶ç®€å•ååˆ›å»º
 				node = new SourceFilesStructure(start.getName());				
 				node.setFlag(true);
-			}  // ·ñÔò²»´´½¨
+			}  // å¦åˆ™ä¸åˆ›å»º
 			return node;
 		}
 		
-		node = new SourceFilesStructure(start.getName());	// Ê¹ÓÃ¼òµ¥Ãû´´½¨½Úµã
+		node = new SourceFilesStructure(start.getName());	// ä½¿ç”¨ç®€å•ååˆ›å»ºèŠ‚ç‚¹
 		File[] filesInPath = start.listFiles(new JavaSourceFileFilter());
-		if (filesInPath == null) return node;		// Õâ¸öÄ¿Â¼ÏÂÃ»ÓĞÈÎºÎĞèÒªµÄÔ´ÎÄ¼ş£¬Ò²Ã»ÓĞ×ÓÄ¿Â¼
+		if (filesInPath == null) return node;		// è¿™ä¸ªç›®å½•ä¸‹æ²¡æœ‰ä»»ä½•éœ€è¦çš„æºæ–‡ä»¶ï¼Œä¹Ÿæ²¡æœ‰å­ç›®å½•
 		
 		for (int index = 0; index < filesInPath.length; index++) {
 			File current = filesInPath[index];
 			if (current.isFile()) {
-				// ¶ÔÓÚµ¥¸öÎÄ¼şÎÒÃÇ²»ÔÙµİ¹éµ÷ÓÃ±¾·½·¨È¥¹¹½¨½øÒ»²½µÄÔ´ÎÄ¼şÄ¿Â¼½á¹¹
+				// å¯¹äºå•ä¸ªæ–‡ä»¶æˆ‘ä»¬ä¸å†é€’å½’è°ƒç”¨æœ¬æ–¹æ³•å»æ„å»ºè¿›ä¸€æ­¥çš„æºæ–‡ä»¶ç›®å½•ç»“æ„
 				if (isSourceFile(current)) node.setFlag(true);
 			} else {
-				// µİ¹éµ÷ÓÃ±¾·½·¨´´½¨±íÊ¾×ÓÄ¿Â¼µÄÔ´ÎÄ¼ş½á¹¹½Úµã
+				// é€’å½’è°ƒç”¨æœ¬æ–¹æ³•åˆ›å»ºè¡¨ç¤ºå­ç›®å½•çš„æºæ–‡ä»¶ç»“æ„èŠ‚ç‚¹
 				SourceFilesStructure child = buildSourceFilesStructure(current);
 				if (child != null) {
 					node.addChild(child);
@@ -216,7 +216,7 @@ public class SourceFilePackingManager {
 	}
 	
 	/**
-	 * Ê¹ÓÃÃæÏò×Ö½ÚµÄÎÄ¼şÁ÷¿½±´¶ş½øÖÆÎÄ¼ş
+	 * ä½¿ç”¨é¢å‘å­—èŠ‚çš„æ–‡ä»¶æµæ‹·è´äºŒè¿›åˆ¶æ–‡ä»¶
 	 */
 	public static void copyBinaryFile(File inFile, File outFile) throws IOException {
 		System.out.println("Copy file [" + inFile.getAbsolutePath() + "] to [" + outFile.getAbsolutePath() + "] ....");
@@ -238,7 +238,7 @@ public class SourceFilePackingManager {
 	}
 
 	/**
-	 * ¿½±´Ä³¸öÄ¿Â¼ÏÂµÄËùÓĞÔ´ÎÄ¼şµ½Ä¿±êÄ¿Â¼
+	 * æ‹·è´æŸä¸ªç›®å½•ä¸‹çš„æ‰€æœ‰æºæ–‡ä»¶åˆ°ç›®æ ‡ç›®å½•
 	 */
 	private static boolean copyAllSourceFiles(String sourcePath, String destPath) throws IOException {
 		boolean indeedCopyFile = false;
@@ -262,7 +262,7 @@ public class SourceFilePackingManager {
 				
 				boolean childCopyFile = copyAllSourceFiles(sourceChildPath, destChildPath);
 				if (!childCopyFile) {
-					// ¸Ã×ÓÄ¿Â¼Êµ¼ÊÉÏÃ»ÓĞ¿½±´ÈÎºÎÔ´ÎÄ¼ş£¬É¾³ı¸Ã×ÓÄ¿Â¼£¬±ÜÃâÁôÏÂÌ«¶à¿Õ×ÓÄ¿Â¼£¡
+					// è¯¥å­ç›®å½•å®é™…ä¸Šæ²¡æœ‰æ‹·è´ä»»ä½•æºæ–‡ä»¶ï¼Œåˆ é™¤è¯¥å­ç›®å½•ï¼Œé¿å…ç•™ä¸‹å¤ªå¤šç©ºå­ç›®å½•ï¼
 					dest.delete();
 				} else indeedCopyFile = true;
 			}
@@ -274,7 +274,7 @@ public class SourceFilePackingManager {
 }
 
 /**
- * ÓÃÀ´±ê¼ÇÔ´ÎÄ¼şÄ¿Â¼½á¹¹ÖĞÊÇ·ñº¬ÓĞĞèÒªµÄÔ´ÎÄ¼ş
+ * ç”¨æ¥æ ‡è®°æºæ–‡ä»¶ç›®å½•ç»“æ„ä¸­æ˜¯å¦å«æœ‰éœ€è¦çš„æºæ–‡ä»¶
  * 
  * @author Zhou Xiaocong
  * @version 1.0
@@ -282,9 +282,9 @@ public class SourceFilePackingManager {
  *
  */
 class SourceFilesStructure {
-	String pathName = null;								// ¶ÔÓ¦µÄÄ¿Â¼Ãû£¨¼òµ¥Ãû£©
-	boolean flag = false;								// ±ê¼Ç¶ÔÓ¦µÄÄ¿Â¼ÊÇ·ñÓĞĞèÒªµÄÔ´ÎÄ¼ş
-	ArrayList<SourceFilesStructure> children = null;	// ×ÓÄ¿Â¼µÄ½á¹¹
+	String pathName = null;								// å¯¹åº”çš„ç›®å½•åï¼ˆç®€å•åï¼‰
+	boolean flag = false;								// æ ‡è®°å¯¹åº”çš„ç›®å½•æ˜¯å¦æœ‰éœ€è¦çš„æºæ–‡ä»¶
+	ArrayList<SourceFilesStructure> children = null;	// å­ç›®å½•çš„ç»“æ„
 	
 	public SourceFilesStructure(String pathName) {
 		this.pathName = pathName;

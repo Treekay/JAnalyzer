@@ -7,7 +7,7 @@ import measurement.measure.SoftwareMeasureIdentifier;
  * A class to calculate the metric CBO
  * 
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ24ÈÕ
+ * @since 2015å¹´08æœˆ24æ—¥
  * @update 2015/10/12, Zhou Xiaocong
  *
  */

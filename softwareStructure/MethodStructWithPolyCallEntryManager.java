@@ -13,7 +13,7 @@ import nameTable.nameDefinition.MethodDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ11ÈÕ
+ * @since 2016å¹´4æœˆ11æ—¥
  * @version 1.0
  */
 public class MethodStructWithPolyCallEntryManager extends MethodStructEntryManager {

@@ -2,7 +2,7 @@ package measurement.measure;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ19ÈÕ
+ * @since 2015å¹´9æœˆ19æ—¥
  * @version 1.0
  */
 public enum MeasureObjectKind {

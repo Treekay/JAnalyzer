@@ -8,7 +8,7 @@ import nameTable.nameScope.NameScope;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ11ÈÕ
+ * @since 2015å¹´7æœˆ11æ—¥
  * @version 1.0
  */
 public class ClassMeasureDistribution extends NameScopeMeasureDistribution {

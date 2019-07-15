@@ -24,7 +24,7 @@ import nameTable.nameScope.SystemScope;
  * A visitor to get all definitions in the accepted scope and its sub-scope 
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ24ÈÕ
+ * @since 2015å¹´6æœˆ24æ—¥
  * @version 1.0
  */
 public class NameDefinitionVisitor extends NameTableVisitor {

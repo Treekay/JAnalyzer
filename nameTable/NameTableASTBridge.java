@@ -31,7 +31,7 @@ import sourceCodeAST.SourceCodeLocation;
  * or creating references for AST nodes.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  * 
  * @update 2018/06/05

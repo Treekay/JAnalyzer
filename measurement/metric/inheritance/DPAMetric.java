@@ -15,7 +15,7 @@ import softwareStructure.SoftwareStructManager;
  * <p>Note that we do not consider the metric DPA for interface, which will be always 0
  *   
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ14ÈÕ
+ * @since 2015å¹´10æœˆ14æ—¥
  * @version 1.0
  */
 public class DPAMetric extends SoftwareInheritanceMetric {

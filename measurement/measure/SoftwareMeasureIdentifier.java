@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * This class defines the frequently used software measure identifiers
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ2ÈÕ
+ * @since 2015å¹´7æœˆ2æ—¥
  * @version 1.0
  */
 public class SoftwareMeasureIdentifier {
@@ -197,7 +197,7 @@ public class SoftwareMeasureIdentifier {
 		new SoftwareMeasureDetailedInformation(CC, MeasureScaleKind.MSK_INTERVAL,
 				"Defined by Bonja and Kidanmariam using the similarity between two methods"),
 		new SoftwareMeasureDetailedInformation(SCOM, MeasureScaleKind.MSK_INTERVAL,
-				"Defined by FernandezºÍPena using the similarity between two methods"),
+				"Defined by Fernandezå’ŒPena using the similarity between two methods"),
 		new SoftwareMeasureDetailedInformation(LSCC, MeasureScaleKind.MSK_INTERVAL,
 				"Defined by Dallal and Briand using the similarity between two methods"),
 		new SoftwareMeasureDetailedInformation(ICH, MeasureScaleKind.MSK_INTERVAL,

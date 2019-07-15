@@ -7,7 +7,7 @@ import sourceCodeAST.SourceCodeLocation;
  * A class represents an anonymous class definition
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ13ÈÕ
+ * @since 2016å¹´11æœˆ13æ—¥
  * @version 1.0
  *
  */

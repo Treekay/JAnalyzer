@@ -27,7 +27,7 @@ import sourceCodeAST.SourceCodeLocation;
  * to pre-defined formation.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ14ÈÕ
+ * @since 2016å¹´11æœˆ14æ—¥
  * @version 1.0
  *
  */

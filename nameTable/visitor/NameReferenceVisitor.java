@@ -18,7 +18,7 @@ import nameTable.nameScope.SystemScope;
  * A visitor to visit all references stored in scopes.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ14ÈÕ
+ * @since 2016å¹´11æœˆ14æ—¥
  * @version 1.0
  *
  */

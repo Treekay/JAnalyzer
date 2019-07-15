@@ -6,7 +6,7 @@ import measurement.measure.SoftwareMeasure;
  * A class to calculate the metric DIT, which is the length from this class to the root (i.e. the class Object). 
  * The value will be always >= 1. 
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ2ÈÕ
+ * @since 2015å¹´9æœˆ2æ—¥
  * @version 1.0
  * @update 2015/10/14, Zhou Xiaocong
  */

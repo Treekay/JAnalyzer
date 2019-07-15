@@ -35,7 +35,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 		
 	/**
-	 * ¼òµ¥·ÃÎÊ Annotation¼°Æä×Ó½Úµã
+	 * ç®€å•è®¿é—® AnnotationåŠå…¶å­èŠ‚ç‚¹
 	 */
 	public boolean visit(AnnotationTypeDeclaration node) {
 		buffer.append("\n");
@@ -43,7 +43,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 	
 	/**
-	 * ¼òµ¥·ÃÎÊ  Annotation¼°Æä×Ó½Úµã
+	 * ç®€å•è®¿é—®  AnnotationåŠå…¶å­èŠ‚ç‚¹
 	 */
 	public boolean visit(AnnotationTypeMemberDeclaration node) {
 		buffer.append("\n");
@@ -51,7 +51,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 	
 	/**
-	 * ÔİÊ±²»·ÃÎÊÄäÃûÀà¼°Æä×Ó½Úµã
+	 * æš‚æ—¶ä¸è®¿é—®åŒ¿åç±»åŠå…¶å­èŠ‚ç‚¹
 	 */
 	public boolean visit(AnonymousClassDeclaration node) {
 		buffer.append("\n");
@@ -59,7 +59,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 	
 	/**
-	 * ·ÃÎÊÊı×é·ÃÎÊ½Úµã
+	 * è®¿é—®æ•°ç»„è®¿é—®èŠ‚ç‚¹
 	 */
 	public boolean visit(ArrayAccess node) {
 		buffer.append("\n");
@@ -67,7 +67,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊÊı×é´´½¨½Úµã
+	 * è®¿é—®æ•°ç»„åˆ›å»ºèŠ‚ç‚¹
 	 */
 	public boolean visit(ArrayCreation node) {
 		buffer.append("\n");
@@ -75,7 +75,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊÊı×é³õÊ¼»¯½Úµã
+	 * è®¿é—®æ•°ç»„åˆå§‹åŒ–èŠ‚ç‚¹
 	 */
 	public boolean visit(ArrayInitializer node) {
 		buffer.append("\n");
@@ -83,7 +83,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊÊı×éÀàĞÍ½Úµã
+	 * è®¿é—®æ•°ç»„ç±»å‹èŠ‚ç‚¹
 	 */
 	public boolean visit(ArrayType node) {
 		buffer.append("\n");
@@ -91,7 +91,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/** 
-	 * ·ÃÎÊ¶ÏÑÔÓï¾ä½Úµã
+	 * è®¿é—®æ–­è¨€è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(AssertStatement node) {
 		buffer.append("\n");
@@ -99,7 +99,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ¸³ÖµÓï¾ä½Úµã
+	 * è®¿é—®èµ‹å€¼è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(Assignment node) {
 		buffer.append("\n");
@@ -107,7 +107,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ¿éÓï¾ä½Úµã
+	 * è®¿é—®å—è¯­å¥èŠ‚ç‚¹
 	 */ 
 	public boolean visit(Block node) {
 		buffer.append("\n");
@@ -115,7 +115,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ×¢ÊÍ¿é½Úµã
+	 * è®¿é—®æ³¨é‡Šå—èŠ‚ç‚¹
 	 */
 	public boolean visit(BlockComment node) {
 		this.buffer.append("/* Comments */\n");
@@ -123,7 +123,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ²¼¶û³£Á¿½Úµã
+	 * è®¿é—®å¸ƒå°”å¸¸é‡èŠ‚ç‚¹
 	 */
 	public boolean visit(BooleanLiteral node) {
 		if (node.booleanValue() == true) this.buffer.append("{true}\n");
@@ -133,7 +133,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ break Óï¾ä½Úµã
+	 * è®¿é—® break è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(BreakStatement node) {
 		buffer.append("{break}\n");
@@ -141,7 +141,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/** 
-	 * ·ÃÎÊÀàĞÍ×ª»»±í´ïÊ½½Úµã
+	 * è®¿é—®ç±»å‹è½¬æ¢è¡¨è¾¾å¼èŠ‚ç‚¹
 	 */
 	public boolean visit(CastExpression node) {
 		buffer.append("\n");
@@ -149,7 +149,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ catch Óï¾ä¿é
+	 * è®¿é—® catch è¯­å¥å—
 	 */
 	public boolean visit(CatchClause node) {
 		buffer.append("\n");
@@ -157,7 +157,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ×Ö·û³£Á¿½Úµã
+	 * è®¿é—®å­—ç¬¦å¸¸é‡èŠ‚ç‚¹
 	 */
 	public boolean visit(CharacterLiteral node) {
 		this.buffer.append("{" + node.getEscapedValue()+"}\n");
@@ -170,7 +170,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ¸ù½Úµã
+	 * è®¿é—®æ ¹èŠ‚ç‚¹
 	 */
 	public boolean visit(CompilationUnit node) {
 		buffer.append("\n");
@@ -178,7 +178,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 	
 	/**
-	 * ·ÃÎÊÌõ¼ş±í´ïÊ½½Úµã
+	 * è®¿é—®æ¡ä»¶è¡¨è¾¾å¼èŠ‚ç‚¹
 	 */
 	public boolean visit(ConditionalExpression node) {
 		buffer.append("\n");
@@ -186,7 +186,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ¹¹Ôì·½·¨µ÷ÓÃ½Úµã
+	 * è®¿é—®æ„é€ æ–¹æ³•è°ƒç”¨èŠ‚ç‚¹
 	 */
 	public boolean visit(ConstructorInvocation node) {
 		buffer.append("\n");
@@ -194,7 +194,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ continue Óï¾ä½Úµã
+	 * è®¿é—® continue è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(ContinueStatement node) {
 		buffer.append("{continue}\n");
@@ -202,7 +202,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ do Óï¾ä½Úµã
+	 * è®¿é—® do è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(DoStatement node) {
 		buffer.append("\n");
@@ -210,14 +210,14 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ¿ÕÓï¾ä½Úµã
+	 * è®¿é—®ç©ºè¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(EmptyStatement node) {
 		return false;
 	}
 
 	/**
-	 * ·ÃÎÊÔöÇ¿µÄ for Ñ­»·Óï¾ä½Úµã
+	 * è®¿é—®å¢å¼ºçš„ for å¾ªç¯è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(EnhancedForStatement node) {
 		buffer.append("\n");
@@ -225,7 +225,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ³£Á¿Ã¶¾ÙÉùÃ÷Óï¾ä½Úµã
+	 * è®¿é—®å¸¸é‡æšä¸¾å£°æ˜è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(EnumConstantDeclaration node) {
 		buffer.append("\n");
@@ -233,7 +233,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/** 
-	 * ·ÃÎÊÃ¶¾ÙÉùÃ÷Óï¾ä½Úµã
+	 * è®¿é—®æšä¸¾å£°æ˜è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(EnumDeclaration node) {
 		buffer.append("\n");
@@ -242,7 +242,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ±í´ïÊ½Óï¾ä½Úµã
+	 * è®¿é—®è¡¨è¾¾å¼è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(ExpressionStatement node) {
 		buffer.append("\n");
@@ -250,7 +250,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ×Ö¶Î·ÃÎÊÓï¾ä½Úµã
+	 * è®¿é—®å­—æ®µè®¿é—®è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(FieldAccess node) {
 		buffer.append("\n");
@@ -258,7 +258,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ×Ö¶ÎÉùÃ÷Óï¾ä½Úµã 
+	 * è®¿é—®å­—æ®µå£°æ˜è¯­å¥èŠ‚ç‚¹ 
 	 */
 	public boolean visit(FieldDeclaration node) {
 		buffer.append("\n");
@@ -266,7 +266,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ for Ñ­»·Óï¾ä½Úµã
+	 * è®¿é—® for å¾ªç¯è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(ForStatement node) {
 		buffer.append("\n");
@@ -274,7 +274,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ if Óï¾ä½Úµã
+	 * è®¿é—® if è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(IfStatement node) {
 		buffer.append("\n");
@@ -282,7 +282,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ import Óï¾ä½Úµã
+	 * è®¿é—® import è¯­å¥èŠ‚ç‚¹
 	 */
 	@SuppressWarnings("deprecation")
 	public boolean visit(ImportDeclaration node) {
@@ -297,7 +297,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊÖĞ×º±í´ïÊ½½Úµã
+	 * è®¿é—®ä¸­ç¼€è¡¨è¾¾å¼èŠ‚ç‚¹
 	 */
 	public boolean visit(InfixExpression node) {
 		buffer.append("{" + node.getOperator().toString() + "}\n");
@@ -305,7 +305,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ instanceof ±í´ïÊ½Óï¾ä½Úµã
+	 * è®¿é—® instanceof è¡¨è¾¾å¼è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(InstanceofExpression node) {
 		buffer.append("{ instanceof }\n");
@@ -313,7 +313,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ³õÊ¼»¯Óï¾ä½Úµã
+	 * è®¿é—®åˆå§‹åŒ–è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(Initializer node) {
 		buffer.append("\n");
@@ -325,7 +325,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ´ø±êÇ©Óï¾ä½Úµã
+	 * è®¿é—®å¸¦æ ‡ç­¾è¯­å¥èŠ‚ç‚¹
 	 */
 	public boolean visit(LabeledStatement node) {
 		buffer.append("\n");
@@ -333,7 +333,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊĞĞ×¢ÊÍ½Úµã
+	 * è®¿é—®è¡Œæ³¨é‡ŠèŠ‚ç‚¹
 	 */
 	public boolean visit(LineComment node) {
 		return false;
@@ -341,7 +341,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 
 
 	/**
-	 * ·ÃÎÊ±ê¼Ç½Úµã
+	 * è®¿é—®æ ‡è®°èŠ‚ç‚¹
 	 */
 	public boolean visit(MarkerAnnotation node) {
 		buffer.append("\n");
@@ -370,7 +370,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ·ÃÎÊÉùÃ÷½Úµã
+	 * è®¿é—®è®¿é—®å£°æ˜èŠ‚ç‚¹
 	 */
 	public boolean visit(MethodDeclaration node) {
 		buffer.append("\n");
@@ -378,7 +378,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ·½·¨µ÷ÓÃ½Úµã
+	 * è®¿é—®æ–¹æ³•è°ƒç”¨èŠ‚ç‚¹
 	 */
 	public boolean visit(MethodInvocation node) {
 		buffer.append("\n");
@@ -386,7 +386,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * Ç°ÃæÒÑ¾­´¦ÀíÏñ public, static ÕâÑùµÄĞŞÊÎ´Ê½Úµã£¬ÕâÀï²»ÔÙ·ÃÎÊ£¡
+	 * å‰é¢å·²ç»å¤„ç†åƒ public, static è¿™æ ·çš„ä¿®é¥°è¯èŠ‚ç‚¹ï¼Œè¿™é‡Œä¸å†è®¿é—®ï¼
 	 */
 	public boolean visit(Modifier node) {
 		return false;
@@ -585,14 +585,14 @@ public class SimpleASTVisitor extends ASTVisitor {
 	
 
 	/**
-	 * Éú³É·ÃÎÊ AST ½ÚµãÊ±£¬ÔÚ·ÃÎÊ½ÚµãµÄ×Ó½ÚµãÖ®Ç°Ó¦¸ÃÉú³ÉµÄ×Ö·û´®
+	 * ç”Ÿæˆè®¿é—® AST èŠ‚ç‚¹æ—¶ï¼Œåœ¨è®¿é—®èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ä¹‹å‰åº”è¯¥ç”Ÿæˆçš„å­—ç¬¦ä¸²
 	 */
 	private String generatePrefixString(ASTNode node) {
 		return getIndentString() + getLineString(node) + getSimpleClassName(node) + getModifierString(node);
 	}
 	
 	/**
-	 * ¼ÆËã¸Ã½ÚµãÓ¦¸ÃËõ½ø¶àÉÙ£¡
+	 * è®¡ç®—è¯¥èŠ‚ç‚¹åº”è¯¥ç¼©è¿›å¤šå°‘ï¼
 	 */
 	private String getIndentString() {
 		final String indentSpace = "    ";
@@ -603,14 +603,14 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 
 	/**
-	 * ·µ»Ø¸Ã½ÚµãËùÔÚ±àÒëµ¥Ôª£¨JavaÔ´ÎÄ¼ş£©ËùÔÚµÄĞĞºÅ£¡
+	 * è¿”å›è¯¥èŠ‚ç‚¹æ‰€åœ¨ç¼–è¯‘å•å…ƒï¼ˆJavaæºæ–‡ä»¶ï¼‰æ‰€åœ¨çš„è¡Œå·ï¼
 	 */
 	private String getLineString(ASTNode node) {
 		return root.getLineNumber(node.getStartPosition()) + " ";
 	}
 	
 	/**
-	 * ·µ»Ø¸Ã½ÚµãµÄÒ»Ğ©ĞŞÊÎ·û£¬Èçpublic, static, final µÈµÈ
+	 * è¿”å›è¯¥èŠ‚ç‚¹çš„ä¸€äº›ä¿®é¥°ç¬¦ï¼Œå¦‚public, static, final ç­‰ç­‰
 	 */
 	private String getModifierString(ASTNode node) {
 		String modifiers = "";
@@ -633,7 +633,7 @@ public class SimpleASTVisitor extends ASTVisitor {
 	}
 	
 	/** 
-	 * ·µ»Ø½ÚµãËùÊôµÄÀàÃû
+	 * è¿”å›èŠ‚ç‚¹æ‰€å±çš„ç±»å
 	 */
 	private String getSimpleClassName(ASTNode node) {
 		String className = node.getClass().getName();

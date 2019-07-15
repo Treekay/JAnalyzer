@@ -6,7 +6,7 @@ import nameTable.nameScope.NameScope;
  * A class represents a imported static member
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ5ÈÕ
+ * @since 2016å¹´11æœˆ5æ—¥
  * @version 1.0
  *
  */

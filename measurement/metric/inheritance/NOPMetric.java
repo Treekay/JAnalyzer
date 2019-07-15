@@ -9,7 +9,7 @@ import nameTable.nameDefinition.DetailedTypeDefinition;
  * A class to calculate the metric NOP, the number of parents including extended class and implemented interfaces
  * 
  * @author Wu Zhangshen
- * @since 2015Äê9ÔÂ2ÈÕ
+ * @since 2015å¹´9æœˆ2æ—¥
  * @version 1.0
  * @update 2015/10/13, Zhou Xiaocong
  */

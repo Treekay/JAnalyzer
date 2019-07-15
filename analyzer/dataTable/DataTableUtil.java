@@ -20,7 +20,7 @@ import util.Debug;
  * A class to provide some static methods to utilize data table to generate some useful data or table
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ19ÈÕ
+ * @since 2015å¹´10æœˆ19æ—¥
  * @version 1.0
  */
 public class DataTableUtil {
@@ -178,14 +178,14 @@ public class DataTableUtil {
 	}
 
 	/**
-	 *	¸ø¶¨Ò»¸ö°Ù·Ö±ÈÊı×é  percentileArray, Éú³É double Êı×é¡¡valueArray¡¡ÖĞÖµµÄÈçÏÂ·Ö²¼Çé¿ö£º
-	 * Item    percentileArray[0]  percentileArray[1]  ...  percentileArray[n-1], percentileArray[i] ¸ø³öÒ»¸ö0µ½100Ö®¼äµÄÊı
-	 * Rank    ¸ø³övalueArrayÖĞ°´ÕÕ½µĞòÅÅÁĞµÄÅÅÇ°°Ù·ÖÖ®percentileArray[i]µÄÊı¾İµÄÅÅÃû£¬Èç¹ûpercentileArray[i] = 0£¬Ôò¶ÔÓ¦×î´óÖµ£¬´Ó¶ø Rank = 1
-	 * Value   ¸ø³övalueArrayÖĞÅÅÃûÔÚ¶ÔÓ¦ Rank µÄÊı¾İÖµ
-	 * Sum	       ¸ø³övalueArrayÖĞ´Ó×î´óÖµµ½ÅÅÃûÔÚRankµÄÊı¾İÖ®¼äµÄÖµµÄ×ÜºÍ
-	 * Ratio   ¸ø³övalueArrayÖĞ´Ó×î´óÖµµ½ÅÅÃûÔÚRankµÄÊı¾İÖ®¼äµÄÖµµÄ×ÜºÍÕ¼valueArrayÖĞËùÓĞÖµµÄ×ÜºÍµÄ±È
+	 *	ç»™å®šä¸€ä¸ªç™¾åˆ†æ¯”æ•°ç»„  percentileArray, ç”Ÿæˆ double æ•°ç»„ã€€valueArrayã€€ä¸­å€¼çš„å¦‚ä¸‹åˆ†å¸ƒæƒ…å†µï¼š
+	 * Item    percentileArray[0]  percentileArray[1]  ...  percentileArray[n-1], percentileArray[i] ç»™å‡ºä¸€ä¸ª0åˆ°100ä¹‹é—´çš„æ•°
+	 * Rank    ç»™å‡ºvalueArrayä¸­æŒ‰ç…§é™åºæ’åˆ—çš„æ’å‰ç™¾åˆ†ä¹‹percentileArray[i]çš„æ•°æ®çš„æ’åï¼Œå¦‚æœpercentileArray[i] = 0ï¼Œåˆ™å¯¹åº”æœ€å¤§å€¼ï¼Œä»è€Œ Rank = 1
+	 * Value   ç»™å‡ºvalueArrayä¸­æ’ååœ¨å¯¹åº” Rank çš„æ•°æ®å€¼
+	 * Sum	       ç»™å‡ºvalueArrayä¸­ä»æœ€å¤§å€¼åˆ°æ’ååœ¨Rankçš„æ•°æ®ä¹‹é—´çš„å€¼çš„æ€»å’Œ
+	 * Ratio   ç»™å‡ºvalueArrayä¸­ä»æœ€å¤§å€¼åˆ°æ’ååœ¨Rankçš„æ•°æ®ä¹‹é—´çš„å€¼çš„æ€»å’Œå valueArrayä¸­æ‰€æœ‰å€¼çš„æ€»å’Œçš„æ¯”
 	 * 
-	 * ×¢Òâ£¬valueArray ÖĞ·ÇdoubleÖµ£¨Ò²¼´ÊÇ Double.NaNµÄÊı¾İ£©½«×÷Îª×îĞ¡Öµ´¦Àí¡£	            
+	 * æ³¨æ„ï¼ŒvalueArray ä¸­édoubleå€¼ï¼ˆä¹Ÿå³æ˜¯ Double.NaNçš„æ•°æ®ï¼‰å°†ä½œä¸ºæœ€å°å€¼å¤„ç†ã€‚	            
 	 */
 	public static DataTableManager generatePercentileDistribution(double[] valueArray, double[] percentileArray) {
 		if (valueArray == null || percentileArray == null) return null;
@@ -256,10 +256,10 @@ public class DataTableUtil {
 	}
 
 	/**
-	 * ÔÚÊı¾İ±í dataManager ÖĞÕÒÒì³£Öµ£¬Òì³£Öµ±ê×¼ÓÉÊı¾İ±í outlierIndicator Ìá¹©¡£outlierIndicator µÄÊı¾İÁĞ Fields µÄÖµ¶ÔÓ¦ dataManager ÖĞµÄÁĞÃû£¬outlierIndicator
-	 * µÄÊı¾İÁĞ Sd2 Öµ¶ÔÓ¦Òì³£Öµ±ê×¼£¬ÀıÈçoutlierIndicatorµÄÄ³Ò»ĞĞÄÚÈİÎª£º"FLD 20.1"£¬±íÊ¾dataManagerÖĞµÄÁĞÃûÎª FLD µÄÁĞµÄÖµ´óÓÚ 20.1 µÄÊı¾İĞĞ¾ÍÊÇÒì³£Öµ¡£outlierIndicator
-	 * ¿ÉÄÜÓĞ¶à¸öÒì³£Öµ±ê×¼£¬ÕâĞ©±ê×¼Ö®¼äµÄÂß¼­¹ØÏµÊÇ¡°»ò¡±£¬¼´Ö»ÒªÂú×ãÆäÖĞÒ»Ìõ±ê×¼¾ÍÊÇÒì³£Öµ¡£ÕÒµ½µÄÒì³£ÖµĞĞ½«·ÅÔÚ·µ»ØµÄÊı¾İ±íÖĞ£¬·µ»ØÊı¾İ±íÁĞ½á¹¹ÔÚ²ÎÊı needReason Îªfalse Ê±Óë
-	 * dataManagerµÄÁĞ½á¹¹ÍêÈ«Ò»ÖÂ£¬µ±²ÎÊı needReason ÎªtrueÊ±ÔòÔö¼ÓÒ»ÁĞ"Reason"À´¼ÇÂ¼±»Ñ¡ÖĞÎªÒì³£ÖµµÄÊı¾İĞĞµÄÔ­Òò£¬¼´ËüµÄÄÄĞ©ÁĞÂú×ãÁËÒì³£Öµ±ê×¼¡£   
+	 * åœ¨æ•°æ®è¡¨ dataManager ä¸­æ‰¾å¼‚å¸¸å€¼ï¼Œå¼‚å¸¸å€¼æ ‡å‡†ç”±æ•°æ®è¡¨ outlierIndicator æä¾›ã€‚outlierIndicator çš„æ•°æ®åˆ— Fields çš„å€¼å¯¹åº” dataManager ä¸­çš„åˆ—åï¼ŒoutlierIndicator
+	 * çš„æ•°æ®åˆ— Sd2 å€¼å¯¹åº”å¼‚å¸¸å€¼æ ‡å‡†ï¼Œä¾‹å¦‚outlierIndicatorçš„æŸä¸€è¡Œå†…å®¹ä¸ºï¼š"FLD 20.1"ï¼Œè¡¨ç¤ºdataManagerä¸­çš„åˆ—åä¸º FLD çš„åˆ—çš„å€¼å¤§äº 20.1 çš„æ•°æ®è¡Œå°±æ˜¯å¼‚å¸¸å€¼ã€‚outlierIndicator
+	 * å¯èƒ½æœ‰å¤šä¸ªå¼‚å¸¸å€¼æ ‡å‡†ï¼Œè¿™äº›æ ‡å‡†ä¹‹é—´çš„é€»è¾‘å…³ç³»æ˜¯â€œæˆ–â€ï¼Œå³åªè¦æ»¡è¶³å…¶ä¸­ä¸€æ¡æ ‡å‡†å°±æ˜¯å¼‚å¸¸å€¼ã€‚æ‰¾åˆ°çš„å¼‚å¸¸å€¼è¡Œå°†æ”¾åœ¨è¿”å›çš„æ•°æ®è¡¨ä¸­ï¼Œè¿”å›æ•°æ®è¡¨åˆ—ç»“æ„åœ¨å‚æ•° needReason ä¸ºfalse æ—¶ä¸
+	 * dataManagerçš„åˆ—ç»“æ„å®Œå…¨ä¸€è‡´ï¼Œå½“å‚æ•° needReason ä¸ºtrueæ—¶åˆ™å¢åŠ ä¸€åˆ—"Reason"æ¥è®°å½•è¢«é€‰ä¸­ä¸ºå¼‚å¸¸å€¼çš„æ•°æ®è¡Œçš„åŸå› ï¼Œå³å®ƒçš„å“ªäº›åˆ—æ»¡è¶³äº†å¼‚å¸¸å€¼æ ‡å‡†ã€‚   
 	 */
 	public static DataTableManager findOutlierLines(DataTableManager dataManager, DataTableManager outlierIndicator, boolean needReason) {
 		DataTableManager resultManager = new DataTableManager("Outlier");
@@ -346,11 +346,11 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ÔÚÊı¾İ±í dataManager ²éÕÒÁĞ columnName È¡×î´óÖµºÍ×îĞ¡ÖµµÄÊı¾İĞĞ¡£²ÎÊıgroupBy Ò²ÊÇ dataManager ÖĞµÄÁĞ£¬±íÃ÷ÔÚ²éÕÒ dataManager ÖĞÁĞcolumnName È¡
-	 * ×î´óÖµ×îĞ¡ÖµÊ±ĞèÒª¸ù¾İ groupBy ÕâÒ»ÁĞµÄÖµ½øĞĞ·Ö×é£¬ÕâÊ±²ÎÊı groups Ìá¹©ÁËÁĞ groupBy ÕâÒ»ÁĞÖĞÓÃÓÚ·Ö×éµÄ²»Í¬µÄÊı¾İÖµ£¬¼´ dataManager ÖĞµÄÁĞ groupBy ¶¼µÈÓÚ groups[i] µÄ
-	 * ĞĞÎªÒ»×éÊı¾İ£¬²éÕÒÕâÒ»×éÊı¾İÖĞÁĞ columnName È¡×î´óÖµ×îĞ¡ÖµµÄÊı¾İĞĞ·Åµ½·µ»ØµÄÊı¾İ±íÖĞ¡£²ÎÊı maxMin = 0 ±íÊ¾×î´óÖµºÍ×îĞ¡Öµ¶¼Òª£¬= 1 ±íÊ¾Ö»Òª×î´óÖµ£¬= -1 ±íÊ¾Ö»Òª×îĞ¡Öµ¡£
-	 * ²ÎÊı findLineNumber ±íÊ¾Òª²éÕÒ¶àÉÙ¸ö×îÖµ£¬ÀıÈçµÈÓÚ1±íÊ¾Ö»Òª×î´óÖµºÍ/»ò×îĞ¡Öµ£¬µÈÓÚ2Ôò±íÊ¾³ıÁË×î´óÖµºÍ/»ò×îĞ¡ÖµÍâ£¬»¹Òª´Î´óÖµºÍ/»ò´ÎĞ¡ÖµµÈµÈ¡£·µ»ØµÄÊı¾İ±íÁĞ½á¹¹Óë dataManager 
-	 * ÍêÈ«ÏàÍ¬¡£ 
+	 * åœ¨æ•°æ®è¡¨ dataManager æŸ¥æ‰¾åˆ— columnName å–æœ€å¤§å€¼å’Œæœ€å°å€¼çš„æ•°æ®è¡Œã€‚å‚æ•°groupBy ä¹Ÿæ˜¯ dataManager ä¸­çš„åˆ—ï¼Œè¡¨æ˜åœ¨æŸ¥æ‰¾ dataManager ä¸­åˆ—columnName å–
+	 * æœ€å¤§å€¼æœ€å°å€¼æ—¶éœ€è¦æ ¹æ® groupBy è¿™ä¸€åˆ—çš„å€¼è¿›è¡Œåˆ†ç»„ï¼Œè¿™æ—¶å‚æ•° groups æä¾›äº†åˆ— groupBy è¿™ä¸€åˆ—ä¸­ç”¨äºåˆ†ç»„çš„ä¸åŒçš„æ•°æ®å€¼ï¼Œå³ dataManager ä¸­çš„åˆ— groupBy éƒ½ç­‰äº groups[i] çš„
+	 * è¡Œä¸ºä¸€ç»„æ•°æ®ï¼ŒæŸ¥æ‰¾è¿™ä¸€ç»„æ•°æ®ä¸­åˆ— columnName å–æœ€å¤§å€¼æœ€å°å€¼çš„æ•°æ®è¡Œæ”¾åˆ°è¿”å›çš„æ•°æ®è¡¨ä¸­ã€‚å‚æ•° maxMin = 0 è¡¨ç¤ºæœ€å¤§å€¼å’Œæœ€å°å€¼éƒ½è¦ï¼Œ= 1 è¡¨ç¤ºåªè¦æœ€å¤§å€¼ï¼Œ= -1 è¡¨ç¤ºåªè¦æœ€å°å€¼ã€‚
+	 * å‚æ•° findLineNumber è¡¨ç¤ºè¦æŸ¥æ‰¾å¤šå°‘ä¸ªæœ€å€¼ï¼Œä¾‹å¦‚ç­‰äº1è¡¨ç¤ºåªè¦æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼ï¼Œç­‰äº2åˆ™è¡¨ç¤ºé™¤äº†æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼å¤–ï¼Œè¿˜è¦æ¬¡å¤§å€¼å’Œ/æˆ–æ¬¡å°å€¼ç­‰ç­‰ã€‚è¿”å›çš„æ•°æ®è¡¨åˆ—ç»“æ„ä¸ dataManager 
+	 * å®Œå…¨ç›¸åŒã€‚ 
 	 * <p>Note that the type of the column columnName must be double or int, and the type of the column groupBy must be String
 	 * 
 	 */
@@ -430,9 +430,9 @@ public class DataTableUtil {
 	
 
 	/**
-	 * ÔÚÊı¾İ±í dataManager ²éÕÒÁĞ columnName È¡×î´óÖµºÍ×îĞ¡ÖµµÄÊı¾İĞĞ¡£²ÎÊı maxMin = 0 ±íÊ¾×î´óÖµºÍ×îĞ¡Öµ¶¼Òª£¬= 1 ±íÊ¾Ö»Òª×î´óÖµ£¬= -1 ±íÊ¾Ö»Òª×îĞ¡Öµ¡£
-	 * ²ÎÊı findLineNumber ±íÊ¾Òª²éÕÒ¶àÉÙ¸ö×îÖµ£¬ÀıÈçµÈÓÚ1±íÊ¾Ö»Òª×î´óÖµºÍ/»ò×îĞ¡Öµ£¬µÈÓÚ2Ôò±íÊ¾³ıÁË×î´óÖµºÍ/»ò×îĞ¡ÖµÍâ£¬»¹Òª´Î´óÖµºÍ/»ò´ÎĞ¡ÖµµÈµÈ¡£·µ»ØµÄÊı¾İ±íÁĞ½á¹¹Óë dataManager 
-	 * ÍêÈ«ÏàÍ¬¡£ 
+	 * åœ¨æ•°æ®è¡¨ dataManager æŸ¥æ‰¾åˆ— columnName å–æœ€å¤§å€¼å’Œæœ€å°å€¼çš„æ•°æ®è¡Œã€‚å‚æ•° maxMin = 0 è¡¨ç¤ºæœ€å¤§å€¼å’Œæœ€å°å€¼éƒ½è¦ï¼Œ= 1 è¡¨ç¤ºåªè¦æœ€å¤§å€¼ï¼Œ= -1 è¡¨ç¤ºåªè¦æœ€å°å€¼ã€‚
+	 * å‚æ•° findLineNumber è¡¨ç¤ºè¦æŸ¥æ‰¾å¤šå°‘ä¸ªæœ€å€¼ï¼Œä¾‹å¦‚ç­‰äº1è¡¨ç¤ºåªè¦æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼ï¼Œç­‰äº2åˆ™è¡¨ç¤ºé™¤äº†æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼å¤–ï¼Œè¿˜è¦æ¬¡å¤§å€¼å’Œ/æˆ–æ¬¡å°å€¼ç­‰ç­‰ã€‚è¿”å›çš„æ•°æ®è¡¨åˆ—ç»“æ„ä¸ dataManager 
+	 * å®Œå…¨ç›¸åŒã€‚ 
 	 * <p>Note that the type of the column columnName must be double or int
 	 * 
 	 */
@@ -474,10 +474,10 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ÔÚÊı¾İ±í dataManager ²éÕÒÁĞ columnName È¡×î´óÖµºÍ×îĞ¡ÖµµÄÊı¾İĞĞ¡£²ÎÊıgroupBy Ò²ÊÇ dataManager ÖĞµÄÁĞ£¬±íÃ÷ÔÚ²éÕÒ dataManager ÖĞÁĞcolumnName È¡
-	 * ×î´óÖµ×îĞ¡ÖµÊ±ĞèÒª¸ù¾İ groupBy ÕâÒ»ÁĞµÄËùÓĞ²»Í¬µÄÖµ½øĞĞ·Ö×é¡£²ÎÊı maxMin = 0 ±íÊ¾×î´óÖµºÍ×îĞ¡Öµ¶¼Òª£¬= 1 ±íÊ¾Ö»Òª×î´óÖµ£¬= -1 ±íÊ¾Ö»Òª×îĞ¡Öµ¡£
-	 * ²ÎÊı findLineNumber ±íÊ¾Òª²éÕÒ¶àÉÙ¸ö×îÖµ£¬ÀıÈçµÈÓÚ1±íÊ¾Ö»Òª×î´óÖµºÍ/»ò×îĞ¡Öµ£¬µÈÓÚ2Ôò±íÊ¾³ıÁË×î´óÖµºÍ/»ò×îĞ¡ÖµÍâ£¬»¹Òª´Î´óÖµºÍ/»ò´ÎĞ¡ÖµµÈµÈ¡£·µ»ØµÄÊı¾İ±íÁĞ½á¹¹Óë dataManager 
-	 * ÍêÈ«ÏàÍ¬¡£ 
+	 * åœ¨æ•°æ®è¡¨ dataManager æŸ¥æ‰¾åˆ— columnName å–æœ€å¤§å€¼å’Œæœ€å°å€¼çš„æ•°æ®è¡Œã€‚å‚æ•°groupBy ä¹Ÿæ˜¯ dataManager ä¸­çš„åˆ—ï¼Œè¡¨æ˜åœ¨æŸ¥æ‰¾ dataManager ä¸­åˆ—columnName å–
+	 * æœ€å¤§å€¼æœ€å°å€¼æ—¶éœ€è¦æ ¹æ® groupBy è¿™ä¸€åˆ—çš„æ‰€æœ‰ä¸åŒçš„å€¼è¿›è¡Œåˆ†ç»„ã€‚å‚æ•° maxMin = 0 è¡¨ç¤ºæœ€å¤§å€¼å’Œæœ€å°å€¼éƒ½è¦ï¼Œ= 1 è¡¨ç¤ºåªè¦æœ€å¤§å€¼ï¼Œ= -1 è¡¨ç¤ºåªè¦æœ€å°å€¼ã€‚
+	 * å‚æ•° findLineNumber è¡¨ç¤ºè¦æŸ¥æ‰¾å¤šå°‘ä¸ªæœ€å€¼ï¼Œä¾‹å¦‚ç­‰äº1è¡¨ç¤ºåªè¦æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼ï¼Œç­‰äº2åˆ™è¡¨ç¤ºé™¤äº†æœ€å¤§å€¼å’Œ/æˆ–æœ€å°å€¼å¤–ï¼Œè¿˜è¦æ¬¡å¤§å€¼å’Œ/æˆ–æ¬¡å°å€¼ç­‰ç­‰ã€‚è¿”å›çš„æ•°æ®è¡¨åˆ—ç»“æ„ä¸ dataManager 
+	 * å®Œå…¨ç›¸åŒã€‚ 
 	 * <p>Note that the type of the column columnName must be double or int, and the type of the column groupBy must be String
 	 * 
 	 */
@@ -502,12 +502,12 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ´ÓÊı¾İ±í dataManager ÖĞÑ¡ÔñÒ»Ğ©ÔÚÄ³¸ö·¶Î§Ö®ÍâµÄĞĞ¡£·¶Î§ÓÉÊı¾İ±í rangeIndicator Ö¸¶¨£¬Êı¾İ±í rangeIndicator µÄÖÁÉÙº¬ÓĞ "Fields", "Min", "Max" Õâ¼¸ÁĞ£¬
-	 * ÆäÖĞÁĞ "Fields"µÄÖµ¶ÔÓ¦Êı¾İ±í dataManager µÄÁĞÃû£¬"Min"ºÍ"Max"µÄÖµÊÇ double ÀàĞÍ¡£<b>Êı¾İ±í rangeIndicator µÄÃ¿Ò»ĞĞÊı¾İÓÃÀ´Ñ¡Ôñ dataManager ÖĞµÄ¶ÔÓ¦ÁĞ£¨ÓÉ
-	 * rangeIndicator µÄ "Fields"ÁĞÖ¸¶¨£©Ğ¡ÓÚµÈÓÚ×îĞ¡Öµ£¨ÓÉrangeIndicatorµÄ "Min"ÁĞÖ¸¶¨£©»ò´óÓÚµÈÓÚ×î´óÖµ£¨ÓÉrangeIndicatorµÄ"Max"ÁĞÖ¸¶¨£©µÄÊı¾İĞĞ</b>¡£Êı¾İ±í 
-	 * rangeIndicator ¿ÉÕë¶ÔÊı¾İ±í dataManager µÄ¶à¸öÁĞÖ¸¶¨·¶Î§£¬ËüµÄÃ¿Ò»ĞĞ¶ÔÓ¦Êı¾İ±í dataManager µÄÒ»ÁĞ£¨Ó¦ÔÚµÄ·¶Î§£©£¬µ« rangeIndicator µÄ¶à¸öĞĞËùÖ¸¶¨µÄ·¶Î§ 
-	 * Ìõ¼şÖ®¼äÊÇ<b>Óë¹ØÏµ</b>£¬¼´Êı¾İ±í dataManager ÖĞµÄÄ³Ò»ĞĞµÄÖµÔÚ rangeIndicator ËùÓĞĞĞÖ¸¶¨µÄ·¶Î§Íâ£¬Ôò¸ÃĞĞ²Å»á±»Ñ¡ÖĞ¡£Ñ¡ÖĞµÄĞĞ·Åµ½·µ»ØµÄ½á¹ûÊı
-	 * ¾İ±í¡£·µ»ØµÄ½á¹ûÊı¾İ±íÓë dataManager ÓĞÍêÈ«ÏàÍ¬µÄ½á¹¹£¨Ö»ÊÇĞĞÊÇÑ¡ÖĞµÄĞĞ¶øÒÑ£©¡£ 
+	 * ä»æ•°æ®è¡¨ dataManager ä¸­é€‰æ‹©ä¸€äº›åœ¨æŸä¸ªèŒƒå›´ä¹‹å¤–çš„è¡Œã€‚èŒƒå›´ç”±æ•°æ®è¡¨ rangeIndicator æŒ‡å®šï¼Œæ•°æ®è¡¨ rangeIndicator çš„è‡³å°‘å«æœ‰ "Fields", "Min", "Max" è¿™å‡ åˆ—ï¼Œ
+	 * å…¶ä¸­åˆ— "Fields"çš„å€¼å¯¹åº”æ•°æ®è¡¨ dataManager çš„åˆ—åï¼Œ"Min"å’Œ"Max"çš„å€¼æ˜¯ double ç±»å‹ã€‚<b>æ•°æ®è¡¨ rangeIndicator çš„æ¯ä¸€è¡Œæ•°æ®ç”¨æ¥é€‰æ‹© dataManager ä¸­çš„å¯¹åº”åˆ—ï¼ˆç”±
+	 * rangeIndicator çš„ "Fields"åˆ—æŒ‡å®šï¼‰å°äºç­‰äºæœ€å°å€¼ï¼ˆç”±rangeIndicatorçš„ "Min"åˆ—æŒ‡å®šï¼‰æˆ–å¤§äºç­‰äºæœ€å¤§å€¼ï¼ˆç”±rangeIndicatorçš„"Max"åˆ—æŒ‡å®šï¼‰çš„æ•°æ®è¡Œ</b>ã€‚æ•°æ®è¡¨ 
+	 * rangeIndicator å¯é’ˆå¯¹æ•°æ®è¡¨ dataManager çš„å¤šä¸ªåˆ—æŒ‡å®šèŒƒå›´ï¼Œå®ƒçš„æ¯ä¸€è¡Œå¯¹åº”æ•°æ®è¡¨ dataManager çš„ä¸€åˆ—ï¼ˆåº”åœ¨çš„èŒƒå›´ï¼‰ï¼Œä½† rangeIndicator çš„å¤šä¸ªè¡Œæ‰€æŒ‡å®šçš„èŒƒå›´ 
+	 * æ¡ä»¶ä¹‹é—´æ˜¯<b>ä¸å…³ç³»</b>ï¼Œå³æ•°æ®è¡¨ dataManager ä¸­çš„æŸä¸€è¡Œçš„å€¼åœ¨ rangeIndicator æ‰€æœ‰è¡ŒæŒ‡å®šçš„èŒƒå›´å¤–ï¼Œåˆ™è¯¥è¡Œæ‰ä¼šè¢«é€‰ä¸­ã€‚é€‰ä¸­çš„è¡Œæ”¾åˆ°è¿”å›çš„ç»“æœæ•°
+	 * æ®è¡¨ã€‚è¿”å›çš„ç»“æœæ•°æ®è¡¨ä¸ dataManager æœ‰å®Œå…¨ç›¸åŒçš„ç»“æ„ï¼ˆåªæ˜¯è¡Œæ˜¯é€‰ä¸­çš„è¡Œè€Œå·²ï¼‰ã€‚ 
 	 */
 	public static DataTableManager selectDataLinesOutOfRange(DataTableManager dataManager, DataTableManager rangeIndicator) {
 		DataLineDefaultFilter filter = new DataLineDefaultFilter();
@@ -534,12 +534,12 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ´ÓÊı¾İ±í dataManager ÖĞÑ¡ÔñÒ»Ğ©ÔÚÄ³¸ö·¶Î§Ö®ÍâµÄĞĞ¡£·¶Î§ÓÉÊı¾İ±í rangeIndicator Ö¸¶¨£¬Êı¾İ±í rangeIndicator µÄÖÁÉÙº¬ÓĞ "Fields", "Min", "Max" Õâ¼¸ÁĞ£¬
-	 * ÆäÖĞÁĞ "Fields"µÄÖµ¶ÔÓ¦Êı¾İ±í dataManager µÄÁĞÃû£¬"Min"ºÍ"Max"µÄÖµÊÇ double ÀàĞÍ¡£<b>Êı¾İ±í rangeIndicator µÄÃ¿Ò»ĞĞÊı¾İÓÃÀ´Ñ¡Ôñ dataManager ÖĞµÄ¶ÔÓ¦ÁĞ£¨ÓÉ
-	 * rangeIndicator µÄ "Fields"ÁĞÖ¸¶¨£©Ğ¡ÓÚµÈÓÚ×îĞ¡Öµ£¨ÓÉrangeIndicatorµÄ "Min"ÁĞÖ¸¶¨£©»ò´óÓÚµÈÓÚ×î´óÖµ£¨ÓÉrangeIndicatorµÄ"Max"ÁĞÖ¸¶¨£©µÄÊı¾İĞĞ</b>¡£Êı¾İ±í 
-	 * rangeIndicator ¿ÉÕë¶ÔÊı¾İ±í dataManager µÄ¶à¸öÁĞÖ¸¶¨·¶Î§£¬ËüµÄÃ¿Ò»ĞĞ¶ÔÓ¦Êı¾İ±í dataManager µÄÒ»ÁĞ£¨Ó¦ÔÚµÄ·¶Î§£©£¬µ« rangeIndicator µÄ¶à¸öĞĞËùÖ¸¶¨µÄ·¶Î§ 
-	 * Ìõ¼şÖ®¼äÊÇ<b>Óë¹ØÏµ</b>£¬¼´Êı¾İ±í dataManager ÖĞµÄÄ³Ò»ĞĞµÄÖµÔÚ rangeIndicator ËùÓĞĞĞÖ¸¶¨µÄ·¶Î§Íâ£¬Ôò¸ÃĞĞ²Å»á±»Ñ¡ÖĞ¡£
-	 * <p>Õâ¸ö·½·¨·µ»ØÑ¡ÖĞµÄĞĞµÄÏÂ±êËù¹¹³ÉµÄÊı×é 
+	 * ä»æ•°æ®è¡¨ dataManager ä¸­é€‰æ‹©ä¸€äº›åœ¨æŸä¸ªèŒƒå›´ä¹‹å¤–çš„è¡Œã€‚èŒƒå›´ç”±æ•°æ®è¡¨ rangeIndicator æŒ‡å®šï¼Œæ•°æ®è¡¨ rangeIndicator çš„è‡³å°‘å«æœ‰ "Fields", "Min", "Max" è¿™å‡ åˆ—ï¼Œ
+	 * å…¶ä¸­åˆ— "Fields"çš„å€¼å¯¹åº”æ•°æ®è¡¨ dataManager çš„åˆ—åï¼Œ"Min"å’Œ"Max"çš„å€¼æ˜¯ double ç±»å‹ã€‚<b>æ•°æ®è¡¨ rangeIndicator çš„æ¯ä¸€è¡Œæ•°æ®ç”¨æ¥é€‰æ‹© dataManager ä¸­çš„å¯¹åº”åˆ—ï¼ˆç”±
+	 * rangeIndicator çš„ "Fields"åˆ—æŒ‡å®šï¼‰å°äºç­‰äºæœ€å°å€¼ï¼ˆç”±rangeIndicatorçš„ "Min"åˆ—æŒ‡å®šï¼‰æˆ–å¤§äºç­‰äºæœ€å¤§å€¼ï¼ˆç”±rangeIndicatorçš„"Max"åˆ—æŒ‡å®šï¼‰çš„æ•°æ®è¡Œ</b>ã€‚æ•°æ®è¡¨ 
+	 * rangeIndicator å¯é’ˆå¯¹æ•°æ®è¡¨ dataManager çš„å¤šä¸ªåˆ—æŒ‡å®šèŒƒå›´ï¼Œå®ƒçš„æ¯ä¸€è¡Œå¯¹åº”æ•°æ®è¡¨ dataManager çš„ä¸€åˆ—ï¼ˆåº”åœ¨çš„èŒƒå›´ï¼‰ï¼Œä½† rangeIndicator çš„å¤šä¸ªè¡Œæ‰€æŒ‡å®šçš„èŒƒå›´ 
+	 * æ¡ä»¶ä¹‹é—´æ˜¯<b>ä¸å…³ç³»</b>ï¼Œå³æ•°æ®è¡¨ dataManager ä¸­çš„æŸä¸€è¡Œçš„å€¼åœ¨ rangeIndicator æ‰€æœ‰è¡ŒæŒ‡å®šçš„èŒƒå›´å¤–ï¼Œåˆ™è¯¥è¡Œæ‰ä¼šè¢«é€‰ä¸­ã€‚
+	 * <p>è¿™ä¸ªæ–¹æ³•è¿”å›é€‰ä¸­çš„è¡Œçš„ä¸‹æ ‡æ‰€æ„æˆçš„æ•°ç»„ 
 	 */
 	public static int[] indexOfSelectedDataLinesOutOfRange(DataTableManager dataManager, DataTableManager rangeIndicator) {
 		DataLineDefaultFilter filter = new DataLineDefaultFilter();
@@ -578,12 +578,12 @@ public class DataTableUtil {
 	}
 
 	/**
-	 * ´ÓÊı¾İ±í dataManager ÖĞÑ¡ÔñÒ»Ğ©ÔÚÄ³¸ö·¶Î§Ö®ÄÚµÄĞĞ¡£·¶Î§ÓÉÊı¾İ±í rangeIndicator Ö¸¶¨£¬Êı¾İ±í rangeIndicator µÄÖÁÉÙº¬ÓĞ "Fields", "Min", "Max" Õâ¼¸ÁĞ£¬
-	 * ÆäÖĞÁĞ "Fields"µÄÖµ¶ÔÓ¦Êı¾İ±í dataManager µÄÁĞÃû£¬"Min"ºÍ"Max"µÄÖµÊÇ double ÀàĞÍ¡£<b>Êı¾İ±í rangeIndicator µÄÃ¿Ò»ĞĞÊı¾İÓÃÀ´Ñ¡Ôñ dataManager ÖĞµÄ¶ÔÓ¦ÁĞ£¨ÓÉ
-	 * rangeIndicator µÄ "Fields"ÁĞÖ¸¶¨£©´óÓÚµÈÓÚ×îĞ¡Öµ£¨ÓÉrangeIndicatorµÄ "Min"ÁĞÖ¸¶¨£©ÇÒĞ¡ÓÚµÈÓÚ×î´óÖµ£¨ÓÉrangeIndicatorµÄ"Max"ÁĞÖ¸¶¨£©µÄÊı¾İĞĞ</b>¡£Êı¾İ±í 
-	 * rangeIndicator ¿ÉÕë¶ÔÊı¾İ±í dataManager µÄ¶à¸öÁĞÖ¸¶¨·¶Î§£¬ËüµÄÃ¿Ò»ĞĞ¶ÔÓ¦Êı¾İ±í dataManager µÄÒ»ÁĞ£¨Ó¦ÔÚµÄ·¶Î§£©£¬µ« rangeIndicator µÄ¶à¸öĞĞËùÖ¸¶¨µÄ·¶Î§ 
-	 * Ìõ¼şÖ®¼äÊÇ<b>Óë¹ØÏµ</b>£¬¶ø·Ç»ò¹ØÏµ£¬¼´Êı¾İ±í dataManager ÖĞÄ³Ò»ĞĞÏàÓ¦µÄÁĞ¶¼Âú×ã rangeIndicator Ö¸¶¨µÄ·¶Î§ÄÚ£¬¸ÃĞĞ²Å»á±»Ñ¡ÖĞ¡£Ñ¡ÖĞµÄĞĞ·Åµ½·µ»ØµÄ½á¹ûÊı
-	 * ¾İ±í¡£·µ»ØµÄ½á¹ûÊı¾İ±íÓë dataManager ÓĞÍêÈ«ÏàÍ¬µÄ½á¹¹£¨Ö»ÊÇĞĞÊÇÑ¡ÖĞµÄĞĞ¶øÒÑ£©¡£ 
+	 * ä»æ•°æ®è¡¨ dataManager ä¸­é€‰æ‹©ä¸€äº›åœ¨æŸä¸ªèŒƒå›´ä¹‹å†…çš„è¡Œã€‚èŒƒå›´ç”±æ•°æ®è¡¨ rangeIndicator æŒ‡å®šï¼Œæ•°æ®è¡¨ rangeIndicator çš„è‡³å°‘å«æœ‰ "Fields", "Min", "Max" è¿™å‡ åˆ—ï¼Œ
+	 * å…¶ä¸­åˆ— "Fields"çš„å€¼å¯¹åº”æ•°æ®è¡¨ dataManager çš„åˆ—åï¼Œ"Min"å’Œ"Max"çš„å€¼æ˜¯ double ç±»å‹ã€‚<b>æ•°æ®è¡¨ rangeIndicator çš„æ¯ä¸€è¡Œæ•°æ®ç”¨æ¥é€‰æ‹© dataManager ä¸­çš„å¯¹åº”åˆ—ï¼ˆç”±
+	 * rangeIndicator çš„ "Fields"åˆ—æŒ‡å®šï¼‰å¤§äºç­‰äºæœ€å°å€¼ï¼ˆç”±rangeIndicatorçš„ "Min"åˆ—æŒ‡å®šï¼‰ä¸”å°äºç­‰äºæœ€å¤§å€¼ï¼ˆç”±rangeIndicatorçš„"Max"åˆ—æŒ‡å®šï¼‰çš„æ•°æ®è¡Œ</b>ã€‚æ•°æ®è¡¨ 
+	 * rangeIndicator å¯é’ˆå¯¹æ•°æ®è¡¨ dataManager çš„å¤šä¸ªåˆ—æŒ‡å®šèŒƒå›´ï¼Œå®ƒçš„æ¯ä¸€è¡Œå¯¹åº”æ•°æ®è¡¨ dataManager çš„ä¸€åˆ—ï¼ˆåº”åœ¨çš„èŒƒå›´ï¼‰ï¼Œä½† rangeIndicator çš„å¤šä¸ªè¡Œæ‰€æŒ‡å®šçš„èŒƒå›´ 
+	 * æ¡ä»¶ä¹‹é—´æ˜¯<b>ä¸å…³ç³»</b>ï¼Œè€Œéæˆ–å…³ç³»ï¼Œå³æ•°æ®è¡¨ dataManager ä¸­æŸä¸€è¡Œç›¸åº”çš„åˆ—éƒ½æ»¡è¶³ rangeIndicator æŒ‡å®šçš„èŒƒå›´å†…ï¼Œè¯¥è¡Œæ‰ä¼šè¢«é€‰ä¸­ã€‚é€‰ä¸­çš„è¡Œæ”¾åˆ°è¿”å›çš„ç»“æœæ•°
+	 * æ®è¡¨ã€‚è¿”å›çš„ç»“æœæ•°æ®è¡¨ä¸ dataManager æœ‰å®Œå…¨ç›¸åŒçš„ç»“æ„ï¼ˆåªæ˜¯è¡Œæ˜¯é€‰ä¸­çš„è¡Œè€Œå·²ï¼‰ã€‚ 
 	 */
 	public static DataTableManager selectDataLinesInRange(DataTableManager dataManager, DataTableManager rangeIndicator) {
 		DataLineDefaultFilter filter = new DataLineDefaultFilter();
@@ -610,13 +610,13 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ´ÓÊı¾İ±í dataManager ÖĞÑ¡ÔñÒ»Ğ©ÔÚÄ³¸ö·¶Î§Ö®ÄÚµÄĞĞ¡£·¶Î§ÓÉÊı¾İ±í rangeIndicator Ö¸¶¨£¬Êı¾İ±í rangeIndicator µÄÖÁÉÙº¬ÓĞ "Fields", "Min", "Max" Õâ¼¸ÁĞ£¬
-	 * ÆäÖĞÁĞ "Fields"µÄÖµ¶ÔÓ¦Êı¾İ±í dataManager µÄÁĞÃû£¬"Min"ºÍ"Max"µÄÖµÊÇ double ÀàĞÍ¡£<b>Êı¾İ±í rangeIndicator µÄÃ¿Ò»ĞĞÊı¾İÓÃÀ´Ñ¡Ôñ dataManager ÖĞµÄ¶ÔÓ¦ÁĞ£¨ÓÉ
-	 * rangeIndicator µÄ "Fields"ÁĞÖ¸¶¨£©´óÓÚµÈÓÚ×îĞ¡Öµ£¨ÓÉrangeIndicatorµÄ "Min"ÁĞÖ¸¶¨£©ÇÒĞ¡ÓÚµÈÓÚ×î´óÖµ£¨ÓÉrangeIndicatorµÄ"Max"ÁĞÖ¸¶¨£©µÄÊı¾İĞĞ</b>¡£Êı¾İ±í 
-	 * rangeIndicator ¿ÉÕë¶ÔÊı¾İ±í dataManager µÄ¶à¸öÁĞÖ¸¶¨·¶Î§£¬ËüµÄÃ¿Ò»ĞĞ¶ÔÓ¦Êı¾İ±í dataManager µÄÒ»ÁĞ£¨Ó¦ÔÚµÄ·¶Î§£©£¬µ« rangeIndicator µÄ¶à¸öĞĞËùÖ¸¶¨µÄ·¶Î§ 
-	 * Ìõ¼şÖ®¼äÊÇ<b>Óë¹ØÏµ</b>£¬¶ø·Ç»ò¹ØÏµ£¬¼´Êı¾İ±í dataManager ÖĞÄ³Ò»ĞĞÏàÓ¦µÄÁĞ¶¼Âú×ã rangeIndicator Ö¸¶¨µÄ·¶Î§ÄÚ£¬¸ÃĞĞ²Å»á±»Ñ¡ÖĞ¡£Ñ¡ÖĞµÄĞĞ·Åµ½·µ»ØµÄ½á¹ûÊı
-	 * ¾İ±í¡£·µ»ØµÄ½á¹ûÊı¾İ±íÓë dataManager ÓĞÍêÈ«ÏàÍ¬µÄ½á¹¹£¨Ö»ÊÇĞĞÊÇÑ¡ÖĞµÄĞĞ¶øÒÑ£©¡£ 
-	 * <p>Õâ¸ö·½·¨·µ»ØÑ¡ÖĞµÄĞĞµÄÏÂ±êËù¹¹³ÉµÄÊı×é 
+	 * ä»æ•°æ®è¡¨ dataManager ä¸­é€‰æ‹©ä¸€äº›åœ¨æŸä¸ªèŒƒå›´ä¹‹å†…çš„è¡Œã€‚èŒƒå›´ç”±æ•°æ®è¡¨ rangeIndicator æŒ‡å®šï¼Œæ•°æ®è¡¨ rangeIndicator çš„è‡³å°‘å«æœ‰ "Fields", "Min", "Max" è¿™å‡ åˆ—ï¼Œ
+	 * å…¶ä¸­åˆ— "Fields"çš„å€¼å¯¹åº”æ•°æ®è¡¨ dataManager çš„åˆ—åï¼Œ"Min"å’Œ"Max"çš„å€¼æ˜¯ double ç±»å‹ã€‚<b>æ•°æ®è¡¨ rangeIndicator çš„æ¯ä¸€è¡Œæ•°æ®ç”¨æ¥é€‰æ‹© dataManager ä¸­çš„å¯¹åº”åˆ—ï¼ˆç”±
+	 * rangeIndicator çš„ "Fields"åˆ—æŒ‡å®šï¼‰å¤§äºç­‰äºæœ€å°å€¼ï¼ˆç”±rangeIndicatorçš„ "Min"åˆ—æŒ‡å®šï¼‰ä¸”å°äºç­‰äºæœ€å¤§å€¼ï¼ˆç”±rangeIndicatorçš„"Max"åˆ—æŒ‡å®šï¼‰çš„æ•°æ®è¡Œ</b>ã€‚æ•°æ®è¡¨ 
+	 * rangeIndicator å¯é’ˆå¯¹æ•°æ®è¡¨ dataManager çš„å¤šä¸ªåˆ—æŒ‡å®šèŒƒå›´ï¼Œå®ƒçš„æ¯ä¸€è¡Œå¯¹åº”æ•°æ®è¡¨ dataManager çš„ä¸€åˆ—ï¼ˆåº”åœ¨çš„èŒƒå›´ï¼‰ï¼Œä½† rangeIndicator çš„å¤šä¸ªè¡Œæ‰€æŒ‡å®šçš„èŒƒå›´ 
+	 * æ¡ä»¶ä¹‹é—´æ˜¯<b>ä¸å…³ç³»</b>ï¼Œè€Œéæˆ–å…³ç³»ï¼Œå³æ•°æ®è¡¨ dataManager ä¸­æŸä¸€è¡Œç›¸åº”çš„åˆ—éƒ½æ»¡è¶³ rangeIndicator æŒ‡å®šçš„èŒƒå›´å†…ï¼Œè¯¥è¡Œæ‰ä¼šè¢«é€‰ä¸­ã€‚é€‰ä¸­çš„è¡Œæ”¾åˆ°è¿”å›çš„ç»“æœæ•°
+	 * æ®è¡¨ã€‚è¿”å›çš„ç»“æœæ•°æ®è¡¨ä¸ dataManager æœ‰å®Œå…¨ç›¸åŒçš„ç»“æ„ï¼ˆåªæ˜¯è¡Œæ˜¯é€‰ä¸­çš„è¡Œè€Œå·²ï¼‰ã€‚ 
+	 * <p>è¿™ä¸ªæ–¹æ³•è¿”å›é€‰ä¸­çš„è¡Œçš„ä¸‹æ ‡æ‰€æ„æˆçš„æ•°ç»„ 
 	 */
 	public static int[] indexOfSelectedDataLinesInRange(DataTableManager dataManager, DataTableManager rangeIndicator) {
 		DataLineDefaultFilter filter = new DataLineDefaultFilter();
@@ -655,7 +655,7 @@ public class DataTableUtil {
 	}
 
 	/**
-	 * ½«Êı¾İ±íµÄĞĞÁĞ×ª»»£¬Ô­À´µÄÁĞÃû×÷ÎªµÚÒ»ĞĞ£¬¶øÔ­À´µÄµÚÒ»ĞĞ×÷ÎªÁĞÃû 
+	 * å°†æ•°æ®è¡¨çš„è¡Œåˆ—è½¬æ¢ï¼ŒåŸæ¥çš„åˆ—åä½œä¸ºç¬¬ä¸€è¡Œï¼Œè€ŒåŸæ¥çš„ç¬¬ä¸€è¡Œä½œä¸ºåˆ—å 
 	 */
 	public static DataTableManager exchangeRowAndColumn(DataTableManager manager) {
 		DataTableManager result = new DataTableManager("result");
@@ -679,8 +679,8 @@ public class DataTableUtil {
 	}
 	
 	/**
-	 * ½«Êı¾İ±í table µÄÄÚÈİĞ´³É¿ÉÒÔÔÚ LaTex ×÷Îª±í¸ñÏÔÊ¾µÄÑùÊ½£¬ÆäÖĞ columnNames ÓÃÀ´Ñ¡Ôñ table ÖĞµÄÁĞ¡£mergeLine ±íÊ¾ table ÖĞµÄ¼¸ĞĞÊı¾İºÏ²¢Îª LaTex ÖĞ±í¸ñµÄÒ»ĞĞ½øĞĞ´òÓ¡£¬µ±
-	 * Ñ¡ÔñµÄ table µÄÁĞ±È½ÏÉÙµÄÊ±ºò¿ÉÒÔ¼¸ĞĞÊı¾İ´òÓ¡ÔÚ LaTex±í¸ñÖĞµÄÒ»ĞĞ¡£ 
+	 * å°†æ•°æ®è¡¨ table çš„å†…å®¹å†™æˆå¯ä»¥åœ¨ LaTex ä½œä¸ºè¡¨æ ¼æ˜¾ç¤ºçš„æ ·å¼ï¼Œå…¶ä¸­ columnNames ç”¨æ¥é€‰æ‹© table ä¸­çš„åˆ—ã€‚mergeLine è¡¨ç¤º table ä¸­çš„å‡ è¡Œæ•°æ®åˆå¹¶ä¸º LaTex ä¸­è¡¨æ ¼çš„ä¸€è¡Œè¿›è¡Œæ‰“å°ï¼Œå½“
+	 * é€‰æ‹©çš„ table çš„åˆ—æ¯”è¾ƒå°‘çš„æ—¶å€™å¯ä»¥å‡ è¡Œæ•°æ®æ‰“å°åœ¨ LaTexè¡¨æ ¼ä¸­çš„ä¸€è¡Œã€‚ 
 	 */
 	public static void writeDataLinesAsLatexTableLines(PrintWriter writer, DataTableManager table, String[] columnNames, int mergeLine) throws IOException {
 		if (columnNames == null) columnNames = table.getColumnNameArray();

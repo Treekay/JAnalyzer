@@ -14,7 +14,7 @@ import softwareStructure.SoftwareStructManager;
  * static polymorphism. 
  *   
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ14ÈÕ
+ * @since 2015å¹´10æœˆ14æ—¥
  * @version 1.0
  */
 public class SPDMetric extends SoftwareInheritanceMetric {

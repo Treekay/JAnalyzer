@@ -60,7 +60,7 @@ import sourceCodeAST.SourceCodeLocation;
  * } 
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ19ÈÕ
+ * @since 2016å¹´11æœˆ19æ—¥
  * @version 1.0
  *
  */

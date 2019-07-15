@@ -8,9 +8,9 @@ import org.eclipse.jdt.core.dom.*;
 
 public class ConciseASTVisitor extends SimpleASTVisitor {
 
-	protected boolean isInMethodReturnType = false;			// ¼ÇÂ¼ÊÇ·ñÕıÔÚ·ÃÎÊÄ³¸ö·½·¨ÉùÃ÷µÄ·µ»ØÀàĞÍ
-	// ¼ÇÂ¼µ±Ç°ÕıÔÚ·ÃÎÊµÄ·½·¨ÉùÃ÷ËùÉùÃ÷µÄ·½·¨Ãû×Ö£¬Ä¿Ç°Ö»ÓÃÒ»¸ö×Ö·û´®¼ÇÂ¼£¬´æÔÚµÄ·çÏÕÊÇ£¬¿ÉÄÜ·½·¨ÉùÃ÷ÖĞÓÖÓĞ·½·¨ÉùÃ÷£¨ÀıÈçÄÚ²¿Àà¡¢ÄäÃûÀàÖĞµÄ·½·¨£©Ê±
-	// ÓÃÒ»¸ö×Ö·û´®¼ÇÂ¼µÄ·½·¨ÉùÃ÷¿ÉÄÜÊÇ´íÎóµÄ£¡Ä¿Ç°ÔİÊ±ºöÂÔÕâÖÖÇé¿ö£¡
+	protected boolean isInMethodReturnType = false;			// è®°å½•æ˜¯å¦æ­£åœ¨è®¿é—®æŸä¸ªæ–¹æ³•å£°æ˜çš„è¿”å›ç±»å‹
+	// è®°å½•å½“å‰æ­£åœ¨è®¿é—®çš„æ–¹æ³•å£°æ˜æ‰€å£°æ˜çš„æ–¹æ³•åå­—ï¼Œç›®å‰åªç”¨ä¸€ä¸ªå­—ç¬¦ä¸²è®°å½•ï¼Œå­˜åœ¨çš„é£é™©æ˜¯ï¼Œå¯èƒ½æ–¹æ³•å£°æ˜ä¸­åˆæœ‰æ–¹æ³•å£°æ˜ï¼ˆä¾‹å¦‚å†…éƒ¨ç±»ã€åŒ¿åç±»ä¸­çš„æ–¹æ³•ï¼‰æ—¶
+	// ç”¨ä¸€ä¸ªå­—ç¬¦ä¸²è®°å½•çš„æ–¹æ³•å£°æ˜å¯èƒ½æ˜¯é”™è¯¯çš„ï¼ç›®å‰æš‚æ—¶å¿½ç•¥è¿™ç§æƒ…å†µï¼
 	protected String currentDeclareMethodName = null;		
 	protected boolean isInMethodDeclaration = false;
 	protected boolean isInMethodParameter = false;
@@ -35,7 +35,7 @@ public class ConciseASTVisitor extends SimpleASTVisitor {
 		}
 		if (isInMethodDeclaration && (node instanceof Block) && currentDeclareMethodName != null) {
 			message = "[-> Body of method {" + currentDeclareMethodName + "}]";
-			isInMethodDeclaration = false;      // Ò»µ©·ÃÎÊ¹ı¸Ã·½·¨ÌåµÄÓï¾ä¿é£¬¾Í²»ÔÙÌá¹©ÕâÖÖĞÅÏ¢£¬ÒòÎª·½·¨Ìå±¾Éí¿ÉÄÜÓĞºÜ¶à¿éÓï¾ä£¡
+			isInMethodDeclaration = false;      // ä¸€æ—¦è®¿é—®è¿‡è¯¥æ–¹æ³•ä½“çš„è¯­å¥å—ï¼Œå°±ä¸å†æä¾›è¿™ç§ä¿¡æ¯ï¼Œå› ä¸ºæ–¹æ³•ä½“æœ¬èº«å¯èƒ½æœ‰å¾ˆå¤šå—è¯­å¥ï¼
 			return message;
 		}
 		if (isInMethodParameter && (node instanceof SingleVariableDeclaration) && currentDeclareMethodName != null) {
@@ -86,7 +86,7 @@ public class ConciseASTVisitor extends SimpleASTVisitor {
 		}
 		
 		for (Iterator<?> it = node.arguments().iterator(); it.hasNext(); ) {
-			// ÒòÎªÊµ¼Ê²ÎÊıÖÖ¿ÉÄÜ»¹ÓĞ·½·¨µ÷ÓÃ¼°Êµ²Î´«µİ£¬ËùÒÔÕâÀïÒªÃ¿´Î¶¼ÉèÖÃ isInMethodCallParameter Õâ¸ö±êÖ¾£¡
+			// å› ä¸ºå®é™…å‚æ•°ç§å¯èƒ½è¿˜æœ‰æ–¹æ³•è°ƒç”¨åŠå®å‚ä¼ é€’ï¼Œæ‰€ä»¥è¿™é‡Œè¦æ¯æ¬¡éƒ½è®¾ç½® isInMethodCallParameter è¿™ä¸ªæ ‡å¿—ï¼
 			isInMethodCallParameter = true;
 			Expression e = (Expression) it.next();
 			if (e != null) e.accept(this);
@@ -143,7 +143,7 @@ public class ConciseASTVisitor extends SimpleASTVisitor {
 	}
 
 	/**
-	 * ·ÃÎÊ´øÇ°×º (.) µÄÃû×Ö£¬ÎÒÃÇÏ£ÍûµÃµ½ËüµÄÈ«Ãû£¬È»ºó²»ÔÙ·ÃÎÊÆä×Ó½Úµã
+	 * è®¿é—®å¸¦å‰ç¼€ (.) çš„åå­—ï¼Œæˆ‘ä»¬å¸Œæœ›å¾—åˆ°å®ƒçš„å…¨åï¼Œç„¶åä¸å†è®¿é—®å…¶å­èŠ‚ç‚¹
 	 */
 	public boolean visit(QualifiedName node) {
 		buffer.append("{" + getFullName(node) + "}\n");
@@ -209,26 +209,26 @@ public class ConciseASTVisitor extends SimpleASTVisitor {
 	
 	
 	/**
-	 * µİ¹éµØ»ñµÃÒ»¸öÃû×Ö½ÚµãËù±íÊ¾µÄÈ«Ãû
+	 * é€’å½’åœ°è·å¾—ä¸€ä¸ªåå­—èŠ‚ç‚¹æ‰€è¡¨ç¤ºçš„å…¨å
 	 */
 	private String getFullName(Name node) {
-		if (node.isSimpleName()) return ((SimpleName)node).getIdentifier();		// ¼òµ¥Ãû×Ö½ÚµãÖ±½Ó·µ»ØËüµÄ±êÊ¾·û£¨¼´Ãû×Ö£©
+		if (node.isSimpleName()) return ((SimpleName)node).getIdentifier();		// ç®€å•åå­—èŠ‚ç‚¹ç›´æ¥è¿”å›å®ƒçš„æ ‡ç¤ºç¬¦ï¼ˆå³åå­—ï¼‰
 		else {
 			Name prefixNode = ((QualifiedName)node).getQualifier();
-			// µİ¹éµØ»ñÈ¡¸ÃÃû×ÖµÄÇ°×º
+			// é€’å½’åœ°è·å–è¯¥åå­—çš„å‰ç¼€
 			return getFullName(prefixNode) + "." + ((QualifiedName)node).getName().getIdentifier();
 		}
 	}
 	
 	/**
-	 * µİ¹éµØ»ñµÃÒ»¸öÀàĞÍ½ÚµãËù±íÊ¾µÄÀàĞÍÃû×Ö
+	 * é€’å½’åœ°è·å¾—ä¸€ä¸ªç±»å‹èŠ‚ç‚¹æ‰€è¡¨ç¤ºçš„ç±»å‹åå­—
 	 */
 	private String getFullTypeName(Type node) {
-		// ÔİÊ±°É´¦Àí³ı  QualifiedType ºÍ SimpleType ÒÔÍâµÄÇé¿ö
+		// æš‚æ—¶å§å¤„ç†é™¤  QualifiedType å’Œ SimpleType ä»¥å¤–çš„æƒ…å†µ
 		if (!node.isQualifiedType() && !node.isSimpleType()) return "";
 		if (node.isSimpleType()) {
 			Name nameNode = ((SimpleType)node).getName();
-			// ×¢Òâ SimpleType ÖĞµÄÃû×ÖÈÔÓĞ¿ÉÄÜÊÇ QualifiedName£¬ËùÒÔÊ¹ÓÃ getFullName() »ñµÃÈ«Ãû
+			// æ³¨æ„ SimpleType ä¸­çš„åå­—ä»æœ‰å¯èƒ½æ˜¯ QualifiedNameï¼Œæ‰€ä»¥ä½¿ç”¨ getFullName() è·å¾—å…¨å
 			return getFullName(nameNode); 
 		} else {
 			QualifiedType tempNode = (QualifiedType)node;

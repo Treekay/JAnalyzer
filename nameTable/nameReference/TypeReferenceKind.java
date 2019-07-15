@@ -4,7 +4,7 @@ package nameTable.nameReference;
  * an enum type to distinguish different type references
  *  
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ6ÈÕ
+ * @since 2016å¹´11æœˆ6æ—¥
  * @version 1.0
  *
  */

@@ -7,7 +7,7 @@ import softwareStructure.FieldReferenceMatrix;
  * A class to calculate the metric LSCC
  * 
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ14ÈÕ
+ * @since 2015å¹´08æœˆ14æ—¥
  * @update 2015/10/10 Zhou Xiaocong
  *
  */

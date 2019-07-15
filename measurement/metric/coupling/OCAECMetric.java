@@ -9,7 +9,7 @@ import nameTable.nameDefinition.DetailedTypeDefinition;
  * A class to calculate the metric OCAEC
  * 
  * @author Li Jingsheng
- * @since 2015Äê9ÔÂ12ÈÕ
+ * @since 2015å¹´9æœˆ12æ—¥
  * @version 1.0
  * @update 2015/10/12, Zhou Xiaocong
  * 

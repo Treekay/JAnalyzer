@@ -5,7 +5,7 @@ import nameTable.nameScope.NameScopeKind;
 
 /**
  * @author Zhou Xiaocong
- * @since 2017Äê1ÔÂ8ÈÕ
+ * @since 2017å¹´1æœˆ8æ—¥
  * @version 1.0
  *
  */

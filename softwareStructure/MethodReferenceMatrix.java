@@ -11,7 +11,7 @@ import nameTable.nameDefinition.MethodDefinition;
  * A matrix to store the relation of method-method reference, i.e. two methods direct or indirect refer to 
  * a common field.  
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ23ÈÕ
+ * @since 2015å¹´9æœˆ23æ—¥
  * @version 1.0
  */
 public class MethodReferenceMatrix {

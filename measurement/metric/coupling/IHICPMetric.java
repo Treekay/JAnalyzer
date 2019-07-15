@@ -6,7 +6,7 @@ import measurement.measure.SoftwareMeasure;
  * A class to calculate the metric IHICP 
  * 
  * @author Li Jingsheng
- * @since 2015Äê09ÔÂ14ÈÕ
+ * @since 2015å¹´09æœˆ14æ—¥
  * @update 2015/10/12, Zhou Xiaocong 
  *
  */

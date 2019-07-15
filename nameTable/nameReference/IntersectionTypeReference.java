@@ -11,7 +11,7 @@ import sourceCodeAST.SourceCodeLocation;
  * A class represents a reference referred to intersection types.
  *  
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ7ÈÕ
+ * @since 2016å¹´11æœˆ7æ—¥
  * @version 1.0
  *
  */

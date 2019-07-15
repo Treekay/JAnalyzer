@@ -11,7 +11,7 @@ import nameTable.nameDefinition.MethodDefinition;
  * A class to calculate the metric RFC
  * 
  * @author Li Jingsheng
- * @since 2015Äê09ÔÂ01ÈÕ
+ * @since 2015å¹´09æœˆ01æ—¥
  * @update 2015/10/12, Zhou Xiaocong
  *
  */

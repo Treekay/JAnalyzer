@@ -25,7 +25,7 @@ import util.Debug;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ26ÈÕ
+ * @since 2016å¹´11æœˆ26æ—¥
  * @version 1.0
  *
  */
@@ -99,7 +99,7 @@ public class TestNameTable2 {
 		PrintWriter writer = new PrintWriter(new File(resultFile));
 		
 		DataTableManager dataTable = new DataTableManager("type");
-		String[] columnNameArray = {"ÃèÊö"};
+		String[] columnNameArray = {"æè¿°"};
 		dataTable.setColumnNames(columnNameArray);
 		String[] lineArray = null;
 		
@@ -110,7 +110,7 @@ public class TestNameTable2 {
 		List<FieldDefinition> fieldList = type.getFieldList();
 		if (fieldList != null) {
 			lineArray = new String[1];
-			lineArray[0] = "{\\heiti Àà\\pname{" + type.getSimpleName() + "}±¾ÉíÉùÃ÷µÄ×Ö¶Î}";
+			lineArray[0] = "{\\heiti ç±»\\pname{" + type.getSimpleName() + "}æœ¬èº«å£°æ˜çš„å­—æ®µ}";
 			dataTable.appendLine(lineArray);
 
 			fieldList.sort(fieldComparator);
@@ -136,7 +136,7 @@ public class TestNameTable2 {
 				
 				if (hasInheritedField) {
 					lineArray = new String[1];
-					lineArray[0] = "{\\heiti ¼Ì³Ğ×ÔÀà\\pname{" + ancestorType.getSimpleName() + "}µÄ×Ö¶Î}";
+					lineArray[0] = "{\\heiti ç»§æ‰¿è‡ªç±»\\pname{" + ancestorType.getSimpleName() + "}çš„å­—æ®µ}";
 					dataTable.appendLine(lineArray);
 
 					fieldList.sort(fieldComparator);
@@ -157,7 +157,7 @@ public class TestNameTable2 {
 		List<MethodDefinition> methodList = type.getMethodList();
 		if (methodList != null) {
 			lineArray = new String[1];
-			lineArray[0] = "{\\heiti Àà\\pname{" + type.getSimpleName() + "}±¾ÉíÉùÃ÷µÄ·½·¨}";
+			lineArray[0] = "{\\heiti ç±»\\pname{" + type.getSimpleName() + "}æœ¬èº«å£°æ˜çš„æ–¹æ³•}";
 			dataTable.appendLine(lineArray);
 
 			methodList.sort(methodComparator);
@@ -173,10 +173,10 @@ public class TestNameTable2 {
 			
 				if (overrideType != null) {
 					if (type.isInterface()) {
-						overrideMessage = "~~[ÖØ¶¨Òå½Ó¿Ú\\pname{" + overrideType.getSimpleName() + "}µÄ·½·¨]";
+						overrideMessage = "~~[é‡å®šä¹‰æ¥å£\\pname{" + overrideType.getSimpleName() + "}çš„æ–¹æ³•]";
 					} else {
-						if (overrideType.isInterface()) overrideMessage = "~~[ÊµÏÖ½Ó¿Ú\\pname{" + overrideType.getSimpleName() + "}µÄ·½·¨]";
-						else overrideMessage = "~~[ÖØ¶¨ÒåÀà\\pname{" + overrideType.getSimpleName() + "}µÄ·½·¨]";
+						if (overrideType.isInterface()) overrideMessage = "~~[å®ç°æ¥å£\\pname{" + overrideType.getSimpleName() + "}çš„æ–¹æ³•]";
+						else overrideMessage = "~~[é‡å®šä¹‰ç±»\\pname{" + overrideType.getSimpleName() + "}çš„æ–¹æ³•]";
 					}
 				}
 				lineArray[0] = methodString + overrideMessage;
@@ -208,8 +208,8 @@ public class TestNameTable2 {
 				if (hasInheritedMethod) {
 					lineArray = new String[1];
 					if (ancestorType.isInterface()) {
-						lineArray[0] = "{\\heiti ¼Ì³Ğ×Ô½Ó¿Ú\\pname{" + ancestorType.getSimpleName() + "}µÄ·½·¨£¨²»º¬ÒÑ±»ÖØ¶¨Òå·½·¨£©}";
-					} else lineArray[0] = "{\\heiti ¼Ì³Ğ×ÔÀà\\pname{" + ancestorType.getSimpleName() + "}µÄ·½·¨£¨²»º¬ÒÑ±»ÖØ¶¨Òå·½·¨£©}";
+						lineArray[0] = "{\\heiti ç»§æ‰¿è‡ªæ¥å£\\pname{" + ancestorType.getSimpleName() + "}çš„æ–¹æ³•ï¼ˆä¸å«å·²è¢«é‡å®šä¹‰æ–¹æ³•ï¼‰}";
+					} else lineArray[0] = "{\\heiti ç»§æ‰¿è‡ªç±»\\pname{" + ancestorType.getSimpleName() + "}çš„æ–¹æ³•ï¼ˆä¸å«å·²è¢«é‡å®šä¹‰æ–¹æ³•ï¼‰}";
 					dataTable.appendLine(lineArray);
 					
 					methodList.sort(methodComparator);

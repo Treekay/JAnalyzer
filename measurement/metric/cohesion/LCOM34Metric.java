@@ -11,7 +11,7 @@ import softwareStructure.MethodReferenceMatrix;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê6ÔÂ12ÈÕ
+ * @since 2016å¹´6æœˆ12æ—¥
  * @version 1.0
  */
 public class LCOM34Metric extends SoftwareCohesionMetric {

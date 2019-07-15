@@ -20,7 +20,7 @@ import nameTable.nameReference.referenceGroup.NameReferenceGroup;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ1ÈÕ
+ * @since 2016å¹´4æœˆ1æ—¥
  * @version 1.0
  */
 class SoftwareStructCreator {

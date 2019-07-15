@@ -14,7 +14,7 @@ import sourceCodeAST.SourceCodeLocation;
  * A class represents a named type reference
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ6ÈÕ
+ * @since 2016å¹´11æœˆ6æ—¥
  * @version 1.0
  *
  */

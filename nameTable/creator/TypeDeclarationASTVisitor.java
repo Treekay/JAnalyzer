@@ -93,7 +93,7 @@ import org.eclipse.jdt.core.dom.WildcardType;
  * A visitor class to find a type declaration for a type definition. 
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ1ÈÕ
+ * @since 2015å¹´10æœˆ1æ—¥
  * @version 1.0
  * 
  * @update 2018/06/05

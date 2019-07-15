@@ -3,7 +3,7 @@ package analyzer.dataTable;
 /**
  * A class represents the conditions for filtering the line in a data table
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ24ÈÕ
+ * @since 2015å¹´10æœˆ24æ—¥
  * @version 1.0
  */
 public class DataLineFilterValueCondition implements DataLineFilterCondition {

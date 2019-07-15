@@ -18,7 +18,7 @@ import nameTable.nameDefinition.NameDefinitionKind;
 /**
  * A graph generated from a MethodInvocatinMatrix 
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ7ÈÕ
+ * @since 2015å¹´7æœˆ7æ—¥
  * @version 1.0
  */
 public class FieldReferenceGraph extends AbstractGraph {

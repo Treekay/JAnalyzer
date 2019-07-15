@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
  * A data class to store unit file name, its AST root, and error message of the unit together.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ10ÈÕ
+ * @since 2016å¹´11æœˆ10æ—¥
  * @version 1.0
  *
  */

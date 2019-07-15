@@ -7,7 +7,7 @@ import nameTable.nameScope.NameScope;
  * The filter accepts name references in the given scope
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ13ÈÕ
+ * @since 2016å¹´11æœˆ13æ—¥
  * @version 1.0
  *
  */

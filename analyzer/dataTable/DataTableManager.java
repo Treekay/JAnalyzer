@@ -19,7 +19,7 @@ import org.apache.commons.math3.stat.ranking.TiesStrategy;
  * creating the data table, but the line of the table can be changed after creating the data table.
  * 
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ7ÈÕ
+ * @since 2015å¹´10æœˆ7æ—¥
  * @version 1.0
  */
 public class DataTableManager {

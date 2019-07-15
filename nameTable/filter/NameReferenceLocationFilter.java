@@ -7,7 +7,7 @@ import sourceCodeAST.SourceCodeLocation;
  * The filter accepts name references between two locations, greater than or equal to start (if it is not null) and less than end (if 
  * it is not null) 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ13ÈÕ
+ * @since 2016å¹´11æœˆ13æ—¥
  * @version 1.0
  *
  */

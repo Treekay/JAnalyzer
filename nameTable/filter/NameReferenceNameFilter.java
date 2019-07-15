@@ -6,7 +6,7 @@ import nameTable.nameReference.NameReference;
  * The filter accepts name references with the given name
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ13ÈÕ
+ * @since 2016å¹´11æœˆ13æ—¥
  * @version 1.0
  *
  */

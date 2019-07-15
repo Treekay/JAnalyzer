@@ -6,7 +6,7 @@ import nameTable.nameDefinition.NameDefinitionKind;
 /**
  * A name definition filter accepted the definition with the given name definition kind!
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ9ÈÕ
+ * @since 2016å¹´11æœˆ9æ—¥
  * @version 1.0
  *
  */

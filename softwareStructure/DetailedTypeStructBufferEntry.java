@@ -6,7 +6,7 @@ import nameTable.nameDefinition.DetailedTypeDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ8ÈÕ
+ * @since 2016å¹´4æœˆ8æ—¥
  * @version 1.0
  */
 class DetailedTypeStructBufferEntry extends DetailedTypeStructEntry{

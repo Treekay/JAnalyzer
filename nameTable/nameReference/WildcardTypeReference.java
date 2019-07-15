@@ -10,7 +10,7 @@ import sourceCodeAST.SourceCodeLocation;
  * A class represents a wildcard type reference.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ7ÈÕ
+ * @since 2016å¹´11æœˆ7æ—¥
  * @version 1.0
  *
  */

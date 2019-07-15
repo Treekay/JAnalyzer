@@ -5,7 +5,7 @@ import nameTable.nameDefinition.NameDefinition;
 /**
  * The filter accepts all enum type
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ14ÈÕ
+ * @since 2016å¹´11æœˆ14æ—¥
  * @version 1.0
  *
  */

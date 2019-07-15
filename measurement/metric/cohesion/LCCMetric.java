@@ -11,7 +11,7 @@ import softwareStructure.MethodReferenceMatrix;
  * A class to calulate the metric LCC
  * 
  * @author Li Jingsheng
- * @since 2015Äê08ÔÂ12ÈÕ
+ * @since 2015å¹´08æœˆ12æ—¥
  * @update 2015/10/10, Zhou Xiaocong
  * @version 1.0
  */

@@ -7,7 +7,7 @@ import nameTable.nameDefinition.MethodDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ6ÈÕ
+ * @since 2016å¹´4æœˆ6æ—¥
  * @version 1.0
  */
 public class MethodStructEntryManager {

@@ -14,7 +14,7 @@ import nameTable.nameDefinition.TypeDefinition;
  * A class to store the generated structure of a detailed type definition.
  *  
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ1ÈÕ
+ * @since 2016å¹´4æœˆ1æ—¥
  * @version 1.0
  */
 class DetailedTypeStructEntry {

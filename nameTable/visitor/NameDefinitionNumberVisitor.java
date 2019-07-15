@@ -19,7 +19,7 @@ import nameTable.nameScope.SystemScope;
  * A visitor for counting the number of name definitions accepted by the filter.
  * 
  * @author Zhou Xiaocong
- * @since 2016Äê11ÔÂ14ÈÕ
+ * @since 2016å¹´11æœˆ14æ—¥
  * @version 1.0
  *
  */

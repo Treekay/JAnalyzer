@@ -29,7 +29,7 @@ import sourceCodeAST.SourceCodeFileSet;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê7ÔÂ3ÈÕ
+ * @since 2015å¹´7æœˆ3æ—¥
  * @version 1.0
  */
 public class TestSystemMeasurementManager {

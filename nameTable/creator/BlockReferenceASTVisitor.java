@@ -111,7 +111,7 @@ import sourceCodeAST.SourceCodeLocation;
 /**
  * An ASTVisitor for creating reference in a method, and all the created references are stored in the name table.
  * @author Zhou Xiaocong
- * @since 2015Äê6ÔÂ25ÈÕ
+ * @since 2015å¹´6æœˆ25æ—¥
  * @version 1.0
  * 
  * @update 2016/11/11

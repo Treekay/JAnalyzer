@@ -10,7 +10,7 @@ import nameTable.nameDefinition.MethodDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2016Äê4ÔÂ7ÈÕ
+ * @since 2016å¹´4æœˆ7æ—¥
  * @version 1.0
  */
 class MethodStructBufferEntryManager extends MethodStructEntryManager {

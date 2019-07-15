@@ -10,7 +10,7 @@ import nameTable.nameDefinition.PackageDefinition;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê10ÔÂ12ÈÕ
+ * @since 2015å¹´10æœˆ12æ—¥
  * @version 1.0
  */
 public class TypeCounterMetric extends SoftwareSizeMetric {

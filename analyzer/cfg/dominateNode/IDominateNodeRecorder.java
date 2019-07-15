@@ -6,7 +6,7 @@ import graph.basic.GraphNode;
 
 /**
  * @author Zhou Xiaocong
- * @since 2017Äê9ÔÂ10ÈÕ
+ * @since 2017å¹´9æœˆ10æ—¥
  * @version 1.0
  *
  */

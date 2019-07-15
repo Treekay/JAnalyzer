@@ -20,17 +20,17 @@ public class FileChooserAndOpener {
 	static String fileContentsWithLineNumber = null;
 
 	/**
-	 * ÏÔÊ¾ÎÄ¼şÑ¡Ôñ¶Ô»°¿ò£¬²¢ÈÃÓÃ»§Òª´ò¿ªµÄÎÄ¼ş¡£È±Ê¡Çé¿öÏÂ´ò¿ª Java Ô´³ÌĞòÎÄ¼ş
+	 * æ˜¾ç¤ºæ–‡ä»¶é€‰æ‹©å¯¹è¯æ¡†ï¼Œå¹¶è®©ç”¨æˆ·è¦æ‰“å¼€çš„æ–‡ä»¶ã€‚ç¼ºçœæƒ…å†µä¸‹æ‰“å¼€ Java æºç¨‹åºæ–‡ä»¶
 	 * 
-	 * @return Èç¹ûÑ¡Ôñ³É¹¦·µ»Ø true £¬·ñÔò·µ»Ø false
+	 * @return å¦‚æœé€‰æ‹©æˆåŠŸè¿”å› true ï¼Œå¦åˆ™è¿”å› false
 	 */
 	public static boolean chooseFileName() {
 		JFileChooser chooser = new JFileChooser();
 
-		// Ö»´ò¿ª .java ÎÄ¼ş
+		// åªæ‰“å¼€ .java æ–‡ä»¶
 		chooser.setFileFilter(new FileNameExtensionFilter("java", "java"));
 		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		// ´ÓÉÏÒ»´Î´ò¿ªµÄÎÄ¼ş¿ªÊ¼Ñ¡Ôñ£¬Èç¹ûÉÏ´ÎÃ»ÓĞÑ¡Ôñ£¬ÕâÊ±file == null£¬Ôò´ÓÈ±Ê¡Ä¿Â¼¿ªÊ¼Ñ¡Ôñ
+		// ä»ä¸Šä¸€æ¬¡æ‰“å¼€çš„æ–‡ä»¶å¼€å§‹é€‰æ‹©ï¼Œå¦‚æœä¸Šæ¬¡æ²¡æœ‰é€‰æ‹©ï¼Œè¿™æ—¶file == nullï¼Œåˆ™ä»ç¼ºçœç›®å½•å¼€å§‹é€‰æ‹©
 		if (Current.file != null)
 			chooser.setCurrentDirectory(Current.file);
 		else
@@ -51,9 +51,9 @@ public class FileChooserAndOpener {
 	}
 
 	/**
-	 * Ñ¡ÔñÎÄ¼ş³É¹¦Ö®ºó×°ÈëÎÄ¼şÄÚÈİ¡£
+	 * é€‰æ‹©æ–‡ä»¶æˆåŠŸä¹‹åè£…å…¥æ–‡ä»¶å†…å®¹ã€‚
 	 * 
-	 * @return ÈçºÎÃ»ÓĞÑ¡ÔñÎÄ¼ş£¬»òÕßÔÚ×°Èë¹ı³ÌÖĞ·¢Éú I/O ´íÎó·µ»Ø false £¬×°Èë³É¹¦·µ»Ø true
+	 * @return å¦‚ä½•æ²¡æœ‰é€‰æ‹©æ–‡ä»¶ï¼Œæˆ–è€…åœ¨è£…å…¥è¿‡ç¨‹ä¸­å‘ç”Ÿ I/O é”™è¯¯è¿”å› false ï¼Œè£…å…¥æˆåŠŸè¿”å› true
 	 */
 	public static boolean loadFile() {
 		if (Current.file == null)
@@ -62,7 +62,7 @@ public class FileChooserAndOpener {
 		try {
 			FileInputStream fileIn = new FileInputStream(Current.file);
 			ProgressMonitorInputStream progressIn = new ProgressMonitorInputStream(MainFrame.getMainFrame(),
-					"ÕıÔÚ¶ÁÈ¡ÎÄ¼ş [" + Current.file.getName() + "]", fileIn);
+					"æ­£åœ¨è¯»å–æ–‡ä»¶ [" + Current.file.getName() + "]", fileIn);
 
 			final Scanner in = new Scanner(progressIn);
 			StringBuffer buffer = new StringBuffer();
@@ -84,9 +84,9 @@ public class FileChooserAndOpener {
 	}
 
 	/**
-	 * ·µ»ØÒÑ¾­Ñ¡ÔñµÄÎÄ¼şÃû
+	 * è¿”å›å·²ç»é€‰æ‹©çš„æ–‡ä»¶å
 	 * 
-	 * @return Èç¹ûÃ»ÓĞÑ¡ÔñÎÄ¼şÔò·µ»Ø null
+	 * @return å¦‚æœæ²¡æœ‰é€‰æ‹©æ–‡ä»¶åˆ™è¿”å› null
 	 */
 	public static String getFileName() {
 		if (Current.file == null)
@@ -96,9 +96,9 @@ public class FileChooserAndOpener {
 	}
 
 	/**
-	 * ·µ»ØÒÑ¾­Ñ¡ÔñµÄÎÄ¼şÃû
+	 * è¿”å›å·²ç»é€‰æ‹©çš„æ–‡ä»¶å
 	 * 
-	 * @return Èç¹ûÃ»ÓĞÑ¡ÔñÎÄ¼şÔò·µ»Ø null
+	 * @return å¦‚æœæ²¡æœ‰é€‰æ‹©æ–‡ä»¶åˆ™è¿”å› null
 	 */
 	public static String getFileFullName() {
 		if (Current.file == null)
@@ -108,16 +108,16 @@ public class FileChooserAndOpener {
 	}
 
 	/**
-	 * ·µ»Ø°üº¬ÎÄ¼şÈ«²¿ÄÚÈİµÄ×Ö·û´®
+	 * è¿”å›åŒ…å«æ–‡ä»¶å…¨éƒ¨å†…å®¹çš„å­—ç¬¦ä¸²
 	 * 
-	 * @return Èç¹ûÎÄ¼şÃ»ÓĞ×°ÔØ³É¹¦Ôò·µ»Ø null
+	 * @return å¦‚æœæ–‡ä»¶æ²¡æœ‰è£…è½½æˆåŠŸåˆ™è¿”å› null
 	 */
 	public static String getFileContents() {
 		return fileContents;
 	}
 
 	/**
-	 * ·µ»Øº¬ÓĞĞĞºÅµÄÎÄ¼şÄÚÈİ
+	 * è¿”å›å«æœ‰è¡Œå·çš„æ–‡ä»¶å†…å®¹
 	 */
 
 	public static String getFileContentsWithLineNumber() {

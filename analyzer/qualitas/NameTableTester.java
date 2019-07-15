@@ -25,7 +25,7 @@ import util.Debug;
 
 /**
  * @author Zhou Xiaocong
- * @since 2015Äê9ÔÂ17ÈÕ
+ * @since 2015å¹´9æœˆ17æ—¥
  * @version 1.0
  */
 public class NameTableTester {
