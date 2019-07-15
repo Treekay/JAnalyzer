@@ -44,7 +44,6 @@ public class NavigatorField {
                     TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
                     if (selPath != null) {
                         DefaultMutableTreeNode node = (DefaultMutableTreeNode) selPath.getLastPathComponent();
-                        System.out.println(node.toString());// 输出这个组件toString()的字符串看一下
                         selectCurrentFile(node.toString());
                     }
                 }
@@ -60,6 +59,7 @@ public class NavigatorField {
                 FileChooserAndOpener.loadFile();
                 CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                         FileChooserAndOpener.getFileContentsWithLineNumber());
+                return;
             }
         }
     }
