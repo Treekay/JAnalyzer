@@ -12,7 +12,6 @@ public class MenuField {
     FileChooserAndOpener fileOpener;
     private JMenuBar menuBar;
 
-    private final String NEW_COMMAND = "new";
     private final String OPEN_COMMAND = "open";
     private final String CREATE_AST_COMMAND = "createAST";
     private final String CREATE_CFG_COMMAND = "createCFG";
@@ -45,16 +44,7 @@ public class MenuField {
         menuBar.add(menu); // 加入到菜单条
 
         // 设置子菜单项
-        JMenuItem menuItem = new JMenuItem("新建(N)");
-        // 设置字符键 N 为快捷键
-        menuItem.setMnemonic(KeyEvent.VK_N);
-        // 设置此菜单项的加速键为 Ctrl+N
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
-        menuItem.addActionListener(menuItemListener);
-        menuItem.setActionCommand(NEW_COMMAND);
-        menu.add(menuItem);
-
-        menuItem = new JMenuItem("打开(O)");
+        JMenuItem menuItem = new JMenuItem("打开(O)");
         // 设置字符键 O 为快捷键
         menuItem.setMnemonic(KeyEvent.VK_O);
         // 设置此菜单项的加速键为 Ctrl+O
@@ -83,11 +73,11 @@ public class MenuField {
         menuItem.setActionCommand(CREATE_CFG_COMMAND);
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("名字表(T)");
-        // 设置字符键 T 为快捷键
-        menuItem.setMnemonic(KeyEvent.VK_T);
-        // 设置此菜单项的加速键为 Ctrl+T
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, ActionEvent.CTRL_MASK));
+        menuItem = new JMenuItem("名字表(N)");
+        // 设置字符键 N 为快捷键
+        menuItem.setMnemonic(KeyEvent.VK_N);
+        // 设置此菜单项的加速键为 Ctrl+N
+        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
         menuItem.addActionListener(menuItemListener);
         menuItem.setActionCommand(CREATE_NAME_TABLE_COMMAND);
         menu.add(menuItem);
@@ -116,21 +106,12 @@ public class MenuField {
             JMenuItem source = (JMenuItem) (e.getSource());
             String command = source.getActionCommand();
             switch (command) {
-            case NEW_COMMAND:
-                if (fileOpener.chooseFileName() == true) {
-                    if (Current.file.isFile()) {
-                        fileOpener.loadFile();
-                    }
-                    CodeField.newCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
-                    NavigatorField.addTreeTab(Current.file.getAbsolutePath());
-                }
-                break;
             case OPEN_COMMAND:
                 if (fileOpener.chooseFileName() == true) {
                     if (Current.file.isFile()) {
                         fileOpener.loadFile();
+                        CodeField.addCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
                     }
-                    CodeField.addCodeTab(fileOpener.getFileName(), fileOpener.getFileContentsWithLineNumber());
                     NavigatorField.addTreeTab(Current.file.getAbsolutePath());
                 }
                 break;

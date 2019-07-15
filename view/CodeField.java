@@ -17,11 +17,6 @@ public class CodeField {
         contentPane.addTab(tabName, updateCode(fileText));
     }
 
-    public static void newCodeTab(String tabName, String fileText) {
-        contentPane.removeAll();
-        contentPane.addTab(tabName, updateCode(fileText));
-    }
-
     public static JScrollPane updateCode(String fileText) {
         JTextArea sourceText = new JTextArea();
         sourceText.setEditable(false);

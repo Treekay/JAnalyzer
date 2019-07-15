@@ -29,9 +29,12 @@ public class NavigatorField {
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {
+        System.out.print(new File(path).getName());
         DefaultMutableTreeNode parent = new DefaultMutableTreeNode(new File(path).getName());
         File file = new File(path);
-
+        if (file.isFile()) {
+            return parent;
+        }
         if (file.exists()) {
             File[] files = file.listFiles();
             if (files.length == 0) {
