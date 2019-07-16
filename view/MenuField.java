@@ -105,72 +105,13 @@ public class MenuField {
             String command = source.getActionCommand();
             switch (command) {
             case OPEN_COMMAND:
-                if (FileChooserAndOpener.chooseFileName() == true) {
-                    if (Current.file.isFile()) {
-                        FileChooserAndOpener.loadFile();
-                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
-                        CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
-                                FileChooserAndOpener.getFileContentsWithLineNumber());
-                    }
-                    NavigatorField.addTreeTab(Current.file.getAbsolutePath());
-                }
+                Current.SelectAndLoadFile();
                 break;
             case CREATE_AST_COMMAND:
-                if (FileChooserAndOpener.loadFile() == true) {
-                    String fileContents = FileChooserAndOpener.getFileContents();
-                    if (fileContents == null) {
-                        FileChooserAndOpener.chooseFileName();
-                        FileChooserAndOpener.loadFile();
-                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
-                        fileContents = FileChooserAndOpener.getFileContents();
-                    }
-                    SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
-                    viewer.parseSourceCode();
-                    String errorMessage = viewer.getParseErrorMessage();
-                    if (errorMessage != null) {
-                        JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                    if (viewer.hasParserError())
-                        Current.astRoot = null;
-                    else
-                        Current.astRoot = viewer.getASTRoot();
-                    GraphField.astText.setText(viewer.getASTViewerText());
-                }
+                Current.GenerateAST();
                 break;
             case CREATE_CFG_COMMAND:
-                if (FileChooserAndOpener.loadFile() == true) {
-                    String fileContents = FileChooserAndOpener.getFileContents();
-                    if (fileContents == null) {
-                        FileChooserAndOpener.chooseFileName();
-                        FileChooserAndOpener.loadFile();
-                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
-                        fileContents = FileChooserAndOpener.getFileContents();
-                    }
-
-                    if (Current.astRoot == null) {
-                        SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
-                        viewer.parseSourceCode();
-                        String errorMessage = viewer.getParseErrorMessage();
-                        if (errorMessage != null) {
-                            JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
-                                    JOptionPane.WARNING_MESSAGE);
-                        }
-                        Current.astRoot = viewer.getASTRoot();
-                        GraphField.astText.setText(viewer.getASTViewerText());
-                    }
-
-                    try {
-                        ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(FileChooserAndOpener.getFileName(),
-                                Current.astRoot);
-                        GraphField.cfgText.setText(viewer.createCFGToText());
-                    } catch (Exception exp) {
-                        exp.printStackTrace();
-                        GraphField.cfgText.setText(exp.toString());
-                        JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "生成控制流图发生错误！", "警示",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                }
+                Current.GenerateCFG();
                 break;
             case CREATE_NAME_TABLE_COMMAND:
 

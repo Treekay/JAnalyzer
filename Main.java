@@ -1,6 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
+
+import gui.astViewer.SimpleASTViewer;
 import gui.toolkit.*;
+import model.Current;
 import view.*;
 
 public class Main {
@@ -35,7 +38,9 @@ public class Main {
 		generatePane.setDividerLocation(MainFrame.screenHeight / 2);
 		generatePane.setTopComponent(graphField.getContentPane());
 		generatePane.setBottomComponent(tableField.getContentPane());
-
+		
 		MainFrame.start();
+		
+		Current.SelectAndLoadFile();
 	}
 }

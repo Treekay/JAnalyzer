@@ -14,6 +14,8 @@ import javax.swing.tree.TreePath;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import gui.astViewer.SimpleASTViewer;
 import gui.toolkit.*;
 
 import model.*;
@@ -63,6 +65,31 @@ public class NavigatorField {
                 FileChooserAndOpener.loadFile();
                 CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                         FileChooserAndOpener.getFileContentsWithLineNumber());
+                
+                // generate ast
+                if (FileChooserAndOpener.loadFile() == true) {
+                    String fileContents = FileChooserAndOpener.getFileContents();
+                    if (fileContents == null) {
+                        FileChooserAndOpener.chooseFileName();
+                        FileChooserAndOpener.loadFile();
+                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
+                        fileContents = FileChooserAndOpener.getFileContents();
+                    }
+                    SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
+                    viewer.parseSourceCode();
+                    String errorMessage = viewer.getParseErrorMessage();
+                    if (errorMessage != null) {
+                        JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                    if (viewer.hasParserError())
+                        Current.astRoot = null;
+                    else
+                        Current.astRoot = viewer.getASTRoot();
+                    GraphField.astText.setText(viewer.getASTViewerText());
+                }
+                
+                
                 return;
             }
         }
