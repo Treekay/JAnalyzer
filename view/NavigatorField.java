@@ -57,11 +57,12 @@ public class NavigatorField {
     }
 
     public static void OpenInCodeField(String fileName) {
-    	Current.selectCurrentFile(fileName);
-        FileChooserAndOpener.loadFile();
-        CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
-                FileChooserAndOpener.getFileContentsWithLineNumber());
-        Current.GenerateAST();
+    	if (Current.selectCurrentFile(fileName)) {
+    		FileChooserAndOpener.loadFile();
+            CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
+                    FileChooserAndOpener.getFileContentsWithLineNumber());
+            Current.GenerateAST();
+    	}
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {

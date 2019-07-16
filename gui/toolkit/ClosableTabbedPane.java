@@ -34,13 +34,14 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
         }
         if (((CloseTabIcon) getIconAt(tabNumber)) != null) {
             Rectangle rect = ((CloseTabIcon) getIconAt(tabNumber)).getBounds();
-            if (Current.selectCurrentFile(this.getSelectedComponent().getName())) {
+            boolean isFile = Current.selectCurrentFile(this.getSelectedComponent().getName());
+            if (isFile) {
             	FileChooserAndOpener.loadFile();
             	Current.GenerateAST();
             }
             if (rect.contains(e.getX(), e.getY())) {
                 this.removeTabAt(tabNumber);
-                if (this.getTabCount() != 0) {
+                if (this.getTabCount() != 0 && isFile) {
                 	Current.selectCurrentFile(this.getComponentAt(this.getTabCount()-1).getName());
                 }
             }

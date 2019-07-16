@@ -47,8 +47,6 @@ public class Current {
 		        return true;
              }
          }
-    	 Current.file = null;
-    	 MainFrame.getMainFrame().setTitle("JAnalyzer");
     	 return false;
     }
     
