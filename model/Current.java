@@ -39,14 +39,15 @@ public class Current {
     public static CompilationUnit astRoot = null;
     public static NameTableManager tableManager = null;
     
-    public static void selectCurrentFile(String fileName) {
+    public static boolean selectCurrentFile(String fileName) {
     	 for (File file : Current.fileList) {
              if (file.getName().equals(fileName)) {
 		    	Current.file = file;
 		        MainFrame.getMainFrame().setTitle("JAnalyzer - " + file.getName());
-		        return;
+		        return true;
              }
          }
+    	 return false;
     }
     
     public static void SelectAndLoadFile() {

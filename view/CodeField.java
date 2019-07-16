@@ -19,7 +19,14 @@ public class CodeField {
     }
 
     public static void addCodeTab(String tabName, String fileText) {
+    	for (int i = 0; i < contentPane.getTabCount(); i++) {
+    		if (contentPane.getComponentAt(i).getName().equals(tabName)) {
+    			contentPane.setSelectedIndex(i);
+    			return;
+    		}
+    	}
         contentPane.addTab(tabName, updateCode(tabName, fileText));
+        contentPane.setSelectedIndex(contentPane.getTabCount()-1);
     }
 
     public static JScrollPane updateCode(String fileName, String fileText) {

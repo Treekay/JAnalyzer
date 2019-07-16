@@ -25,8 +25,8 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
     public void addTab(String title, Component component) {
         super.addTab(title, new CloseTabIcon(), component);
     }
-
-    @Override
+    
+	@Override
     public void mouseClicked(MouseEvent e) {
         int tabNumber = getUI().tabForCoordinate(this, e.getX(), e.getY());
         if (tabNumber < 0) {
@@ -34,10 +34,7 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
         }
         if (((CloseTabIcon) getIconAt(tabNumber)) != null) {
             Rectangle rect = ((CloseTabIcon) getIconAt(tabNumber)).getBounds();
-            String fileName = this.getSelectedComponent().getName();
-            int pos = fileName.lastIndexOf(".");
-            if (fileName.substring(pos+1).equals("java")) {
-            	Current.selectCurrentFile(this.getSelectedComponent().getName());
+            if (Current.selectCurrentFile(this.getSelectedComponent().getName())) {
             	FileChooserAndOpener.loadFile();
             	Current.GenerateAST();
             }
@@ -46,7 +43,7 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
             }
         }
     }
-
+	 
     public void mouseEntered(MouseEvent e) {
     }
 
@@ -58,47 +55,47 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
 
     public void mouseReleased(MouseEvent e) {
     }
-}
-
-class CloseTabIcon implements Icon {
-
-    private int x_pos;
-    private int y_pos;
-    private int width;
-    private int height;
-
-    public CloseTabIcon() {
-        width = 16;
-        height = 16;
-    }
-
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        this.x_pos = x;
-        this.y_pos = y;
-        Color col = g.getColor();
-        g.setColor(Color.black);
-        int y_p = y + 2;
-        g.drawLine(x + 3, y_p + 3, x + 10, y_p + 10);
-        g.drawLine(x + 3, y_p + 4, x + 9, y_p + 10);
-        g.drawLine(x + 4, y_p + 3, x + 10, y_p + 9);
-        g.drawLine(x + 10, y_p + 3, x + 3, y_p + 10);
-        g.drawLine(x + 10, y_p + 4, x + 4, y_p + 10);
-        g.drawLine(x + 9, y_p + 3, x + 3, y_p + 9);
-        g.setColor(col);
-    }
-
-    @Override
-    public int getIconWidth() {
-        return width;
-    }
-
-    @Override
-    public int getIconHeight() {
-        return height;
-    }
-
-    public Rectangle getBounds() {
-        return new Rectangle(x_pos, y_pos, width, height);
-    }
+    
+	class CloseTabIcon implements Icon {
+	
+	    private int x_pos;
+	    private int y_pos;
+	    private int width;
+	    private int height;
+	
+	    public CloseTabIcon() {
+	        width = 16;
+	        height = 16;
+	    }
+	
+	    @Override
+	    public void paintIcon(Component c, Graphics g, int x, int y) {
+	        this.x_pos = x;
+	        this.y_pos = y;
+	        Color col = g.getColor();
+	        g.setColor(Color.black);
+	        int y_p = y + 2;
+	        g.drawLine(x + 3, y_p + 3, x + 10, y_p + 10);
+	        g.drawLine(x + 3, y_p + 4, x + 9, y_p + 10);
+	        g.drawLine(x + 4, y_p + 3, x + 10, y_p + 9);
+	        g.drawLine(x + 10, y_p + 3, x + 3, y_p + 10);
+	        g.drawLine(x + 10, y_p + 4, x + 4, y_p + 10);
+	        g.drawLine(x + 9, y_p + 3, x + 3, y_p + 9);
+	        g.setColor(col);
+	    }
+	
+	    @Override
+	    public int getIconWidth() {
+	        return width;
+	    }
+	
+	    @Override
+	    public int getIconHeight() {
+	        return height;
+	    }
+	
+	    public Rectangle getBounds() {
+	        return new Rectangle(x_pos, y_pos, width, height);
+	    }
+	}
 }

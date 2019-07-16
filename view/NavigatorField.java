@@ -85,9 +85,12 @@ public class NavigatorField {
                         parent.add(traverseFolder(file2.getAbsolutePath()));
                     } else {
                         // 是文件的话直接生成节点，并把该节点加到对应父节点上
-                        temp = new DefaultMutableTreeNode(file2.getName());
-                        parent.add(temp);
-                        Current.fileList.add(file2);
+                    	int pos = file2.getName().lastIndexOf(".");
+                    	if (file2.getName().substring(pos + 1).equals("java")) {
+                    		temp = new DefaultMutableTreeNode(file2.getName());
+                    		parent.add(temp);
+                    		Current.fileList.add(file2);                    		
+                    	}
                     }
                 }
             }
