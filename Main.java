@@ -16,10 +16,12 @@ public class Main {
 		NavigatorField navigator = new NavigatorField();
 		CodeField codeField = new CodeField();
 		GraphField graphField = new GraphField();
+		TableField tableField = new TableField();
 
 		// 组件布局
 		JSplitPane navPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
 		JSplitPane displayPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
+		JSplitPane generatePane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, true);
 		MainFrame.getContentPane().add(navPane);
 
 		navPane.setDividerLocation(MainFrame.screenWidth / 5);
@@ -28,7 +30,11 @@ public class Main {
 
 		displayPane.setDividerLocation(MainFrame.screenWidth * 2 / 5);
 		displayPane.setLeftComponent(codeField.getContentPane());
-		displayPane.setRightComponent(graphField.getContentPane());
+		displayPane.setRightComponent(generatePane);
+		
+		generatePane.setDividerLocation(MainFrame.screenHeight / 2);
+		generatePane.setTopComponent(graphField.getContentPane());
+		generatePane.setBottomComponent(tableField.getContentPane());
 
 		MainFrame.start();
 	}

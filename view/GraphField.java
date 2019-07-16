@@ -2,16 +2,22 @@ package view;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import gui.toolkit.*;
 
 public class GraphField {
-    private JSplitPane contentPane;
-    private JScrollPane astPane;
-    private JScrollPane cfgPane;
+	public static JTabbedPane contentPane;
+    public static JScrollPane astPane;
+    public static JScrollPane cfgPane;
     public static JTextArea astText; // 用于放置抽象语法树
     public static JTextArea cfgText; // 用于放置程序控制流图
 
     public GraphField() {
+    	contentPane = new JTabbedPane();
+    	Border titleBorder=BorderFactory.createTitledBorder("GraphField");            
+        contentPane.setBorder(titleBorder); 
+    	
         astText = new JTextArea();
         astText.setEditable(false);
         astPane = new JScrollPane(astText);
@@ -19,15 +25,12 @@ public class GraphField {
         cfgText = new JTextArea();
         cfgText.setEditable(false);
         cfgPane = new JScrollPane(cfgText);
-
-        contentPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, true);
-        contentPane.setDividerLocation(MainFrame.screenHeight / 2);
-        contentPane.setTopComponent(astPane);
-        contentPane.setBottomComponent(cfgPane);
-        contentPane.setName("图形浏览");
+        
+        contentPane.addTab("抽象语法树", astPane);
+        contentPane.addTab("控制流图", cfgPane);
     }
 
-    public JSplitPane getContentPane() {
+    public JTabbedPane getContentPane() {
         return this.contentPane;
     }
 }

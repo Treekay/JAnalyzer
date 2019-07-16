@@ -121,6 +121,7 @@ public class MenuField {
                     if (fileContents == null) {
                         FileChooserAndOpener.chooseFileName();
                         FileChooserAndOpener.loadFile();
+                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
                         fileContents = FileChooserAndOpener.getFileContents();
                     }
                     SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
@@ -143,6 +144,7 @@ public class MenuField {
                     if (fileContents == null) {
                         FileChooserAndOpener.chooseFileName();
                         FileChooserAndOpener.loadFile();
+                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
                         fileContents = FileChooserAndOpener.getFileContents();
                     }
 

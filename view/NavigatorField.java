@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
@@ -28,7 +29,9 @@ public class NavigatorField {
     public NavigatorField() {
         fileList = new ArrayList<File>();
         contentPane = new ClosableTabbedPane();
-        contentPane.setName("资源管理器");
+        
+        Border titleBorder=BorderFactory.createTitledBorder("Navigator");            
+        contentPane.setBorder(titleBorder); 
     }
 
     public static void addTreeTab(String path) {

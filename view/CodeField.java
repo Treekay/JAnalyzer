@@ -4,6 +4,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import gui.toolkit.*;
 import model.Current;
 
@@ -12,7 +14,8 @@ public class CodeField {
 
     public CodeField() {
         contentPane = new ClosableTabbedPane();
-        contentPane.setName("代码浏览");
+        Border titleBorder=BorderFactory.createTitledBorder("SourceCode");            
+        contentPane.setBorder(titleBorder);           
     }
 
     public static void addCodeTab(String tabName, String fileText) {
