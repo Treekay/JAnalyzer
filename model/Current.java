@@ -35,8 +35,19 @@ import view.NavigatorField;
 
 public class Current {
     public static File file;
+    public static ArrayList<File> fileList;
     public static CompilationUnit astRoot = null;
     public static NameTableManager tableManager = null;
+    
+    public static void selectCurrentFile(String fileName) {
+    	 for (File file : Current.fileList) {
+             if (file.getName().equals(fileName)) {
+		    	Current.file = file;
+		        MainFrame.getMainFrame().setTitle("JAnalyzer - " + file.getName());
+		        return;
+             }
+         }
+    }
     
     public static void SelectAndLoadFile() {
     	if (FileChooserAndOpener.chooseFileName() == true) {

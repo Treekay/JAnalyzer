@@ -22,14 +22,13 @@ import model.*;
 
 public class NavigatorField {
     public static ClosableTabbedPane contentPane;
-    private static ArrayList<File> fileList;
     static JTree tree;
     static DefaultTreeModel newModel;
     static DefaultMutableTreeNode Node;
     static DefaultMutableTreeNode temp;
 
     public NavigatorField() {
-        fileList = new ArrayList<File>();
+        Current.fileList = new ArrayList<File>();
         contentPane = new ClosableTabbedPane();
         
         Border titleBorder=BorderFactory.createTitledBorder("Navigator");            
@@ -49,7 +48,7 @@ public class NavigatorField {
                     TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
                     if (selPath != null) {
                         DefaultMutableTreeNode node = (DefaultMutableTreeNode) selPath.getLastPathComponent();
-                        selectCurrentFile(node.toString());
+                        OpenInCodeField(node.toString());
                     }
                 }
             }
@@ -57,49 +56,19 @@ public class NavigatorField {
         contentPane.addTab(new File(path).getName(), tree);
     }
 
-    public static void selectCurrentFile(String fileName) {
-        for (File file : fileList) {
-            if (file.getName().equals(fileName)) {
-                Current.file = file;
-                MainFrame.getMainFrame().setTitle("JAnalyzer - " + file.getName());
-                FileChooserAndOpener.loadFile();
-                CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
-                        FileChooserAndOpener.getFileContentsWithLineNumber());
-                
-                // generate ast
-                if (FileChooserAndOpener.loadFile() == true) {
-                    String fileContents = FileChooserAndOpener.getFileContents();
-                    if (fileContents == null) {
-                        FileChooserAndOpener.chooseFileName();
-                        FileChooserAndOpener.loadFile();
-                        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
-                        fileContents = FileChooserAndOpener.getFileContents();
-                    }
-                    SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
-                    viewer.parseSourceCode();
-                    String errorMessage = viewer.getParseErrorMessage();
-                    if (errorMessage != null) {
-                        JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                    if (viewer.hasParserError())
-                        Current.astRoot = null;
-                    else
-                        Current.astRoot = viewer.getASTRoot();
-                    GraphField.astText.setText(viewer.getASTViewerText());
-                }
-                
-                
-                return;
-            }
-        }
+    public static void OpenInCodeField(String fileName) {
+    	Current.selectCurrentFile(fileName);
+        FileChooserAndOpener.loadFile();
+        CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
+                FileChooserAndOpener.getFileContentsWithLineNumber());
+        Current.GenerateAST();
     }
 
     public static DefaultMutableTreeNode traverseFolder(String path) {
         DefaultMutableTreeNode parent = new DefaultMutableTreeNode(new File(path).getName());
         File file = new File(path);
         if (file.isFile()) {
-            fileList.add(file);
+        	Current.fileList.add(file);
             return parent;
         }
         if (file.exists()) {
@@ -118,7 +87,7 @@ public class NavigatorField {
                         // 是文件的话直接生成节点，并把该节点加到对应父节点上
                         temp = new DefaultMutableTreeNode(file2.getName());
                         parent.add(temp);
-                        fileList.add(file2);
+                        Current.fileList.add(file2);
                     }
                 }
             }

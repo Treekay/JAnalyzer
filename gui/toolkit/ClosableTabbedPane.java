@@ -10,12 +10,12 @@ import java.awt.Component;
 import javax.swing.Icon;
 import java.awt.event.MouseEvent;
 import java.awt.Graphics;
+import model.*;
 
 /**
  * 自定义带关闭按钮的TabbedPane
  */
 public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
-
     public ClosableTabbedPane() {
         super();
         addMouseListener(this);
@@ -34,6 +34,13 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
         }
         if (((CloseTabIcon) getIconAt(tabNumber)) != null) {
             Rectangle rect = ((CloseTabIcon) getIconAt(tabNumber)).getBounds();
+            String fileName = this.getSelectedComponent().getName();
+            int pos = fileName.lastIndexOf(".");
+            if (fileName.substring(pos+1).equals("java")) {
+            	Current.selectCurrentFile(this.getSelectedComponent().getName());
+            	FileChooserAndOpener.loadFile();
+            	Current.GenerateAST();
+            }
             if (rect.contains(e.getX(), e.getY())) {
                 this.removeTabAt(tabNumber);
             }

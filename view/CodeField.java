@@ -26,7 +26,9 @@ public class CodeField {
         JTextArea sourceText = new JTextArea();
         sourceText.setEditable(false);
         sourceText.setText(fileText);
-        return new JScrollPane(sourceText);
+        JScrollPane sourcePane = new JScrollPane(sourceText);
+        sourcePane.setName(fileName);
+        return sourcePane;
     }
 
     public ClosableTabbedPane getContentPane() {
