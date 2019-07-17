@@ -38,6 +38,7 @@ import view.TableField;
 public class Current {
     public static File file;
     public static ArrayList<File> fileList;
+    public static String cfgImagePath = null;
     public static CompilationUnit astRoot = null;
     public static NameTableManager tableManager = null;
 
@@ -203,15 +204,12 @@ public class Current {
             		System.out.print("astRoot null");
             		return;
             	}
-                ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(Current.file.getName(),
-                        Current.astRoot);
-                GraphField.cfgText.setText(viewer.createCFGToText());
-
                 // Add generate Image from dot file logic
 
                 String sourceCodePath = Current.file.getPath();
                 String dotFileResult = Config.TEMP_FILE_LOCATION + "tempDotFile.dot";
                 String pngFileResult = Config.TEMP_FILE_LOCATION + "tempGraph" + (new Random()).nextInt() + ".png";
+                Current.cfgImagePath = pngFileResult;
                 System.out.println(dotFileResult);
                 PrintWriter output = null;
                 try {
@@ -231,12 +229,12 @@ public class Current {
                         .toFile(new File(pngFileResult));
 
                 GraphField.cfgGraph.setIcon(new ImageIcon(pngFileResult));
+                GraphField.contentPane.setSelectedIndex(1);
 
                 // End of Image logic
 
             } catch (Exception exp) {
                 exp.printStackTrace();
-                GraphField.cfgText.setText(exp.toString());
                 JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "生成控制流图发生错误！", "警示",
                         JOptionPane.WARNING_MESSAGE);
             }
