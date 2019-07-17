@@ -26,34 +26,33 @@ import nameTable.visitor.NameDefinitionVisitor;
 import java.util.List;
 
 public class TestASTViewer {
-	// public static void main(String[] args) {
-	// // ��ʼ�������򣬵�����λ�úͿ��ȣ�ʹ����ʾ�����İ�ť��Ư��
-	// int widthSpace = 15;
-	// int heightSpace = 100;
-
-	// MainFrame.init("Java���������ͼչʾ����", MainFrame.screenWidth - widthSpace,
-	// MainFrame.screenHeight - heightSpace,
-	// 0, 0, "system");
-
-	// DemoMenuCreator demo = new DemoMenuCreator(MainFrame.getContentPane(),
-	// MainFrame.getMainFrame());
-	// // ������ʾ�õĲ˵�����������˵����������������������������������
-	// demo.createMenu();
-	// // ���������򣬲�������ʾ
-	// MainFrame.start();
-	// }
+//	public static void main(String[] args) {
+//		// 初始化主画框，调整其位置和宽度，使得显示出来的按钮更漂亮
+//		int widthSpace = 15;
+//		int heightSpace = 100;
+//
+//		MainFrame.init("Java程序控制流图展示工具", MainFrame.screenWidth-widthSpace,
+//				MainFrame.screenHeight-heightSpace, 0, 0, "system");
+//
+//		DemoMenuCreator demo =
+//				new DemoMenuCreator(MainFrame.getContentPane(), MainFrame.getMainFrame());
+//		// 创建演示用的菜单和组件，并菜单放置在主画框，组件放置主画框的内容面板
+//		demo.createMenu();
+//		// 启动主画框，并进行演示
+//		MainFrame.start();
+//	}
 }
 
 class DemoMenuCreator {
-	private Container place; // ������ʾ���������
-	private JFrame topLevelFrame; // ���ò˵��Ķ�������
+	private Container place;			// 放置演示组件的容器
+	private JFrame topLevelFrame;		// 放置菜单的顶层容器
 	private JTabbedPane tabbedPane;
 	private int astTabIndex;
-	private JTextArea sourceText; // ���ڷ���Դ�����ļ�
-	private JTextArea astText; // ���ڷ��ó����﷨��
-	private JTextArea cfgText; // ���ڷ��ó��������ͼ
+	private JTextArea sourceText;		// 用于放置源代码文件
+	private JTextArea astText;			// 用于放置抽象语法树
+	private JTextArea cfgText;			// 用于放置程序控制流图
 	private int cfgTabIndex;
-	private JTextArea nameText; // For name table
+	private JTextArea nameText; 		// For name table
 	private int nameTabIndex;
 
 	private final String OPEN_COMMAND = "open";
@@ -68,16 +67,16 @@ class DemoMenuCreator {
 	private CompilationUnit astRoot = null;
 	private NameTableManager tableManager = null;
 
-	// public DemoMenuCreator(Container place, JFrame topLevelFrame) {
-	// this.place = place;
-	// this.topLevelFrame = topLevelFrame;
-	// fileOpener = new FileChooserAndOpener(topLevelFrame);
-	// }
+//	public DemoMenuCreator(Container place, JFrame topLevelFrame) {
+//		this.place = place;
+//		this.topLevelFrame = topLevelFrame;
+//		fileOpener = new FileChooserAndOpener(topLevelFrame);
+//	}
 
-	// ����������ʾ�����
+	// 创建用于演示的组件
 	public void createMenu() {
 		JSplitPane hSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
-		hSplitPane.setDividerLocation(MainFrame.screenWidth / 2);
+		hSplitPane.setDividerLocation(MainFrame.screenWidth/2);
 		place.add(hSplitPane);
 
 		sourceText = new JTextArea();
@@ -91,106 +90,110 @@ class DemoMenuCreator {
 		astText = new JTextArea();
 		astText.setEditable(false);
 		scrollPane = new JScrollPane(astText);
-		tabbedPane.addTab("�����﷨��", scrollPane);
+		tabbedPane.addTab("抽象语法树", scrollPane);
 		astTabIndex = 0;
 
 		cfgText = new JTextArea();
 		cfgText.setEditable(false);
 		scrollPane = new JScrollPane(cfgText);
-		tabbedPane.addTab("������ͼ", scrollPane);
+		tabbedPane.addTab("控制流图", scrollPane);
 		cfgTabIndex = 1;
 
 		nameText = new JTextArea();
 		nameText.setEditable(false);
 		scrollPane = new JScrollPane(nameText);
-		tabbedPane.addTab("���ֱ�", scrollPane);
+		tabbedPane.addTab("名字表", scrollPane);
 		nameTabIndex = 2;
 
 		hSplitPane.resetToPreferredSizes();
 
-		// �����˵��ļ�����
+		// 创建菜单的监听器
 		MenuListener menuListener = new MenuListener();
-		// �����˵���
+		// 创建菜单条
 		JMenuBar menuBar = new JMenuBar();
-		topLevelFrame.setJMenuBar(menuBar); // �����ڶ�������
+		topLevelFrame.setJMenuBar(menuBar);		// 放置在顶层容器
 
-		// ������һ�����˵���
-		JMenu menu = new JMenu("�ļ�(F)");
-		menu.setMnemonic(KeyEvent.VK_F); // �����ַ���FΪ��ݼ�
-		menuBar.add(menu); // ���뵽�˵���
-		// ���õ�һ�����˵���ĵ�һ���Ӳ˵���
-		JMenuItem menuItem = new JMenuItem("��(O)", null);
+		// 创建第一个主菜单项
+		JMenu menu = new JMenu("文件(F)");
+		menu.setMnemonic(KeyEvent.VK_F);		// 设置字符键F为快捷键
+		menuBar.add(menu);						// 加入到菜单条
+		// 设置第一个主菜单项的第一个子菜单项
+		JMenuItem menuItem = new JMenuItem("打开(O)", null);
 		menuItem.setMnemonic(KeyEvent.VK_O);
-		// ���ô˲˵���ļ��ټ�ΪCtrl+O
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
+		// 设置此菜单项的加速键为Ctrl+O
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,
+				ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(OPEN_COMMAND); // ��������Ϊ�˳�����
-		menu.add(menuItem); // ���뵽��һ�����˵���
+		menuItem.setActionCommand(OPEN_COMMAND);		// 设置命令为退出程序
+		menu.add(menuItem);						// 加入到第一个主菜单项
 
-		// ���õ�һ�����˵���ĵ�һ���Ӳ˵���
-		menuItem = new JMenuItem("�﷨��(A)", null);
+		// 设置第一个主菜单项的第一个子菜单项
+		menuItem = new JMenuItem("语法树(A)", null);
 		menuItem.setMnemonic(KeyEvent.VK_A);
-		// ���ô˲˵���ļ��ټ�ΪCtrl+A
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
+		// 设置此菜单项的加速键为Ctrl+A
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,
+				ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(ASTPARSER_COMMAND); // ��������
-		menu.add(menuItem); // ���뵽��һ�����˵���
+		menuItem.setActionCommand(ASTPARSER_COMMAND);		// 设置命令
+		menu.add(menuItem);						// 加入到第一个主菜单项
 
-		// ���õ�һ�����˵���ĵڶ����Ӳ˵���
-		menuItem = new JMenuItem("�����﷨��(C)", null);
+		// 设置第一个主菜单项的第二个子菜单项
+		menuItem = new JMenuItem("紧凑语法树(C)", null);
 		menuItem.setMnemonic(KeyEvent.VK_C);
-		// ���ô˲˵���ļ��ټ�ΪCtrl+C
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+		// 设置此菜单项的加速键为Ctrl+C
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,
+				ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CONCISEAST_COMMAND); // ��������
-		menu.add(menuItem); // ���뵽��һ�����˵���
+		menuItem.setActionCommand(CONCISEAST_COMMAND);		// 设置命令
+		menu.add(menuItem);						// 加入到第一个主菜单项
 
-		// ���õ�һ�����˵���ĵ������Ӳ˵���
-		menuItem = new JMenuItem("������ͼ(G)", null);
+		// 设置第一个主菜单项的第三个子菜单项
+		menuItem = new JMenuItem("控制流图(G)", null);
 		menuItem.setMnemonic(KeyEvent.VK_G);
-		// ���ô˲˵���ļ��ټ�ΪCtrl+G
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, ActionEvent.CTRL_MASK));
+		// 设置此菜单项的加速键为Ctrl+G
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G,
+				ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CREATE_CFG_COMMAND); // ��������Ϊ�˳�����
-		menu.add(menuItem); // ���뵽�ڶ������˵���
+		menuItem.setActionCommand(CREATE_CFG_COMMAND);		// 设置命令为退出程序
+		menu.add(menuItem);						// 加入到第二个主菜单项
 
-		// ���õ�һ�����˵���ĵ������Ӳ˵���
-		menuItem = new JMenuItem("���ֱ�(N)", null);
+		// 设置第一个主菜单项的第三个子菜单项
+		menuItem = new JMenuItem("名字表(N)", null);
 		menuItem.setMnemonic(KeyEvent.VK_N);
-		// ���ô˲˵���ļ��ټ�ΪCtrl+N
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
+		// 设置此菜单项的加速键为Ctrl+N
+		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
+				ActionEvent.CTRL_MASK));
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(CREATE_NAME_TABLE_COMMAND); // ��������
-		menu.add(menuItem); // ���뵽��һ�����˵���
+		menuItem.setActionCommand(CREATE_NAME_TABLE_COMMAND);		// 设置命令
+		menu.add(menuItem);						// 加入到第一个主菜单项
 
 		menu.addSeparator();
-		// Ϊ��һ�����˵��������һ���˵���
-		menuItem = new JMenuItem("�˳�");
+		// 为第一个主菜单添加最后一个菜单项
+		menuItem = new JMenuItem("退出");
 		menuItem.addActionListener(menuListener);
-		menuItem.setActionCommand(EXIT_COMMAND); // ��������Ϊ�˳�����
+		menuItem.setActionCommand(EXIT_COMMAND);		// 设置命令为退出程序
 		menu.add(menuItem);
-		// �ڶ������˵���.
-		menu = new JMenu("����(H)");
+		// 第二个主菜单项.
+		menu = new JMenu("帮助(H)");
 		menu.setMnemonic(KeyEvent.VK_H);
 		menuBar.add(menu);
-		menuItem = new JMenuItem("����...");
+		menuItem = new JMenuItem("关于...");
 		menuItem.setAccelerator(KeyStroke.getKeyStroke("F1"));
 		menuItem.addActionListener(menuListener);
 		menuItem.setActionCommand(ABOUT_COMMAND);
 		menu.add(menuItem);
 	}
 
-	// �����˵���İ��¶���
+	// 监听菜单项的按下动作
 	private class MenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			JMenuItem source = (JMenuItem) (e.getSource());
+			JMenuItem source = (JMenuItem)(e.getSource());
 			String command = source.getActionCommand();
 			if (command.equals(ABOUT_COMMAND)) {
-				// ����һ������ʾһЩ��Ϣ
-				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Java��������﷨��չʾ", "����",
+				// 弹出一窗口显示一些信息
+				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Java程序抽象语法树展示", "关于",
 						JOptionPane.WARNING_MESSAGE);
-			} else if (command.equals(EXIT_COMMAND))
-				System.exit(1); // �˳���������
+			} else if (command.equals(EXIT_COMMAND)) System.exit(1);  // 退出整个程序
 			else if (command.equals(OPEN_COMMAND)) {
 				if (fileOpener.chooseFileName() == true && fileOpener.loadFile() == true) {
 					sourceText.setText(fileOpener.getFileContentsWithLineNumber());
@@ -199,7 +202,7 @@ class DemoMenuCreator {
 					cfgText.setText("");
 					nameText.setText("");
 
-					astRoot = null; // For regenerate the ast for the new file!
+					astRoot = null; 		// For regenerate the ast for the new file!
 					tableManager = null;
 				}
 			} else if (command.equals(ASTPARSER_COMMAND)) {
@@ -212,7 +215,7 @@ class DemoMenuCreator {
 					cfgText.setText("");
 					nameText.setText("");
 
-					astRoot = null; // For regenerate the ast for the new file!
+					astRoot = null; 		// For regenerate the ast for the new file!
 					tableManager = null;
 				}
 				sourceText.setText(fileOpener.getFileContentsWithLineNumber());
@@ -221,13 +224,11 @@ class DemoMenuCreator {
 				viewer.parseSourceCode();
 				String errorMessage = viewer.getParseErrorMessage();
 				if (errorMessage != null) {
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "������ִ���\n" + errorMessage, "��ʾ",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+							"编译出现错误：\n" + errorMessage, "警示", JOptionPane.WARNING_MESSAGE);
 				}
-				if (viewer.hasParserError())
-					astRoot = null;
-				else
-					astRoot = viewer.getASTRoot();
+				if (viewer.hasParserError()) astRoot = null;
+				else astRoot = viewer.getASTRoot();
 				astText.setText(viewer.getASTViewerText());
 				tabbedPane.setSelectedIndex(astTabIndex);
 			} else if (command.equals(CONCISEAST_COMMAND)) {
@@ -240,7 +241,7 @@ class DemoMenuCreator {
 					cfgText.setText("");
 					nameText.setText("");
 
-					astRoot = null; // For regenerate the ast for the new file!
+					astRoot = null; 		// For regenerate the ast for the new file!
 					tableManager = null;
 				}
 				sourceText.setText(fileOpener.getFileContentsWithLineNumber());
@@ -249,16 +250,14 @@ class DemoMenuCreator {
 				viewer.parseSourceCode();
 				String errorMessage = viewer.getParseErrorMessage();
 				if (errorMessage != null) {
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "������ִ���\n" + errorMessage, "��ʾ",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+							"编译出现错误：\n" + errorMessage, "警示", JOptionPane.WARNING_MESSAGE);
 				}
-				if (viewer.hasParserError())
-					astRoot = null;
-				else
-					astRoot = viewer.getASTRoot();
+				if (viewer.hasParserError()) astRoot = null;
+				else astRoot = viewer.getASTRoot();
 				astText.setText(viewer.getASTViewerText());
 				tabbedPane.setSelectedIndex(astTabIndex);
-			} else if (command.equals(CREATE_CFG_COMMAND)) {
+			} else if (command.equals(CREATE_CFG_COMMAND)){
 				String fileContents = fileOpener.getFileContents();
 				if (fileContents == null) {
 					fileOpener.chooseFileName();
@@ -266,7 +265,7 @@ class DemoMenuCreator {
 					fileContents = fileOpener.getFileContents();
 					topLevelFrame.setTitle(fileOpener.getFileName());
 
-					astRoot = null; // For regenerate the ast for the new file!
+					astRoot = null; 		// For regenerate the ast for the new file!
 					tableManager = null;
 					nameText.setText("");
 				}
@@ -277,8 +276,8 @@ class DemoMenuCreator {
 					viewer.parseSourceCode();
 					String errorMessage = viewer.getParseErrorMessage();
 					if (errorMessage != null) {
-						JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "������ִ���\n" + errorMessage, "��ʾ",
-								JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+								"编译出现错误：\n" + errorMessage, "警示", JOptionPane.WARNING_MESSAGE);
 					}
 					astRoot = viewer.getASTRoot();
 					astText.setText(viewer.getASTViewerText());
@@ -291,10 +290,10 @@ class DemoMenuCreator {
 				} catch (Exception exp) {
 					exp.printStackTrace();
 					cfgText.setText(exp.toString());
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "���ɿ�����ͼ��������", "��ʾ",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+							"生成控制流图发生错误！", "警示", JOptionPane.WARNING_MESSAGE);
 				}
-			} else if (command.equals(CREATE_NAME_TABLE_COMMAND)) {
+			} else if (command.equals(CREATE_NAME_TABLE_COMMAND)){
 				String fileContents = fileOpener.getFileContents();
 				if (fileContents == null) {
 					fileOpener.chooseFileName();
@@ -302,7 +301,7 @@ class DemoMenuCreator {
 					fileContents = fileOpener.getFileContents();
 					topLevelFrame.setTitle(fileOpener.getFileName());
 
-					astRoot = null; // For regenerate the ast for the new file!
+					astRoot = null; 		// For regenerate the ast for the new file!
 					tableManager = null;
 					cfgText.setText("");
 				}
@@ -329,25 +328,21 @@ class DemoMenuCreator {
 							typeInfo = typeInfo + ", super type: ";
 							boolean firstType = true;
 							for (TypeReference superType : superList) {
-								if (firstType)
-									typeInfo = typeInfo + " " + superType.toDeclarationString();
-								else
-									typeInfo = typeInfo + ", " + superType.toDeclarationString();
+								if (firstType) typeInfo = typeInfo + " " + superType.toDeclarationString();
+								else typeInfo = typeInfo + ", " + superType.toDeclarationString();
 							}
 						}
 						writer.println("\t" + typeInfo);
 					}
 					writer.println("FieldDefinition List: ");
-					NameDefinitionVisitor visitor = new NameDefinitionVisitor(
-							new NameDefinitionKindFilter(NameDefinitionKind.NDK_FIELD));
+					NameDefinitionVisitor visitor = new NameDefinitionVisitor(new NameDefinitionKindFilter(NameDefinitionKind.NDK_FIELD));
 					tableManager.accept(visitor);
 					List<NameDefinition> definitionList = visitor.getResult();
 					for (NameDefinition definition : definitionList) {
-						FieldDefinition field = (FieldDefinition) definition;
+						FieldDefinition field = (FieldDefinition)definition;
 						String fieldInfo = field.getSimpleName();
 						TypeReference typeReference = field.getDeclareTypeReference();
-						if (typeReference != null)
-							fieldInfo = fieldInfo + " : " + typeReference.toDeclarationString();
+						if (typeReference != null) fieldInfo = fieldInfo + " : " + typeReference.toDeclarationString();
 						writer.println("\t" + fieldInfo);
 					}
 					writer.println("MethodDefinition List: ");
@@ -355,7 +350,7 @@ class DemoMenuCreator {
 					tableManager.accept(visitor);
 					definitionList = visitor.getResult();
 					for (NameDefinition definition : definitionList) {
-						MethodDefinition method = (MethodDefinition) definition;
+						MethodDefinition method = (MethodDefinition)definition;
 						String methodInfo = method.getSimpleName();
 						List<VariableDefinition> paraList = method.getParameterList();
 						if (paraList != null) {
@@ -366,15 +361,12 @@ class DemoMenuCreator {
 								if (firstPara) {
 									methodInfo = methodInfo + paraInfo;
 									firstPara = false;
-								} else
-									methodInfo = methodInfo + ", " + paraInfo;
+								} else methodInfo = methodInfo + ", " + paraInfo;
 							}
 							methodInfo = methodInfo + ")";
-						} else
-							methodInfo = methodInfo + "()";
+						} else methodInfo = methodInfo + "()";
 						TypeReference returnTypeReference = method.getDeclareTypeReference();
-						if (returnTypeReference != null)
-							methodInfo = methodInfo + " : " + returnTypeReference.toDeclarationString();
+						if (returnTypeReference != null) methodInfo = methodInfo + " : " + returnTypeReference.toDeclarationString();
 						writer.println("\t" + methodInfo);
 					}
 					nameText.setText(nameTableString.toString());
@@ -384,14 +376,15 @@ class DemoMenuCreator {
 				} catch (Exception exp) {
 					exp.printStackTrace();
 					cfgText.setText(exp.toString());
-					JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "�������ֱ���������", "��ʾ",
-							JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+							"生成名字表发生错误！", "警示", JOptionPane.WARNING_MESSAGE);
 				}
 			} else {
-				// ����һ������ʾһЩ��Ϣ
-				JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "�Բ�������˵����ܻ�û��ʵ�֣�", "��ʾ",
-						JOptionPane.WARNING_MESSAGE);
+				// 弹出一窗口显示一些信息
+				JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+						"对不起，这项菜单功能还没有实现！", "警示", JOptionPane.WARNING_MESSAGE);
 			}
 		}
 	}
 }
+
