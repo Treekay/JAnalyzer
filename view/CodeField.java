@@ -31,9 +31,9 @@ public class CodeField {
 
     public static JScrollPane updateCode(String fileName, String fileText) {
         JTextPane sourceText = new JTextPane();
-        sourceText.setPreferredSize(new Dimension(contentPane.getWidth(), contentPane.getHeight()));
         sourceText.setEditable(false);
         sourceText.setText(fileText);
+        sourceText.setMinimumSize(new Dimension(contentPane.getWidth(), contentPane.getHeight()));
         JPanel panel = new JPanel();
         panel.add(sourceText);
         JScrollPane sourcePane = new JScrollPane(panel);        

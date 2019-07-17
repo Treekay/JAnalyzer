@@ -176,7 +176,7 @@ public class Current {
 	            NameDefinitionPrinter definitionPrinter = new NameDefinitionPrinter(writer);
 	            definitionPrinter.setPrintVariable(true);
 	            tableManager.accept(definitionPrinter);
-	            NameTableField.updateNameField(tableManager);
+	            NameTableField.updateNameTable(tableManager);
 	        }  catch (Exception exp) {
 	            exp.printStackTrace();
 	            JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
