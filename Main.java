@@ -17,12 +17,14 @@ public class Main {
 
 		// 创建组件
 		NavigatorField navigator = new NavigatorField();
+		SearchField searchfield = new SearchField();
 		CodeField codeField = new CodeField();
 		GraphField graphField = new GraphField();
-		TableField tableField = new TableField();
+		NameTableField tableField = new NameTableField();
 
 		// 组件布局
 		JSplitPane navPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
+		JSplitPane searchPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT,true);
 		JSplitPane displayPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
 		JSplitPane generatePane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, true);
 		MainFrame.getContentPane().add(navPane);
@@ -30,10 +32,14 @@ public class Main {
 		navPane.setDividerLocation(MainFrame.screenWidth / 5);
 		navPane.setLeftComponent(navigator.getContentPane());
 		navPane.setRightComponent(displayPane);
-
+		
 		displayPane.setDividerLocation(MainFrame.screenWidth * 2 / 5);
-		displayPane.setLeftComponent(codeField.contentPane);
+		displayPane.setLeftComponent(searchPane);
 		displayPane.setRightComponent(generatePane);
+		
+		searchPane.setDividerLocation(MainFrame.screenHeight / 20);
+		searchPane.setTopComponent(searchfield.contentPane);
+		searchPane.setBottomComponent(codeField.contentPane);
 		
 		generatePane.setDividerLocation(MainFrame.screenHeight / 2);
 		generatePane.setTopComponent(graphField.contentPane);
