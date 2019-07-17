@@ -17,9 +17,11 @@ public class SearchField {
 	public static JPanel contentPane;
 	public static JTextField searchText;
 	public static JButton findButton;
+	public static JButton cancelButton;
 	
 	public SearchField() {
 		SearchButtonListener searchButtonListener = new SearchButtonListener();
+		CancelButtonListener cancelButtonListener = new CancelButtonListener();
 		
 		contentPane = new JPanel();
 		Border titleBorder=BorderFactory.createTitledBorder("Find");            
@@ -31,10 +33,13 @@ public class SearchField {
         
         findButton = new JButton("Find All");
         findButton.addActionListener(searchButtonListener);
+        cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(cancelButtonListener);
         contentPane.add(findButton);
+        contentPane.add(cancelButton);
 	}
 	
-	class SearchButtonListener implements ActionListener{
+	class SearchButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(searchText.getText().equals("")) {
 				JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
@@ -52,5 +57,14 @@ public class SearchField {
 				}
 			}
 		}
+	}
+	
+	class CancelButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			CodeField.cleanMatch();
+			searchText.setText("");
+		}
+		
 	}
 }
