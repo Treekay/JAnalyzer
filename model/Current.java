@@ -135,7 +135,7 @@ public class Current {
 
                 TestCFGCreator.testMatchASTNode(sourceCodePath, output);
                 if (output != null) output.close();
-                MutableGraph g = Parser.read(new FileInputStream(new File("C:\\Users\\Steve\\AppData\\Local\\Temp\\tempDotFile.dot")));
+                MutableGraph g = Parser.read(new FileInputStream(new File(dotFileResult)));
                 Graphviz.fromGraph(g)
                         .width(700)
                         .render(Format.PNG)
