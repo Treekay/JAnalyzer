@@ -67,7 +67,7 @@ public class Current {
         }
     }
 
-    private static void GenerateNameTable() {
+    public static void GenerateNameTable() {
         String fileContents = FileChooserAndOpener.getFileContents();
         if (fileContents == null) {
             FileChooserAndOpener.chooseFileName();
