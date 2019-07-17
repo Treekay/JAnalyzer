@@ -34,17 +34,17 @@ public class TableField {
     }
     
     public static void getNameTable() {
-    	SourceCodeFileSet parser = new SourceCodeFileSet(Current.file.getPath());
-		NameTableCreator creator = new NameDefinitionCreator(parser);
-		String[] fileNameArray = {"E:\\ZxcWork\\ToolKit\\data\\javalang.txt", "E:\\ZxcWork\\ToolKit\\data\\javautil.txt", "E:\\ZxcWork\\ToolKit\\data\\javaio.txt", }; 
-
-		NameTableManager manager = creator.createNameTableManager(new PrintWriter(System.out), fileNameArray);
-		
-		PrintWriter writer = new PrintWriter(new File(resultFile));
-		NameDefinitionPrinter definitionPrinter = new NameDefinitionPrinter(writer);
-		definitionPrinter.setPrintVariable(true);
-		manager.accept(definitionPrinter);
-		
-		writer.close();
+//    	SourceCodeFileSet parser = new SourceCodeFileSet(Current.file.getPath());
+//		NameTableCreator creator = new NameDefinitionCreator(parser);
+//		String[] fileNameArray = {"E:\\ZxcWork\\ToolKit\\data\\javalang.txt", "E:\\ZxcWork\\ToolKit\\data\\javautil.txt", "E:\\ZxcWork\\ToolKit\\data\\javaio.txt", }; 
+//
+//		NameTableManager manager = creator.createNameTableManager(new PrintWriter(System.out), fileNameArray);
+//		
+//		PrintWriter writer = new PrintWriter(new File(resultFile));
+//		NameDefinitionPrinter definitionPrinter = new NameDefinitionPrinter(writer);
+//		definitionPrinter.setPrintVariable(true);
+//		manager.accept(definitionPrinter);
+//		
+//		writer.close();
     }
 }
