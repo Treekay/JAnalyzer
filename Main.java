@@ -19,7 +19,7 @@ public class Main {
 		NavigatorField navigator = new NavigatorField();
 		CodeField codeField = new CodeField();
 		GraphField graphField = new GraphField();
-		TableField tableField = new TableField();
+		NameTableField tableField = new NameTableField();
 
 		// 组件布局
 		JSplitPane navPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
