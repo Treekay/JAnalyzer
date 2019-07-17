@@ -80,11 +80,9 @@ public class Current {
                 tableManager = null;
             }
 
-	        if (tableManager == null) {
-	            String fileName = FileChooserAndOpener.getFileFullName();
-	            System.out.print(fileName);
-	            tableManager = NameTableManager.createNameTableManager(fileName);
-	        }
+            String fileName = FileChooserAndOpener.getFileFullName();
+            tableManager = NameTableManager.createNameTableManager(fileName);
+            
 	        try {
 	            StringWriter nameTableString = new StringWriter();
 	            PrintWriter writer = new PrintWriter(nameTableString);
@@ -146,10 +144,8 @@ public class Current {
 	            TableField.nameTableText.setText(nameTableString.toString());
 	            writer.close();
 	            nameTableString.close();
-	//            tabbedPane.setSelectedIndex(nameTabIndex);
 	        } catch (Exception exp) {
 	            exp.printStackTrace();
-	//            cfgText.setText(exp.toString());
 	            JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
 	                    "生成名字表发生错误！", "警示", JOptionPane.WARNING_MESSAGE);
 	        }
