@@ -9,6 +9,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 
 import org.apache.xmlgraphics.java2d.Graphics2DImagePainter;
 
@@ -27,6 +29,13 @@ public class GraphField {
     	contentPane = new JTabbedPane();
     	Border titleBorder=BorderFactory.createTitledBorder("GraphField");            
         contentPane.setBorder(titleBorder); 
+        contentPane.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	Border titleBorder=BorderFactory.createTitledBorder("GraphField - " + GraphField.contentPane.getSelectedComponent().getName());            
+                GraphField.contentPane.setBorder(titleBorder); 
+            }
+        });
     	
         astText = new JTextArea();
         astText.setEditable(false);

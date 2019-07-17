@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import gui.astViewer.ControlFlowGraphViewer;
 import gui.astViewer.SimpleASTViewer;
@@ -149,7 +150,11 @@ public class Current {
 	            JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
 	                    "生成名字表发生错误！", "警示", JOptionPane.WARNING_MESSAGE);
 	        }
+	        
+	        Border titleBorder=BorderFactory.createTitledBorder("GraphField - " + Current.file.getName());            
+	        TableField.contentPane.setBorder(titleBorder); 
     	}
+    	
     }
 
     public static void GenerateAST() {
@@ -173,6 +178,10 @@ public class Current {
             else
                 Current.astRoot = viewer.getASTRoot();
             GraphField.astText.setText(viewer.getASTViewerText());
+            GraphField.contentPane.setSelectedIndex(0);
+            GraphField.contentPane.getComponentAt(0).setName(Current.file.getName());
+            Border titleBorder=BorderFactory.createTitledBorder("GraphField - " + GraphField.contentPane.getSelectedComponent().getName());            
+            GraphField.contentPane.setBorder(titleBorder); 
         }
     }
 
@@ -230,6 +239,9 @@ public class Current {
 
                 GraphField.cfgGraph.setIcon(new ImageIcon(pngFileResult));
                 GraphField.contentPane.setSelectedIndex(1);
+                GraphField.contentPane.getComponentAt(1).setName(Current.file.getName());
+                Border titleBorder=BorderFactory.createTitledBorder("GraphField - " + GraphField.contentPane.getSelectedComponent().getName());            
+                GraphField.contentPane.setBorder(titleBorder); 
 
                 // End of Image logic
 
