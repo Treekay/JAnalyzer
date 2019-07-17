@@ -3,7 +3,6 @@ package model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -28,8 +27,6 @@ import nameTable.nameDefinition.VariableDefinition;
 import nameTable.nameReference.TypeReference;
 import nameTable.visitor.NameDefinitionPrinter;
 import nameTable.visitor.NameDefinitionVisitor;
-import sourceCodeAST.SourceCodeFile;
-import sourceCodeAST.SourceCodeFileSet;
 import view.CodeField;
 import view.GraphField;
 import view.NavigatorField;
@@ -186,19 +183,17 @@ public class Current {
                 fileContents = FileChooserAndOpener.getFileContents();
             }
 
-//            if (Current.astRoot == null) {
-//                SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
-//                viewer.parseSourceCode();
-//                String errorMessage = viewer.getParseErrorMessage();
-//                if (errorMessage != null) {
-//                    JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
-//                            JOptionPane.WARNING_MESSAGE);
-//                }
-//                Current.astRoot = viewer.getASTRoot();
-//                GraphField.astText.setText(viewer.getASTViewerText());
-//
-//
-//            }
+            if (Current.astRoot == null) {
+                SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
+                viewer.parseSourceCode();
+                String errorMessage = viewer.getParseErrorMessage();
+                if (errorMessage != null) {
+                    JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                Current.astRoot = viewer.getASTRoot();
+                GraphField.astText.setText(viewer.getASTViewerText());
+            }
 
 
             try {

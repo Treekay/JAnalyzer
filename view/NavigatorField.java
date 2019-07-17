@@ -43,7 +43,7 @@ public class NavigatorField {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // 如果在这棵树上点击了2次,即双击
-                if (e.getSource() == tree && e.getClickCount() == 1) {
+                if (e.getSource() == tree && e.getClickCount() == 2) {
                     // 按照鼠标点击的坐标点获取路径
                     TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
                     if (selPath != null) {
