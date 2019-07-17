@@ -49,6 +49,7 @@ public class NavigatorField {
                     if (selPath != null) {
                         DefaultMutableTreeNode node = (DefaultMutableTreeNode) selPath.getLastPathComponent();
                         OpenInCodeField(node.toString());
+                        GraphField.contentPane.setSelectedIndex(0);
                     }
                 }
             }

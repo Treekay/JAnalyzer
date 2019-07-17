@@ -11,6 +11,7 @@ import javax.swing.Icon;
 import java.awt.event.MouseEvent;
 import java.awt.Graphics;
 import model.*;
+import view.GraphField;
 
 /**
  * 自定义带关闭按钮的TabbedPane
@@ -39,6 +40,7 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
             	FileChooserAndOpener.loadFile();
             	Current.GenerateAST();
             	Current.GenerateNameTable();
+            	GraphField.contentPane.setSelectedIndex(0);
             }
             if (rect.contains(e.getX(), e.getY())) {
                 this.removeTabAt(tabNumber);

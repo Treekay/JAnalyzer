@@ -30,11 +30,14 @@ public class CodeField {
     }
 
     public static JScrollPane updateCode(String fileName, String fileText) {
-        JTextArea sourceText = new JTextArea();
+        JTextPane sourceText = new JTextPane();
         sourceText.setEditable(false);
         sourceText.setText(fileText);
-        JScrollPane sourcePane = new JScrollPane(sourceText);
+        JPanel panel = new JPanel();
+        panel.add(sourceText);
+        JScrollPane sourcePane = new JScrollPane(panel);        
         sourcePane.setName(fileName);
+        
         return sourcePane;
     }
 }
