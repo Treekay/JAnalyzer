@@ -1,6 +1,7 @@
 package gui.toolkit;
 
 import model.Config;
+import model.Current;
 
 import java.awt.*;
 import java.io.File;
@@ -103,5 +104,9 @@ public class MainFrame {
     // 获取画框，使用对话框和菜单的程序要直接基于画框本身
     public static JFrame getMainFrame() {
         return frame;
+    }
+    
+    public static void setCurrentTitle(String title) {
+    	MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
     }
 }

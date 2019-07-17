@@ -1,12 +1,9 @@
 package view;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import gui.toolkit.*;
 import model.Current;
-import view.*;
-import gui.astViewer.*;
 
 public class MenuField {
     private JMenuBar menuBar;
@@ -114,7 +111,7 @@ public class MenuField {
                 Current.GenerateCFG();
                 break;
             case CREATE_NAME_TABLE_COMMAND:
-
+            	Current.GenerateNameTable();
                 break;
             case ABOUT_COMMAND:
                 JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "Java程序抽象语法树展示", "关于",

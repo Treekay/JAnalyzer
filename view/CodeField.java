@@ -1,13 +1,10 @@
 package view;
 
 import java.awt.*;
-import java.util.ArrayList;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import gui.toolkit.*;
-import model.Current;
 
 public class CodeField {
     public static ClosableTabbedPane contentPane;
