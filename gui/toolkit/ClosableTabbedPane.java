@@ -38,6 +38,7 @@ public class ClosableTabbedPane extends JTabbedPane implements MouseListener {
             if (isFile) {
             	FileChooserAndOpener.loadFile();
             	Current.GenerateAST();
+            	Current.GenerateNameTable();
             }
             if (rect.contains(e.getX(), e.getY())) {
                 this.removeTabAt(tabNumber);

@@ -62,6 +62,7 @@ public class NavigatorField {
             CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                     FileChooserAndOpener.getFileContentsWithLineNumber());
             Current.GenerateAST();
+            Current.GenerateNameTable();
     	}
     }
 

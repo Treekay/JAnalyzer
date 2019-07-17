@@ -19,18 +19,17 @@ import sourceCodeAST.*;
 import util.Debug;
 
 public class TableField {
-	public static JScrollPane contentPane;
-	static JList<JLabel> nameList;
-    static DefaultTreeModel newModel;
-    static DefaultMutableTreeNode Node;
-    static DefaultMutableTreeNode temp;
+    public static JScrollPane contentPane;
+    public static JTextArea nameTableText; // 用于放置程序控制流图
+
 
     public TableField() {
-    	contentPane = new JScrollPane();
-    	Border titleBorder=BorderFactory.createTitledBorder("NameTable");            
-        contentPane.setBorder(titleBorder); 
-        
-        nameList = new JList<JLabel>();
+        nameTableText = new JTextArea();
+        nameTableText.setEditable(false);
+
+        contentPane = new JScrollPane(nameTableText);
+        Border titleBorder = BorderFactory.createTitledBorder("NameTable");
+        contentPane.setBorder(titleBorder);
     }
     
     public static void getNameTable() {
