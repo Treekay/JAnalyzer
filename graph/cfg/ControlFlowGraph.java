@@ -204,7 +204,7 @@ public class ControlFlowGraph extends AbstractGraph implements CFGNode {
 		final int MAX_LABEL_LEN = 30;
 		
 		String graphId = GraphUtil.getLegalToken(getId());
-		output.println("digraph " + graphId + " {");
+//		output.println("digraph " + graphId + " {");
 		for (GraphNode currentNode : nodes) {
 			CFGNode node = (CFGNode)currentNode;
 			
@@ -271,7 +271,7 @@ public class ControlFlowGraph extends AbstractGraph implements CFGNode {
 		}
 
 //		output.println("};");
-		output.println("}");
+//		output.println("}");
 		output.println();
 		output.flush();
 	}	

@@ -225,7 +225,8 @@ public class Current {
                 if (output != null) output.close();
                 MutableGraph g = Parser.read(new FileInputStream(new File(dotFileResult)));
                 Graphviz.fromGraph(g)
-                        .width(700)
+                        .yInvert(true)
+//                        .width(700)
                         .render(Format.PNG)
                         .toFile(new File(pngFileResult));
 
