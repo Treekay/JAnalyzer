@@ -5,12 +5,15 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import org.apache.xmlgraphics.java2d.Graphics2DImagePainter;
+
 import gui.toolkit.*;
 
 public class GraphField {
 	public static JTabbedPane contentPane;
     public static JScrollPane astPane;
     public static JScrollPane cfgPane;
+    public static JScrollPane graphPane;
     public static JTextArea astText; // 用于放置抽象语法树
     public static JTextArea cfgText; // 用于放置程序控制流图
     public static JLabel cfgGraph;
@@ -31,9 +34,10 @@ public class GraphField {
         cfgText.setEditable(false);
 
         cfgPane = new JScrollPane(cfgText);
+        graphPane = new JScrollPane(cfgGraph);
 
         contentPane.addTab("抽象语法树", astPane);
         contentPane.addTab("控制流图", cfgPane);
-        contentPane.addTab("cfgGraph", cfgGraph);
+        contentPane.addTab("cfgGraph", graphPane);
     }
 }
