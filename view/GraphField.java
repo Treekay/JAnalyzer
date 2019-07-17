@@ -10,7 +10,7 @@ import gui.toolkit.*;
 public class GraphField {
 	public static JTabbedPane contentPane;
     public static JScrollPane astPane;
-    public static JPanel cfgPane;
+    public static JScrollPane cfgPane;
     public static JTextArea astText; // 用于放置抽象语法树
     public static JTextArea cfgText; // 用于放置程序控制流图
     public static JLabel cfgGraph;
@@ -30,8 +30,7 @@ public class GraphField {
         cfgText = new JTextArea();
         cfgText.setEditable(false);
 
-        cfgPane = new JPanel();
-        cfgPane.add(cfgText);
+        cfgPane = new JScrollPane(cfgText);
 
         contentPane.addTab("抽象语法树", astPane);
         contentPane.addTab("控制流图", cfgPane);
