@@ -100,23 +100,27 @@ public class Current {
                 fileContents = FileChooserAndOpener.getFileContents();
             }
 
-            if (Current.astRoot == null) {
-                SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
-                viewer.parseSourceCode();
-                String errorMessage = viewer.getParseErrorMessage();
-                if (errorMessage != null) {
-                    JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
-                            JOptionPane.WARNING_MESSAGE);
-                }
-                Current.astRoot = viewer.getASTRoot();
-                GraphField.astText.setText(viewer.getASTViewerText());
-
-
-            }
+//            if (Current.astRoot == null) {
+//                SimpleASTViewer viewer = new SimpleASTViewer(MainFrame.getMainFrame(), fileContents);
+//                viewer.parseSourceCode();
+//                String errorMessage = viewer.getParseErrorMessage();
+//                if (errorMessage != null) {
+//                    JOptionPane.showMessageDialog(MainFrame.getMainFrame(), "编译出现错误：\n" + errorMessage, "警示",
+//                            JOptionPane.WARNING_MESSAGE);
+//                }
+//                Current.astRoot = viewer.getASTRoot();
+//                GraphField.astText.setText(viewer.getASTViewerText());
+//
+//
+//            }
 
 
             try {
-                ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(FileChooserAndOpener.getFileName(),
+            	if (Current.astRoot == null) {
+            		System.out.print("astRoot null");
+            		return;
+            	}
+                ControlFlowGraphViewer viewer = new ControlFlowGraphViewer(Current.file.getName(),
                         Current.astRoot);
                 GraphField.cfgText.setText(viewer.createCFGToText());
 
