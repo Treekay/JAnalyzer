@@ -2,11 +2,10 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.*;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import gui.astViewer.ControlFlowGraphViewer;
 import gui.astViewer.SimpleASTViewer;
@@ -35,6 +34,7 @@ import view.CodeField;
 import view.GraphField;
 import view.NavigatorField;
 import graph.cfg.creator.TestCFGCreator;
+import view.TableField;
 
 public class Current {
     public static File file;
@@ -61,8 +61,94 @@ public class Current {
                 CodeField.addCodeTab(FileChooserAndOpener.getFileName(),
                         FileChooserAndOpener.getFileContentsWithLineNumber());
                 GenerateAST();
+                GenerateNameTable();
             }
             NavigatorField.addTreeTab(Current.file.getAbsolutePath());
+        }
+    }
+
+    private static void GenerateNameTable() {
+        String fileContents = FileChooserAndOpener.getFileContents();
+        if (fileContents == null) {
+            FileChooserAndOpener.chooseFileName();
+            FileChooserAndOpener.loadFile();
+            fileContents = FileChooserAndOpener.getFileContents();
+
+            astRoot = null; 		// For regenerate the ast for the new file!
+            tableManager = null;
+        }
+
+        if (tableManager == null) {
+            String fileName = FileChooserAndOpener.getFileFullName();
+            tableManager = NameTableManager.createNameTableManager(fileName);
+        }
+        try {
+            StringWriter nameTableString = new StringWriter();
+            PrintWriter writer = new PrintWriter(nameTableString);
+            NameDefinitionPrinter definitionPrinter = new NameDefinitionPrinter(writer);
+            definitionPrinter.setPrintVariable(true);
+            tableManager.accept(definitionPrinter);
+
+            writer.println();
+            writer.println("DetailedTypeDefinition List: ");
+            List<DetailedTypeDefinition> typeList = tableManager.getAllDetailedTypeDefinitions();
+            for (DetailedTypeDefinition type : typeList) {
+                String typeInfo = type.getSimpleName();
+                List<TypeReference> superList = type.getSuperList();
+                if (superList != null) {
+                    typeInfo = typeInfo + ", super type: ";
+                    boolean firstType = true;
+                    for (TypeReference superType : superList) {
+                        if (firstType) typeInfo = typeInfo + " " + superType.toDeclarationString();
+                        else typeInfo = typeInfo + ", " + superType.toDeclarationString();
+                    }
+                }
+                writer.println("\t" + typeInfo);
+            }
+            writer.println("FieldDefinition List: ");
+            NameDefinitionVisitor visitor = new NameDefinitionVisitor(new NameDefinitionKindFilter(NameDefinitionKind.NDK_FIELD));
+            tableManager.accept(visitor);
+            List<NameDefinition> definitionList = visitor.getResult();
+            for (NameDefinition definition : definitionList) {
+                FieldDefinition field = (FieldDefinition)definition;
+                String fieldInfo = field.getSimpleName();
+                TypeReference typeReference = field.getDeclareTypeReference();
+                if (typeReference != null) fieldInfo = fieldInfo + " : " + typeReference.toDeclarationString();
+                writer.println("\t" + fieldInfo);
+            }
+            writer.println("MethodDefinition List: ");
+            visitor = new NameDefinitionVisitor(new NameDefinitionKindFilter(NameDefinitionKind.NDK_METHOD));
+            tableManager.accept(visitor);
+            definitionList = visitor.getResult();
+            for (NameDefinition definition : definitionList) {
+                MethodDefinition method = (MethodDefinition)definition;
+                String methodInfo = method.getSimpleName();
+                List<VariableDefinition> paraList = method.getParameterList();
+                if (paraList != null) {
+                    methodInfo = methodInfo + "(";
+                    boolean firstPara = true;
+                    for (VariableDefinition parameter : paraList) {
+                        String paraInfo = parameter.toDeclarationString();
+                        if (firstPara) {
+                            methodInfo = methodInfo + paraInfo;
+                            firstPara = false;
+                        } else methodInfo = methodInfo + ", " + paraInfo;
+                    }
+                    methodInfo = methodInfo + ")";
+                } else methodInfo = methodInfo + "()";
+                TypeReference returnTypeReference = method.getDeclareTypeReference();
+                if (returnTypeReference != null) methodInfo = methodInfo + " : " + returnTypeReference.toDeclarationString();
+                writer.println("\t" + methodInfo);
+            }
+            TableField.nameTableText.setText(nameTableString.toString());
+            writer.close();
+            nameTableString.close();
+//            tabbedPane.setSelectedIndex(nameTabIndex);
+        } catch (Exception exp) {
+            exp.printStackTrace();
+//            cfgText.setText(exp.toString());
+            JOptionPane.showMessageDialog(MainFrame.getMainFrame(),
+                    "生成名字表发生错误！", "警示", JOptionPane.WARNING_MESSAGE);
         }
     }
 
