@@ -29,8 +29,4 @@ public class GraphField {
         contentPane.addTab("抽象语法树", astPane);
         contentPane.addTab("控制流图", cfgPane);
     }
-
-    public JTabbedPane getContentPane() {
-        return this.contentPane;
-    }
 }

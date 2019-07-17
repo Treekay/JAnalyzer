@@ -32,12 +32,12 @@ public class Main {
 		navPane.setRightComponent(displayPane);
 
 		displayPane.setDividerLocation(MainFrame.screenWidth * 2 / 5);
-		displayPane.setLeftComponent(codeField.getContentPane());
+		displayPane.setLeftComponent(codeField.contentPane);
 		displayPane.setRightComponent(generatePane);
 		
 		generatePane.setDividerLocation(MainFrame.screenHeight / 2);
-		generatePane.setTopComponent(graphField.getContentPane());
-		generatePane.setBottomComponent(tableField.getContentPane());
+		generatePane.setTopComponent(graphField.contentPane);
+		generatePane.setBottomComponent(tableField.contentPane);
 		
 		MainFrame.start();
 		

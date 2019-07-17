@@ -37,8 +37,4 @@ public class CodeField {
         sourcePane.setName(fileName);
         return sourcePane;
     }
-
-    public ClosableTabbedPane getContentPane() {
-        return contentPane;
-    }
 }
