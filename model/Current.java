@@ -3,6 +3,8 @@ package model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -209,6 +211,7 @@ public class Current {
 
                 String sourceCodePath = Current.file.getPath();
                 String dotFileResult = Config.TEMP_FILE_LOCATION + "tempDotFile.dot";
+                String pngFileResult = Config.TEMP_FILE_LOCATION + "tempGraph" + (new Random()).nextInt() + ".png";
                 System.out.println(dotFileResult);
                 PrintWriter output = null;
                 try {
@@ -224,10 +227,9 @@ public class Current {
                 Graphviz.fromGraph(g)
                         .width(700)
                         .render(Format.PNG)
-                        .toFile(new File(Config.TEMP_FILE_LOCATION + "tempGraph.png"));
+                        .toFile(new File(pngFileResult));
 
-                GraphField.cfgGraph.setIcon(new ImageIcon(Config.TEMP_FILE_LOCATION + "tempGraph.png"));
-
+                GraphField.cfgGraph.setIcon(new ImageIcon(pngFileResult));
 
                 // End of Image logic
 

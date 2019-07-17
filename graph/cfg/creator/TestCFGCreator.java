@@ -71,6 +71,7 @@ public class TestCFGCreator {
 			for (ControlFlowGraph cfg : cfgs) {
 				try {
 					cfg.simplyWriteToDotFile(output);
+					break;
 				} catch (Exception exc) {
 					exc.printStackTrace();
 				}
