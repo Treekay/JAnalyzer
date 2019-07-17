@@ -270,7 +270,8 @@ public class ControlFlowGraph extends AbstractGraph implements CFGNode {
 			output.println("    " + startNodeId + "->" + endNodeId + "[label = \"" + label + "\"]");
 		}
 
-		output.println("};");
+//		output.println("};");
+		output.println("}");
 		output.println();
 		output.flush();
 	}	
