@@ -30,34 +30,39 @@ public class MainFrame {
         frame.setLocation(new Point(startX, startY));
         contentPane = (JPanel) frame.getContentPane();
         contentPane.setPreferredSize(new Dimension(width, height));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 
-                if (JOptionPane.showConfirmDialog(frame,
-                        "是否退出?", "确认",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
-                    File tmpDir = new File(Config.TEMP_FILE_LOCATION);
-                    ArrayList<File> fileToDel = new ArrayList<>();
-                    if (null != tmpDir && tmpDir.isDirectory()) {
-                        for (File f : tmpDir.listFiles()) {
-                            if (f.isDirectory()) {
-                                continue;
-                            } else {
-                                if (f.getName().startsWith("tempDotFile")
-                                        || f.getName().startsWith("tempGraph")) {
-                                    fileToDel.add(f);
-                                }
+//                if (JOptionPane.showConfirmDialog(frame,
+//                        "是否退出?", "确认",
+//                        JOptionPane.YES_NO_OPTION,
+//                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+                File tmpDir = new File(Config.TEMP_FILE_LOCATION);
+                ArrayList<File> fileToDel = new ArrayList<>();
+                if (null != tmpDir && tmpDir.isDirectory()) {
+                    for (File f : tmpDir.listFiles()) {
+                        if (f.isDirectory()) {
+                            continue;
+                        } else {
+                            if (f.getName().startsWith("tempDotFile")
+                                    || f.getName().startsWith("tempGraph")) {
+                                fileToDel.add(f);
                             }
                         }
                     }
-                    for (File f : fileToDel) {
-                        f.delete();
-                    }
-                    System.exit(0);
                 }
+                for (File f : fileToDel) {
+                    f.delete();
+                }
+//                    frame.dispose();
+//                    System.exit(0);
+//                } else {
+//                    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//                }
+
             }
         });
     }
@@ -105,8 +110,8 @@ public class MainFrame {
     public static JFrame getMainFrame() {
         return frame;
     }
-    
+
     public static void setCurrentTitle(String title) {
-    	MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
+        MainFrame.getMainFrame().setTitle("JAnalyzer - " + Current.file.getName());
     }
 }
